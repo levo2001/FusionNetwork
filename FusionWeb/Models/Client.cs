@@ -9,16 +9,28 @@ namespace FusionWeb.Models
     public class Client
     {
       public int Id { get; set; }
-
-
+        [Required]
+        [StringLength(30)]
         public string Name { get; set; }
 
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Address is required.")]
         public string Address { get; set; }
-        public string City { get; set; }
 
         
+        public string City { get; set; }
+       
+        public ICollection<Reservasion> Reservasions { get; set; }
+        
+        public ICollection<Dish> Dishes { get; set; }
+
+        [Required]
+        [Phone]
+        [Display(Name ="מס טלפון")]
         public string PhoneNumber { get; set; }        
+    
     }
 }

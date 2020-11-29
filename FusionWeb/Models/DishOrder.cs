@@ -10,8 +10,13 @@ namespace FusionWeb.Models
 
 
         public int Id { get; set; }
+
         public Dish Dish { get; set; }
+
+
         public int Quantity { get; set; }
+
+
         public string Comment { get; set; }
 
 
