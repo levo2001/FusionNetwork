@@ -5,16 +5,15 @@ using System.Threading.Tasks;
 
 namespace FusionWeb.Models
 {
-    public class Plate
+    public class Dish
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public float Price { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
-        public Invitation invitation { get; set; }
+        public Order Order { get; set; }
 
-        public int NumOfPlates { get; set; }
 
     }
 }

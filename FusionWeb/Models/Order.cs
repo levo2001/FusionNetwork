@@ -5,11 +5,15 @@ using System.Threading.Tasks;
 
 namespace FusionWeb.Models
 {
-    public class Invitation
+    public class Order
     {
         public int Id { get; set; }
-        public ICollection<Plate> Plates{ get; set; }
-        public int NumPlates{ get; set; }
+        public Client Client { get; set; }
         public int Total{ get; set; }
+
+        public ICollection<DishOrder> Dishes{ get; set; }
+
+        
+
     }
 }

@@ -9,10 +9,9 @@ namespace FusionWeb.Models
     {
         public int Id { get; set; }
         public Client Client { get; set; }
-        public  string Date { get; set; }
-        public  string Houre { get; set; }
-        public Client NumOfDinners { get; set; }
-        public string Nots { get; set; }
+        public  DateTime DateTime { get; set; }
+        public int NumOfDinners { get; set; }
+        public string Note { get; set; }
 
 
     }
