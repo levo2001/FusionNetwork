@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FusionWeb.Models
 {
-    public class Client
+    public class Client8
     {
-        public int Id { get; set; }
+      public int Id { get; set; }
 
 
         public string Name { get; set; }
