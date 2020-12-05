@@ -9,6 +9,7 @@ namespace FusionWeb.Models
     public class Client
     {
       public int Id { get; set; }
+
         [Required]
         [StringLength(30)]
         public string Name { get; set; }
@@ -22,11 +23,10 @@ namespace FusionWeb.Models
 
         
         public string City { get; set; }
-       
-        public ICollection<Reservasion> Reservasions { get; set; }
-        
-        public ICollection<Dish> Dishes { get; set; }
 
+        //  public ICollection<Reservasion> Reservasions { get; set; }
+       // public ICollection<Dish> Dishes { get; set; }
+       
         [Required]
         [Phone]
         [Display(Name ="מס טלפון")]

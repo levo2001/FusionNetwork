@@ -11,8 +11,8 @@ namespace FusionWeb.Models
         public int Id { get; set; }
 
         [StringLength(30)]
-        [Required(ErrorMessage = "  Name is required.")]
-        public int Name { get; set; }
+        [Required(ErrorMessage = "  UserName is required.")]
+        public int UserName { get; set; }
 
         [Required(ErrorMessage = "Password is required")]
         [StringLength(30, ErrorMessage = "Must be between 5 and 30 characters", MinimumLength = 5)]

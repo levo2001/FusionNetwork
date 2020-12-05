@@ -23,7 +23,7 @@ namespace FusionWeb.Models
         public string Image { get; set; }
 
 
-        public Order Order { get; set; }
+        public ICollection<DishOrder> Order { get; set; }
 
 
     }

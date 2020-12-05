@@ -11,7 +11,6 @@ namespace FusionWeb.Models
 
         public int Id { get; set; }
 
-
         public Client Client { get; set; }
 
         [DataType(DataType.Date)]
@@ -22,9 +21,12 @@ namespace FusionWeb.Models
         [Range(1, 10)]
         public int NumOfDinners { get; set; }
 
-
+        [Display (Name ="הערות")]
         public string Note { get; set; }
 
-
+      //  [Required]
+       // [Range(1,4)]
+       // [Display(Name ="בחירת מטבח מבין ארבעת המטבחים")]
+        //public int Kitchen { get; set; }
     }
 }
