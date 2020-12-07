@@ -24,9 +24,13 @@ namespace FusionWeb.Models
         [Display (Name ="הערות")]
         public string Note { get; set; }
 
-      //  [Required]
-       // [Range(1,4)]
-       // [Display(Name ="בחירת מטבח מבין ארבעת המטבחים")]
+        [Display(Name = "סוג מטבח")]
+        [Required(ErrorMessage = "need to pick a kitchen ")]
+        public Client Kitchen { get; set; }
+
+        //  [Required]
+        // [Range(1,4)]
+        // [Display(Name ="בחירת מטבח מבין ארבעת המטבחים")]
         //public int Kitchen { get; set; }
     }
 }
