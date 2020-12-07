@@ -30,6 +30,7 @@ namespace FusionWeb.Models
         [Required]
         [Phone]
         [Display(Name ="מס טלפון")]
+        [RegularExpression(@"^\d{3}-\d{3}-\d{4}$")]
         public string PhoneNumber { get; set; }        
     
     }
