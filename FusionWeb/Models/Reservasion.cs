@@ -26,7 +26,7 @@ namespace FusionWeb.Models
 
         [Display(Name = "סוג מטבח")]
         [Required(ErrorMessage = "need to pick a kitchen ")]
-        public Kitchen KitchenId { get; set; }
+        //public Kitchen KitchenId { get; set; }
 
         //  [Required]
         // [Range(1,4)]

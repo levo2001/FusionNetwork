@@ -1,0 +1,42 @@
+﻿@model FusionWeb.Models.Kitchen
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Kitchen</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsraelId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsraelId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AsianId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AsianId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AmericanId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AmericanId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ItalianId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ItalianId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -8,7 +8,6 @@ namespace FusionWeb.Models
 {
     public class Kitchen
     {
-
         public int Id { get; set; }
 
         [Display(Name = "מטבח ישראלי")]
