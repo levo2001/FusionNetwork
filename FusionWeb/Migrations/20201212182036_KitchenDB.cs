@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FusionWeb.Migrations
 {
-    public partial class Dishes : Migration
+    public partial class KitchenDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -120,7 +120,7 @@ namespace FusionWeb.Migrations
                     DateTime = table.Column<DateTime>(nullable: false),
                     NumOfDinners = table.Column<int>(nullable: false),
                     Note = table.Column<string>(nullable: true),
-                    KitchenIdId = table.Column<int>(nullable: false)
+                    KitchenId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -132,8 +132,8 @@ namespace FusionWeb.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Reservasion_Kitchen_KitchenIdId",
-                        column: x => x.KitchenIdId,
+                        name: "FK_Reservasion_Kitchen_KitchenId",
+                        column: x => x.KitchenId,
                         principalTable: "Kitchen",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -193,9 +193,9 @@ namespace FusionWeb.Migrations
                 column: "ClientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reservasion_KitchenIdId",
+                name: "IX_Reservasion_KitchenId",
                 table: "Reservasion",
-                column: "KitchenIdId");
+                column: "KitchenId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

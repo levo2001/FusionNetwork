@@ -6,22 +6,10 @@ using System.Threading.Tasks;
 
 namespace FusionWeb.Models
 {
-    public class Kitchen
+    public enum Kitchen
     {
-        public int Id { get; set; }
-
-        [Display(Name = "מטבח ישראלי")]
-        public int IsraelId { get; set; }
-
-        [Display(Name = "מטבח אסיאתי")]
-        public int AsianId { get; set; }
-
-        [Display(Name = "מטבח אמריקאי")]
-        public int AmericanId { get; set;}
-
-        [Display(Name = "מטבח איטלקי")]
-        public int ItalianId { get; set; }
-
-
+        Italian,
+        Israeli,
+        American
     }
 }

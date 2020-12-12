@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FusionWeb.Models
 {
-    public class Reservasion
+    public class Reservation
     {
 
         public int Id { get; set; }
@@ -26,11 +26,15 @@ namespace FusionWeb.Models
 
         [Display(Name = "סוג מטבח")]
         [Required(ErrorMessage = "need to pick a kitchen ")]
-        //public Kitchen KitchenId { get; set; }
+        public Kitchen Kitchen { get; set; }
 
         //  [Required]
         // [Range(1,4)]
         // [Display(Name ="בחירת מטבח מבין ארבעת המטבחים")]
         //public int Kitchen { get; set; }
+
+        //Kitchen = DaysInWeek.Sunday;
+        //if (kitchen == DaysInWeek.Monday)
+
     }
 }

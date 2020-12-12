@@ -10,22 +10,22 @@ using FusionWeb.Models;
 
 namespace FusionWeb.Controllers
 {
-    public class ReservasionsController : Controller
+    public class ReservationsController : Controller
     {
         private readonly FusionWebContext _context;
 
-        public ReservasionsController(FusionWebContext context)
+        public ReservationsController(FusionWebContext context)
         {
             _context = context;
         }
 
-        // GET: Reservasions
+        // GET: Reservations
         public async Task<IActionResult> Index()
         {
             return View(await _context.Reservasion.ToListAsync());
         }
 
-        // GET: Reservasions/Details/5
+        // GET: Reservations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace FusionWeb.Controllers
                 return NotFound();
             }
 
-            var reservasion = await _context.Reservasion
+            var reservation = await _context.Reservasion
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (reservasion == null)
+            if (reservation == null)
             {
                 return NotFound();
             }
 
-            return View(reservasion);
+            return View(reservation);
         }
 
-        // GET: Reservasions/Create
+        // GET: Reservations/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Reservasions/Create
+        // POST: Reservations/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DateTime,NumOfDinners,Note")] Reservasion reservasion)
+        public async Task<IActionResult> Create([Bind("Id,DateTime,NumOfDinners,Note,Kitchen")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(reservasion);
+                _context.Add(reservation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(reservasion);
+            return View(reservation);
         }
 
-        // GET: Reservasions/Edit/5
+        // GET: Reservations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace FusionWeb.Controllers
                 return NotFound();
             }
 
-            var reservasion = await _context.Reservasion.FindAsync(id);
-            if (reservasion == null)
+            var reservation = await _context.Reservasion.FindAsync(id);
+            if (reservation == null)
             {
                 return NotFound();
             }
-            return View(reservasion);
+            return View(reservation);
         }
 
-        // POST: Reservasions/Edit/5
+        // POST: Reservations/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DateTime,NumOfDinners,Note")] Reservasion reservasion)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DateTime,NumOfDinners,Note,Kitchen")] Reservation reservation)
         {
-            if (id != reservasion.Id)
+            if (id != reservation.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace FusionWeb.Controllers
             {
                 try
                 {
-                    _context.Update(reservasion);
+                    _context.Update(reservation);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ReservasionExists(reservasion.Id))
+                    if (!ReservationExists(reservation.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace FusionWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(reservasion);
+            return View(reservation);
         }
 
-        // GET: Reservasions/Delete/5
+        // GET: Reservations/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,28 +124,28 @@ namespace FusionWeb.Controllers
                 return NotFound();
             }
 
-            var reservasion = await _context.Reservasion
+            var reservation = await _context.Reservasion
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (reservasion == null)
+            if (reservation == null)
             {
                 return NotFound();
             }
 
-            return View(reservasion);
+            return View(reservation);
         }
 
-        // POST: Reservasions/Delete/5
+        // POST: Reservations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var reservasion = await _context.Reservasion.FindAsync(id);
-            _context.Reservasion.Remove(reservasion);
+            var reservation = await _context.Reservasion.FindAsync(id);
+            _context.Reservasion.Remove(reservation);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ReservasionExists(int id)
+        private bool ReservationExists(int id)
         {
             return _context.Reservasion.Any(e => e.Id == id);
         }

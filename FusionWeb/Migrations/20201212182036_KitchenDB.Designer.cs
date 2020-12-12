@@ -4,14 +4,16 @@ using FusionWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FusionWeb.Migrations
 {
     [DbContext(typeof(FusionWebContext))]
-    partial class FusionWebContextModelSnapshot : ModelSnapshot
+    [Migration("20201212182036_KitchenDB")]
+    partial class KitchenDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -124,6 +126,30 @@ namespace FusionWeb.Migrations
                     b.ToTable("DishOrder");
                 });
 
+            modelBuilder.Entity("FusionWeb.Models.Kitchen", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AmericanId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AsianId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IsraelId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ItalianId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Kitchen");
+                });
+
             modelBuilder.Entity("FusionWeb.Models.Manager", b =>
                 {
                     b.Property<int>("Id")
@@ -165,7 +191,7 @@ namespace FusionWeb.Migrations
                     b.ToTable("Order");
                 });
 
-            modelBuilder.Entity("FusionWeb.Models.Reservation", b =>
+            modelBuilder.Entity("FusionWeb.Models.Reservasion", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -178,7 +204,7 @@ namespace FusionWeb.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Kitchen")
+                    b.Property<int>("KitchenId")
                         .HasColumnType("int");
 
                     b.Property<string>("Note")
@@ -190,6 +216,8 @@ namespace FusionWeb.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ClientId");
+
+                    b.HasIndex("KitchenId");
 
                     b.ToTable("Reservasion");
                 });
@@ -225,11 +253,17 @@ namespace FusionWeb.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("FusionWeb.Models.Reservation", b =>
+            modelBuilder.Entity("FusionWeb.Models.Reservasion", b =>
                 {
                     b.HasOne("FusionWeb.Models.Client", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
+
+                    b.HasOne("FusionWeb.Models.Kitchen", "Kitchen")
+                        .WithMany()
+                        .HasForeignKey("KitchenId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

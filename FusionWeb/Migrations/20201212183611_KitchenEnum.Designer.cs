@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FusionWeb.Migrations
 {
     [DbContext(typeof(FusionWebContext))]
-    [Migration("20201210142700_Dishes")]
-    partial class Dishes
+    [Migration("20201212183611_KitchenEnum")]
+    partial class KitchenEnum
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -126,30 +126,6 @@ namespace FusionWeb.Migrations
                     b.ToTable("DishOrder");
                 });
 
-            modelBuilder.Entity("FusionWeb.Models.Kitchen", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AmericanId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AsianId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IsraelId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ItalianId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Kitchen");
-                });
-
             modelBuilder.Entity("FusionWeb.Models.Manager", b =>
                 {
                     b.Property<int>("Id")
@@ -204,7 +180,7 @@ namespace FusionWeb.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("KitchenIdId")
+                    b.Property<int>("Kitchen")
                         .HasColumnType("int");
 
                     b.Property<string>("Note")
@@ -216,8 +192,6 @@ namespace FusionWeb.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ClientId");
-
-                    b.HasIndex("KitchenIdId");
 
                     b.ToTable("Reservasion");
                 });
@@ -258,12 +232,6 @@ namespace FusionWeb.Migrations
                     b.HasOne("FusionWeb.Models.Client", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
-
-                    b.HasOne("FusionWeb.Models.Kitchen", "KitchenId")
-                        .WithMany()
-                        .HasForeignKey("KitchenIdId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
