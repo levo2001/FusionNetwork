@@ -1,0 +1,170 @@
+﻿/* iframe{
+  border:0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* left:0; bottom:0; right:0; border:none; margin:0; padding:0; z-index:999999; */
+/* display: block;       iframes are inline by default */
+/* background: #000;
+  border: none;         /* Reset default border */
+/* height: 100vh;       
+  width: 100vw;
+  /* display:  block; */
+
+
+/* body {
+  margin: 0px;
+}  */
+
+html, body, div, iframe {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    border: none;
+    -webkit-overflow-scroll: touch;
+}
+
+html {
+    overflow: auto;
+}
+
+iframe {
+    display: block;
+    width: 100%;
+    height: 200%; /*need to fix the height*/
+    border: none;
+    overflow-y: auto;
+    /* overflow-x: hidden;
+ overflow-x:hidden;
+ overflow-Y:hidden;
+ overflow: hidden; */
+}
+
+    iframe:focus {
+        outline: none;
+    }
+
+    iframe[seamless] {
+        display: block;
+    }
+
+#wrapper div {
+    overflow: auto;
+}
+
+.container {
+    height: 100%;
+    /* -webkit-overflow-scroll: touch; */
+}
+
+.navbar {
+    position: fixed;
+    top: 0px;
+    background-color: black !important;
+    width: 100%;
+}
+
+body::-webkit-scrollbar {
+    width: 0.2em;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+
+iframe.noScrolling {
+    width: 250px; /*or any other size*/
+    height: 100%; /*or any other size*/
+    overflow: hidden;
+}
+
+fieldset {
+    border: 9px solid black !important;
+    margin-bottom: 2rem;
+    height: 261px;
+}
+
+label {
+    font-style: italic;
+    display: block;
+    padding: 1rem;
+    margin-right: 0 !important;
+}
+
+h4 {
+    border: 0.5rem !important;
+    margin-top: -1.5rem !important;
+}
+
+.col-lg-5 {
+    margin-top: 0rem !important;
+    margin-bottom: 0 !important;
+    height: 15rem;
+    width: 10rem;
+    direction: rtl !important;
+}
+
+.col-lg-3 {
+    /* margin-top: 0rem !important;
+  margin-bottom: 0!important;
+  height: 297px;
+  width: 357px;
+  direction: rtl!important; */
+    margin-top: 47rem;
+}
+
+.footer {
+    text-align: center;
+    padding: 3px;
+    background-color: black;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+
+.col-lg-4 {
+    margin-top: 47rem;
+}
+
+.map {
+    height: 19rem;
+    width: 32rem;
+    margin-top: 46rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+
+
+
+.sign-in {
+    margin-top: 4px;
+}
+
+
+.navbarDropdown {
+    background-color: black !important;
+    color: white;
+}
+
+
+.dropdown-item {
+    background-color: black !important;
+    color: white;
+    text-align: center;
+}
+
+
+.dropdown-menu {
+    background-color: black !important;
+}
