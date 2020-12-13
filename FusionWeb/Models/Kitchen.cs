@@ -10,6 +10,7 @@ namespace FusionWeb.Models
     {
         Italian,
         Israeli,
-        American
+        American,
+        Asian
     }
 }

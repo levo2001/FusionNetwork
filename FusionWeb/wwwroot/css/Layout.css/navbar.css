@@ -1,0 +1,163 @@
+﻿/* .conrainerNAV{
+    direction: ltr;
+    background-color: black !important;
+    color: white !important  ;
+    font-size: 25px;
+    text-align: right;
+    background-size: cover;
+    
+    
+}
+
+.navbar-nav{
+    padding-left: 140px !important;
+    text-align: center!important;
+
+
+}
+
+.nav-link:hover{
+    color:rgb(141, 139, 139) !important;
+
+}
+
+
+body{
+    line-height:2.2;
+    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif!important;
+    color: white;
+    background-color: black !important;
+    color: white !important  ;
+    font-size: 25px;
+    text-align: right;
+    background-size: cover;
+/* I ADD */
+
+/* } */
+
+/* label {
+    color:white;
+    float: right;
+    margin-right: 18em;
+    display: block;
+
+} */
+
+/* .col-3{
+    text-align: right;
+    padding: 0px 80px 0px 0px;
+}
+   */
+
+
+/* #logo{
+    width: 200px;
+    height: auto;
+}  */
+/* 
+.navbar, .navbar-expand-lg ,.navbar-dark {
+    margin:-58px -46px -49px -5px!important;
+    /* i add yesterday dont forget to change the top pic */
+/* z-index: 10000;
+   position: fixed;
+   top: 0;
+   width: 100%;
+    */
+/* font-size: 25px;
+   padding: 0.5rem 3rem 1px;
+
+
+} */
+
+
+
+/* *{
+    font-size: 25px;
+    text-align: right;
+    background-size: cover;
+
+    direction: ltr;
+    text-align: center;
+    
+    
+} */
+.navbar-nav {
+    direction: ltr;
+}
+
+.nav-link:hover {
+    color: rgb(141, 139, 139) !important;
+}
+
+.navbar {
+    direction: ltr !important;
+}
+
+    .navbar navbar-expand-lg navbar-dark {
+        position: fixed;
+        top: 0px;
+        background-color: black;
+        width: 100%;
+    }
+
+
+body {
+    line-height: 2.2;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    color: white;
+    background-color: black !important;
+    font-size: 25px;
+    font-size: 25px;
+    text-align: right;
+    background-size: cover;
+    direction: ltr;
+    text-align: center;
+}
+
+/* label {
+    color:white;
+    float: right;
+    margin-right: 18em;
+    display: block;
+
+  } */
+
+.col-3 {
+    text-align: right;
+    /* padding: 0px 80px 0px 0px; */
+}
+
+#logo {
+    width: 200px;
+}
+
+#map {
+    width: 350px;
+}
+
+
+
+.navbar, .navbar-expand-lg, .navbar-dark {
+    margin: 0px auto;
+    /* i add yesterday dont forget to change the top pic */
+    /* z-index: 10000;
+       position: fixed;
+       top: 0;
+       width: 100%;
+        */
+    /* font-size: 25px;
+       padding: 0.5rem 3rem 1px;*/
+    /* padding: 0.5rem 3rem 1rem; */
+}
+
+
+
+
+.conrainerNAV {
+    direction: ltr;
+    background-color: black !important;
+    color: white !important;
+    font-size: 25px;
+    text-align: right;
+    background-size: cover;
+}
