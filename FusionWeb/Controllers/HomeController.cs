@@ -44,6 +44,31 @@ namespace FusionWeb.Controllers
         {
             return View();
         }
+        public IActionResult RestGallery()
+        {
+            return View();
+        }
+        public IActionResult Global()
+        {
+            return View();
+        }
+        public IActionResult Main()
+        {
+            return View();
+        }
+        public IActionResult Payment()
+        {
+            return View();
+        }
+        public IActionResult Reservation()
+        {
+            return View();
+        }
+        public IActionResult SignIn()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -1,0 +1,148 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<html>
+
+<head>
+
+    <!-- <link rel="stylesheet" href="styleproj.css"> -->
+    <!-- <link rel="stylesheet" href="global.css"> -->
+    <!-- <link rel="stylesheet" href="contact.css">  -->
+    <link rel="stylesheet" href="payment.css">
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+
+</head>
+
+
+
+<body>
+    <div class="container">
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="container">
+
+                        <div class="contact">
+                            <div class="form-group w-75">
+                                <label for="formGroupExampleInput">שם מלא</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="הזן/י שם מלא">
+                            </div>
+                            <div class="form-group w-75">
+                                <label for="formGroupExampleInput2">אימייל</label>
+                                <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="הזן/י אימייל" required
+                                       autofocus>
+                            </div>
+                            <div class="form-group w-75">
+                                <label for="inputAddress">כתובת</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="הזן/י כתובת">
+                            </div>
+                            <div class="form-group w-75">
+                                <label for="inputCity">עיר</label>
+                                <input type="text" class="form-control" id="inputCity" placeholder="הזן/י עיר">
+                            </div>
+
+                        </div>
+
+                        <div class="shem">
+
+
+                            <div class="form-group w-75">
+                                <label for="formGroupExampleInput">שם בעל הכרטיס</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="הזן/י שם בעל הכרטיס">
+                            </div>
+
+
+                            <div class="form-row">
+                                <div class=" form-group w-25 col-75">
+                                    <label for="ccnum">מס כרטיס</label>
+                                    <input type="text" class="form-control" id="ccnum" name="cardnumber" id="formGroupExampleInput"
+                                           placeholder="1111-2222-3333-4444">
+                                </div>
+                                <div class="  form-group w-25 col-75">
+                                    <label for="expmonth">חודש</label>
+                                    <input type="text" class="form-control" id="expmonth" name="expmonth" placeholder="הזן/י חודש תוקף">
+                                </div>
+
+                            </div>
+
+                            <div class="form-row">
+                                <div class=" form-group w-25 col-75">
+                                    <label for="expyear"> שנה </label>
+                                    <input type="text" class="form-control" id="expyear" name="expyear" placeholder="הזן/י תוקף">
+                                </div>
+                                <div class="  form-group w-25 col-75">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" class="form-control" id="cvv" name="cvv" placeholder="הזן/י 3 ספרות ">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="col-md-6 ">
+                    <div class="left">
+                        <div class="container">
+                            <h3>סיכום הזמנה</h3>
+                            <span class="price">
+                                <h4>מס פריטים : 4 </h4>
+                            </span>
+                            <br><br>
+
+                            <p><a href="#">מנה 1</a> <span class="price">₪15</span></p>
+                            <p><a href="#">מנה 2</a> <span class="price">₪5</span></p>
+                            <p><a href="#">מנה 3</a> <span class="price">₪8</span></p>
+                            <p><a href="#">מנה 4</a> <span class="price">₪2</span></p>
+                            <hr>
+                            <p>סה"כ <span class="price"><b>₪30</b></span></p>
+
+                            <!--ראו הוזהרתם לשנות את השורה הבאה בקוד !!!!!!! עבדנו על זה עד השעה 4 בלילה-->
+
+                            <button type="button" class="btn btn-dark"
+                                    formaction="C:\Users\debor\Google Drive\homework\אפליקציות\Order_Confirmation.html">
+                                לסיום הזמנה
+                            </button>
+
+
+
+                        </div>
+        </form>
+
+    </div>
+    <!-- </div> -->
+    </div>
+    </div>
+
+
+
+    </form>
+
+    </div>
+
+
+</body>
+
+
+</html>
+
+@section Css{
+    <link rel="stylesheet" href="~/css/Payment.css" />
+
+}
+
