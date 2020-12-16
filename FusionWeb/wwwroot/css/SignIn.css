@@ -1,0 +1,55 @@
+﻿* {
+    direction: rtl;
+    font-size: 25px;
+}
+
+.card {
+    background-color: black !important;
+    color: white !important;
+}
+
+.btn-block {
+    display: block;
+    width: 50% !important;
+    margin: 35px 0 0px 1px !important;
+    padding: 0 0 0 0 !important;
+}
+
+input {
+    background-color: black !important;
+    color: white !important;
+}
+
+.form-label-group {
+    margin: 33px 0px 33px !important;
+}
+
+label {
+    margin-right: 0em !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: black !important;
+    border-color: rgb(107, 104, 104) !important;
+}
+
+.btn-warning :hover {
+    color: rgb(107, 104, 104) !important;
+}
+
+.form-control:focus {
+    color: #495057;
+    border-color: black !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(107, 104, 104) !important;
+}
+
+
+.mb-3 {
+    float: right;
+}
+
+.custom-control-label {
+    font-size: 20px !important;
+}

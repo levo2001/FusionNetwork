@@ -1,0 +1,315 @@
+﻿* {
+    font-size: 25px;
+    text-align: right;
+    background-size: cover;
+    direction: ltr;
+    text-align: center;
+    background-color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+}
+
+.right {
+    float: right;
+}
+
+.row {
+    direction: rtl;
+    margin-top: 100px;
+    /* font-size: 25px; */
+    background-color: white !important;
+}
+
+body {
+    line-height: 1.8 !important;
+}
+
+.border {
+    background-color: white !important
+}
+
+/* .form-control{
+    float: right!important;   
+    position: relative!important;
+    right: 0px!important;
+} */
+
+
+/* .nav-link{
+    padding: -0.5px 1px!important;
+
+} */
+
+
+#size {
+    /* padding: -0.5px 1px!important; */
+}
+
+.DeliNav {
+    color: black !important;
+    text-align: center !important;
+    font-size: 25px;
+    border-radius: .15rem;
+}
+
+span {
+    background-color: white !important;
+    color: black !important;
+}
+
+.nav {
+    /* margin:0px 171px 36px 42px; */
+    font-size: 25px;
+    border-radius: .25rem;
+    /* Decide the position of nav- left or right */
+    float: left;
+    position: relative;
+    /* right: 0px; */
+}
+
+/* .nav-item{
+    margin: 0 0 -30px 0!important;
+} */
+
+.ser {
+    /* margin: 0px -68px -3px 67px!important; */
+}
+
+
+.mr-2 {
+    height: 10%;
+    /* margin-right: 50.5px!important; */
+    float: right;
+    position: relative;
+    right: 0px;
+}
+
+.search-item-icon {
+    font-family: icomoon !important;
+    background-color: white !important;
+}
+
+.icon-lens-o:before {
+    content: "\e902";
+}
+
+
+.fa {
+    font-size: 80% !important;
+}
+
+.d-flex {
+    /* margin: 0px 62px -1px -70px; */
+    float: right;
+    position: relative;
+    right: 0px;
+}
+
+.btn {
+    /* padding: .375px 8.75px; */
+    /* margin-left: -52px !important; */
+    background-color: white !important;
+    color: black !important;
+}
+
+.btn-outline-success {
+    border-color: #686968 !important;
+    color: #686968 !important;
+}
+
+/* *********************************************CARD********************************************* */
+
+
+.card {
+    color: black !important;
+    background-color: white !important;
+    /* padding: 1.25rem!important; */
+}
+
+.card-body, .card-title, .card-text {
+    background-color: white !important;
+    color: black !important;
+    direction: rtl;
+    font-size: 25px !important;
+    line-height: 1.22rem !important;
+}
+
+.col-sm-7, .col-md-7, .col-lg-7 {
+    background-color: white !important;
+    color: black !important;
+}
+
+.inner {
+    /* margin: 12px -23px 37px -29px; */
+}
+/* 
+img{
+    width: 20%;
+} */
+
+
+.card-body {
+    padding: 0rem !important;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+}
+
+
+.card-title {
+    margin-bottom: 0rem !important;
+    float: right;
+    margin-right: 0.25rem;
+    font-weight: 549;
+    font-size: 20px !important;
+    text-align: right;
+}
+
+/* .card{
+    margin-left: -7px;
+    margin-right: -89px;
+} */
+
+
+.card-text {
+    font-size: 15px !important;
+    float: right !important;
+    text-align: right;
+    margin-right: 0.25rem;
+    line-height: 0.8rem !important;
+    font-weight: 400;
+}
+
+.no-gutters {
+    background-color: white !important;
+    margin-top: 0 !important;
+}
+
+.price {
+    font-size: 15px;
+    float: left !important;
+    margin-left: 0.25rem;
+}
+
+.btn {
+    padding: 0px !important;
+    font-size: 15px;
+    width: 4rem;
+    margin-left: 0.1rem;
+}
+
+.bi-plus {
+    float: left;
+}
+
+.card-img {
+    height: 90px;
+    /* width: auto;
+    border-radius: 0.25rem !important;
+} */
+}
+
+
+
+.card-img, .card-img-bottom {
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.card-img, .card-img-top {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+.col-img {
+    background-color: white;
+}
+
+
+
+
+
+.basket {
+    font-size: 15px !important;
+    margin-top: 4.4rem;
+}
+
+.msg {
+    text-align: right;
+    font-size: 25px !important;
+    color: black !important;
+    font-weight: 600;
+}
+
+
+.btn_pay {
+    height: 1.5rem !important;
+    width: 8.25rem !important;
+    font-weight: 600;
+    font-size: 20px !important;
+}
+
+
+.alert {
+    /* width: 106%; */
+}
+
+.svg {
+    background-color: white !important;
+}
+
+.mr-2, .mx-2 {
+    margin-right: -8.5rem !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+.container_img {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+
+.centered {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none !important;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    font-size: 80px;
+}
+
+
+
+.top_img {
+    right: 0rem;
+    left: 0rem;
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+}
+
+.page-header-bg-image {
+    position: absolute;
+    width: 100%;
+    height: 5%;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

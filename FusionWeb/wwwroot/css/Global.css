@@ -1,0 +1,27 @@
+﻿* {
+    direction: ltr;
+    background-color: black;
+    color: green;
+}
+
+.navbar-brand {
+    margin-right: 2rem;
+}
+
+body {
+    line-height: 2.2;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    color: white;
+}
+
+.bg-dark {
+    background-color: black !important;
+}
+
+.nav-link:hover {
+    color: rgb(59, 173, 59) !important;
+}
+
+.nav-link:active {
+    color: white !important;
+}

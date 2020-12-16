@@ -1,0 +1,115 @@
+﻿
+
+
+
+/* the inside of the textarea */
+textarea::placeholder {
+    font-size: medium; /*size of the Write inside*/
+    color: rgb(143, 140, 140) !important;
+    text-align: right; /*which size the Write is*/
+}
+
+/* the inside of the input */
+input::placeholder {
+    font-size: small; /*size of the Write inside*/
+    color: rgb(143, 140, 140) !important;
+    text-align: right;
+}
+
+#tittel {
+    text-align: right !important;
+}
+
+.form-group {
+    text-align: right !important;
+}
+
+body {
+    text-align: center !important;
+    background-color: black !important;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    /* direction: rtl !important; */
+}
+
+textarea,
+input {
+    background-color: black !important;
+    text-align: center !important;
+}
+
+
+
+    input[type="submit"] {
+        color: white !important;
+        float: left;
+    }
+
+.form-group, .w-50 {
+    margin-right: 18rem;
+    margin-bottom: 1.5rem;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.contact {
+    margin-top: 62px;
+}
+
+.container {
+    margin-left: 10rem !important;
+    margin-right: 18rem !important;
+    padding-left: 27rem !important;
+}
+
+.kitchen {
+    direction: rtl;
+}
+
+
+.container_img {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+
+.centered {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none !important;
+    text-shadow: 0px 0px 12px rgba(0, 0, 0, 5.5);
+    font-weight: 700;
+    font-size: 80px;
+}
+
+
+
+.top_img {
+    right: 0rem;
+    left: 0rem;
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+}
+
+
+.page-header-bg-image {
+    position: absolute;
+    width: 100%;
+    height: 22%;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

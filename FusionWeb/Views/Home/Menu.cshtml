@@ -1,0 +1,505 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="menu.css">
+    <!-- <link rel="stylesheet" herf="navbar.css"> -->
+
+
+</head>
+
+<body>
+
+    <div class="container_img">
+        <div style="height: 260px; margin-top: 40px;">
+            <div class="page-header-bg-image"
+                 style="background-image:
+          url(https://images.pexels.com/photos/544961/pexels-photo-544961.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);  ">
+                <div class="centered">תפריט</div>
+
+            </div>
+
+        </div>
+
+        <!-- <div class="container"> -->
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="#">מטבח אמריקאי <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">מטבח אסייתי </a>
+                        <a class="nav-link" href="#">מטבח איטלקי</a>
+                        <a class="nav-link" href="#">מטבח ישראלי</a>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+
+        <div class="bor">
+            <div class="row">
+                <!-- <div class="col-sm-5 col-md-5 col-lg-5"> -->
+                <div class="col-sm-5 col-md-5 col-lg-5">
+                    <div class="fooname"> Sausage party (קטן/גדול) | 37₪/47₪</div>
+                    <div id="describe">
+                        נקניקיות צ'וריסוס ביתיות, כרוב כבוש, קוביות צ'יפס, רוטב הולנדייז וביצת עין
+                    </div>
+                </div><br>
+                <br><br>
+
+                <div class="col-sm-5 col-md-5 col-lg-5">
+
+                    <div class="fooname"> Wild Goose(סלט) | 61₪ </div>
+                    <div id="describe">
+                        חזה אווז מעושן על הפלאנצ'ה, צ'יפס בטטה, חסה, סלרי, תפוחים, שקדים וחמוציות
+                        בווינגרט
+                    </div>
+
+                </div><br>
+                <br><br>
+                <div class="col-sm-5 col-md-5 col-lg-5">
+
+                    <div class="fooname"> THE BASE גרם 200/400/600| 79₪/69₪/59₪</div>
+                    <div id="describe">
+                        100% בורגר בקר מבשר בקר איכותי טחון במקום. מוגש בלחמנייה עם מיונז, חסה, עגבנייה, מלפפון
+                    </div>
+
+                </div><br>
+                <br><br>
+                <div class="col-sm-5 col-md-5 col-lg-5">
+
+                    <div class="fooname"> נילס הונגרסון (המבורגר)| 58₪</div>
+                    <div id="describe">
+                        ספייסי מיונז, כרוב כבוש, חסה, בצל סגול, עגבנייה ומלפפון חמוץ
+                    </div>
+
+                </div><br>
+                <br><br>
+                <!-- </div> -->
+                <!-- <div class="col-sm-5 col-md-5 col-lg-5"> -->
+
+                <div class="col-sm-5 col-md-5 col-lg-5">
+
+                    <div class="fooname"> LAS VEGAN (טבעוני) | 57₪</div>
+                    <div id="describe">
+                        בורגר כרשה וטופו, בציפוי פנקו (מטוגן), ראגו פטריות, קטשופ, כמהין, חסה, עגבנייה, בצל
+                        סגול ומלפפון חמוץ בתוספת ציפס\ אורז
+                    </div>
+
+                </div><br>
+                <br><br>
+
+                <div class="col-sm-5 col-md-5 col-lg-5">
+
+                    <div class="fooname">
+                        Steak & eggs (ניתן לשנות את סוג הלחם)  |78₪
+                    </div>
+                    <div id="describe">
+                        אנטריקוט צרוב עם 2 ביצי עין,מוגש לצד לחם פרנה סלט קצוץ ומתבלים.
+                    </div>
+
+                </div><br>
+                <br><br>
+
+                <div class="col-sm-5 col-md-5 col-lg-5">
+
+                    <div class="fooname"> Fish & chips(קטן/גדול) |57₪/67₪</div>
+                    <div id="describe">
+                        קוביות דג במעטפת פריכה, צ'יפס, מיונז שום שמיר, לימון ואיולי צ'יפוטלה
+                    </div>
+                </div><br>
+
+                <br><br>
+                <div class="col-sm-5 col-md-5 col-lg-5">
+
+                    <div class="fooname"> DEEP FOREST(המבורגר) | 69₪</div>
+                    <div id="describe">
+                        200 ג' בורגר בקר, מיונז כמהין שחורות, חסה, ראגו פטריות, בצל מקורמל ושפונדרה מפורקת
+                    </div>
+
+                </div><br>
+
+                <br><br>
+                <!-- </div> -->
+
+            </div>
+        </div>
+    </div>
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="bor">
+
+        <div class="row">
+            <!-- <div class="col-sm-5 col-md-5 col-lg-5"> -->
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> פסטה בטטה שמנת | 62₪</div>
+                <div id="describe">
+                    שמן כמהין, מיקרו בזיליקום ופרמז׳ן,בטטה,שמנת
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> פסטה פטריות צלויות | 62₪</div>
+                <div id="describe">
+                    שמנת, שמן כמהין, צמחי תבלין, מיקרו בזיליקום ופרמז׳ן.
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> פיצה פסטו גבינות | 64₪</div>
+                <div id="describe">
+                    גבינת עיזים, פטה, מוצרלה, פרמז'ן, מיקרו בזיליקום
+                    תוספות בתשלום: פטה/פטריות/זיתי קלמטה
+
+                </div>
+            </div><br>
+            <br><br>
+
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> פסטה עגבניות בזיליקום | 59₪ </div>
+                <div id="describe">
+                    שמן זית, שום, צמחי תבלין, מיקרו בזיליקום ופרמז׳ן בבחירת טורצ'יו וללא פרמז׳ן.
+                </div>
+            </div><br>
+            <br><br>
+            <!-- </div> -->
+            <!-- <div class="col-sm-5 col-md-5 col-lg-5"> -->
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> רביולי בטטה/גבינת עיזים | 69₪</div>
+                <div id="describe">
+                    רוטב לבחירה:
+                    פטריות צלויות ושמנת או
+                    בטטה שמנת ערמונים
+
+                </div>
+            </div><br>
+            <br><br>
+
+
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> פוקאצ'ה ביאנקה | 32₪ </div>
+                <div id="describe">
+                    קונפי שום ועשבי תיבול, מוגשת עם טחינה ושמן זית בנגיעת בלסמי
+                </div>
+            </div><br>
+            <br><br>
+
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> פיצה עגבניות קלאסית | 44₪ </div>
+                <div id="describe">
+                    מוצרלה, מיקרו בזיליקום.
+                    ניתן לקבל עם בצק ללא גלוטן
+                    ניתן להחליף לגבינה טבעונית בתוספת 9₪
+                    <br>
+                    תוספות בתשלום: פטה/פטריות/זיתי קלמטה 5₪
+
+                </div>
+            </div><br>
+            <br><br>
+            <!-- </div> -->
+        </div>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+    <div class="bor">
+        <div class="row">
+            <!-- <div class="col-sm-5 col-md-5 col-lg-5"> -->
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname">
+                    אגרול צמחוני | ₪39 &nbsp;
+
+                </div>
+                <div id="describe">
+                    שלוש יחידות אגרול במילוי ירקות, בליווי צ'ילי מתוק
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> ספרינג רול יפני | ₪32</div>
+                <div id="describe">
+                    יחידות רול סושי חם במילוי אטריות נודלס מוקפצות ברוטב אסיאתי עם כרוב וגזר, בציפוי
+                    טמפורה.
+
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> ספייסי צ'יקן- פיקנטי | ₪59</div>
+                <div id="describe">
+                    נודלס מוקפץ עם עוף, כרוב, פלפל חריף, בצל ופטריות ברוטב אסייתי
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> קוקו קארי פלייקס טופו - פיקנטי | ₪59</div>
+                <div id="describe">
+                    שבבי אטריות אורז מוקפצים עם טופו, גזר, נבטים, פטריות, בצל לבן וירוק, ברוטב קארי
+                    אדום וקרם קוקוס
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> ריינבו רול | ₪49</div>
+                <div id="describe">
+                    סלמון ואבוקדו במעטפת טונה, סלמון, בטטה ואבוקדו
+                </div>
+            </div><br>
+            <br><br>
+            <!-- </div> -->
+            <!-- <div class="col-sm-5 col-md-5 col-lg-5"> -->
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> פאנקפורה | ₪42</div>
+                <div id="describe">
+                    סלמון ואבוקדו רול. מוגש חם
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> רול פטריות שיטאקה | ₪32 </div>
+                <div id="describe">
+                    שיטאקי, אבוקדו, גזר ומלפפון
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> קומבינצית פנקו M - מוגש חם | ₪79 </div>
+                <div id="describe">
+                    4 יח' I/O סלמון ואבוקדו,
+                    4 יח' I/O ספייסי טונה אדומה ואבוקדו,
+                    4 יח' I/O דניס, פטריות שיטאקה ובצל ירוק,
+                    4 יח' I/O ספייסי סלמון ואבוקדו.
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> סושי סנדוויץ' סלמון | ₪38</div>
+                <div id="describe">
+                    עם גזר, מלפפון ואבוקדו
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> סנדוויץ' פאנקפורה | ₪45</div>
+                <div id="describe">
+                    סלמון אבוקדו ובטטה. מוגש חם
+                </div><br>
+                <br><br>
+
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="bor">
+
+        <div class="row">
+            <!-- <div class="col-sm-5 col-md-5 col-lg-5"> -->
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> חומוס טחינה וגרגירים | 29₪</div>
+                <div id="describe">
+                    חומוס תוצרת בית בתוספת טחינה וגרגירי חומוס מבושלים
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> חומוס פטריות חמות | 32₪</div>
+                <div id="describe">
+                    חומוס תוצרת בית בתוספת פטריות מוקפצות
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> חומוס טחינה וצנוברים | 32₪</div>
+                <div id="describe">
+                    חומוס תוצרת בית בתוספת טחינה וצנוברים
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> שווארמה בלאפה | 45₪ </div>
+                <div id="describe">
+                    כבש, הודו, עוף, בקר מוגש בלאפה בתוספת סלטים לבחירה
+                </div>
+            </div><br>
+            <br><br>
+
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> מעורב ירושלמי| 30₪</div>
+                <div id="describe">
+                    נתחי בשר מטוגנים במחבת מכיל כבד, טחול ולבבות וכן חזה עוף והודו, המטוגן עם בצל
+                    ותבלינים
+                </div>
+            </div><br>
+            <br><br>
+            <!-- </div> -->
+            <!-- <div class="col-sm-5 col-md-5 col-lg-5"> -->
+
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> פלאפל בפיתה | 18₪ </div>
+                <div id="describe">
+                    קציצה מגרגרי חומוס, פול, מוגש בפיתה בתוספת סלטים לבחירה
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> חציל סביח | 22₪ </div>
+                <div id="describe">
+                    חציל בלאדי שלם קלוי עם טחינה, ביצה קשה, טחינה, נענע וסומק
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> מרק קובה | 39₪ </div>
+                <div id="describe">
+                    בשר במעטפת סולת מבושלת במרק על בסיס עגבניות וירקות שורש.
+                </div>
+            </div><br>
+
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> שקשוקה | 40₪ </div>
+                <div id="describe">
+                    עגבניות, שמן זית וביצים ואורגנו
+                </div>
+            </div><br>
+            <br><br>
+            <!-- </div> -->
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div class="bor">
+
+        <div class="row">
+            <!-- <div class="col-sm-5 col-md-5 col-lg-5"> -->
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname">קוקה קולה זכוכית | 13₪  </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname">
+                    דיאט קוקה קולה זכוכית| 13₪
+                </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname">
+                    קוקה קולה זירו זכוכית| 13₪
+                </div>
+            </div><br>
+            <br><br>
+
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> ספרייט זכוכית | 13₪ </div>
+            </div><br>
+            <br><br>
+            <!-- </div> -->
+            <!-- <div class="col-sm-5 col-md-5 col-lg-5"> -->
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> ספרייט זירו זכוכית | 13₪</div>
+            </div><br>
+            <br><br>
+
+
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname"> פאנטה זכוכית | 13₪ </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname">  בקבוק פריגת ענבים | 13₪ </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname">  בקבוק פיוז טי אפרסק | 13₪ </div>
+            </div><br>
+            <br><br>
+
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname">  בקבוק מים בטעם אפרסק | 12₪ </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname">  בקבוק מים בטעם תפוח | 12₪ </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname">  מים מינרלים | 10₪ </div>
+            </div><br>
+            <br><br>
+
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="fooname">  סודה | 10₪ </div>
+            </div><br>
+            <br><br>
+            <!-- </div> -->
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+@section Css{
+    <link rel="stylesheet" href="~/css/Menu.css" />
+
+}

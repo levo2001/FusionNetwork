@@ -1,0 +1,1275 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="delivery.css">
+
+
+
+    <!-- Basket icon -->
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+
+    <div class="container_img">
+
+        <div style="height: 260px; margin-top: 40px;">
+            <div class="page-header-bg-image"
+                 style="background-image:
+        url(https://cdn.pixabay.com/photo/2015/03/26/10/28/restaurant-691397_1280.jpg);  ">
+                <div class="centered">משלוח</div>
+
+
+
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+
+                <!-- <div class="row"> -->
+                <div class=" col-sm-3 col-md-3 col-lg-3 right ">
+
+                    <nav class="navbar navbar-light ser">
+                        <div class="container-fluid">
+                            <form class="d-flex">
+                                <button class="btn btn-outline-success " type="submit">
+                                    <svg width="1em" style="background-color: white;" height="1em" viewBox="0 0 16 16" class="bi bi-search"
+                                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                        <path fill-rule="evenodd"
+                                              d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                    </svg>
+                                </button>
+                                <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                            </form>
+                        </div>
+                    </nav>
+                    <br>
+                    <!-- border -->
+                    <ul class="nav flex-column " style="float: left;
+       ">
+                        <li class="nav-item">
+                            <a class="nav-link active border DeliNav" aria-current="page" href="#">אמריקאי</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link border DeliNav" id="size" href="#">איטלקי</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link border DeliNav" href="#">אסייתיי</a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a class="nav-link border DeliNav" href="#">ישראלי</a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a class="nav-link border DeliNav" href="#">שתיה</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- </div> -->
+                <!-- <div class="row"> -->
+
+                <div class=" col-sm-6 col-md-6 col-lg-6  inner">
+
+                    <!-- <div class="card">
+                                    <div class="card-body">
+                                        <span class="col-sm-3 col-md-3 col-lg-3 ">
+                                            <img src="C:\לימודים\פיתוח אפליקציות אינטרנטיות\pictures project\pasta-2973006_1920.jpg">
+                                        </span>
+                                        <span class="col-sm-6 col-md-6 col-lg-6 ">
+                                            שלום כיתה א
+                                        </span>
+                                        <span class="col-sm-3 col-md-3 col-lg-3 ">
+                                            מחיר 16 שקל
+                                        </span>
+
+                                    </div>
+                            </div>
+                            <br> -->
+                    <div class="alert alert-light msg" role="alert">
+                        לקוחות יקרים
+
+                    </div>
+                    <div class="alert alert-light msg" role="alert">
+                        !שימו לב
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6119500_636458426331881339.jpg?v=2	"
+                                     class="card-img " alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sausage party </h5><br>
+                                    <p class="card-text"> נקניקיות צ'וריסוס ביתיות, כרוב כבוש, קוביות צ'יפס, רוטב הולנדייז וביצת עין</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 37₪/47₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6069381_636227736520604721.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">Wild Goose</h5><br>
+                                    <p class="card-text">
+                                        חזה אווז מעושן בפלאנצ'ה,צ'יפס בטטה,חסה,סלרי,תפוחים,שקדים,<br>חמוציות בויניגרט
+                                    </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">61₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://cdn.pixabay.com/photo/2017/09/18/16/53/burger-2762371__480.jpg" class="card-img"
+                                     alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">THE BASE 200/400/600 גרם </h5><br>
+                                    <p class="card-text">
+                                        100% בורגר בקר מבשר בקר איכותי טחון במקום. מוגש בלחמנייה עם מיונז, <br>חסה,
+                                        עגבנייה,
+                                        מלפפון
+                                    </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 79₪/69₪/59₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6069352_636227734771225557.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">נילס הונגרסון</h5><br>
+                                    <p class="card-text"> ספייסי מיונז, כרוב כבוש, חסה, בצל סגול, עגבנייה ומלפפון חמוץ </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 58₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6069354_636227735027632495.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">LAS VEGAN (טבעוני)</h5><br>
+                                    <p class="card-text">
+                                        בורגר כרשה וטופו, בציפוי פנקו (מטוגן), ראגו פטריות, קטשופ, כמהין, חסה, עגבנייה,
+                                        בצל
+                                        סגול ומלפפון חמוץ בתוספת ציפס\ אורז
+                                    </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 57₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://media.istockphoto.com/photos/steak-and-sunny-side-up-egg-with-seasoning-picture-id185245563?b=1&k=6&m=185245563&s=170667a&w=0&h=TNP2lteEdDVmSVDciBMKCtw_IWcunVjQj9hsYYOFAQE="
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">Steak & eggs</h5><br>
+                                    <p class="card-text"> אנטריקוט צרוב עם 2 ביצי עין,מוגש לצד לחם פרנה סלט קצוץ ומתבלים.</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 78₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6119532_636389981542957294.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">Fish & chips</h5><br>
+                                    <p class="card-text"> קוביות דג במעטפת פריכה, צ'יפס, מיונז שום שמיר, לימון ואיולי צ'יפוטלה</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">57₪/67₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6119511_636436806387108556.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">DEEP FOREST</h5><br>
+                                    <p class="card-text">
+                                        200 ג' בורגר בקר, מיונז כמהין שחורות, חסה, ראגו פטריות, בצל מקורמל ושפונדרה
+                                        מפורקת
+                                    </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 69₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://www.landwercafe.co.il/wp-content/uploads/2020/01/%D7%A4%D7%A1%D7%98%D7%94-%D7%A9%D7%9E%D7%A0%D7%AA-%D7%91%D7%98%D7%98%D7%94-%D7%A2%D7%A8%D7%9E%D7%95%D7%A0%D7%99%D7%9D.jpg"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">פסטה בטטה שמנת</h5><br>
+                                    <p class="card-text"> שמן כמהין, מיקרו בזיליקום ופרמז׳ן,בטטה,שמנת</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 62₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://www.landwercafe.co.il/wp-content/uploads/2020/01/%D7%A4%D7%A1%D7%98%D7%94-%D7%A9%D7%9E%D7%A0%D7%AA-%D7%A4%D7%98%D7%A8%D7%99%D7%95%D7%AA-2.jpg"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">פסטה פטריות צלויות</h5><br>
+                                    <p class="card-text"> שמנת, שמן כמהין, צמחי תבלין, מיקרו בזיליקום ופרמז׳ן.</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 62₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://www.landwercafe.co.il/wp-content/uploads/2020/01/pizza3.jpg" class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">פיצה פסטו גבינות</h5><br>
+                                    <p class="card-text">
+                                        גבינת עיזים, פטה, מוצרלה, פרמז'ן, מיקרו בזיליקום תוספות בתשלום: פטה/פטריות/זיתי
+                                        קלמטה
+                                    </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 64₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://www.landwercafe.co.il/wp-content/uploads/2020/01/pic8.jpg" class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">פסטה עגבניות בזיליקום</h5><br>
+                                    <p class="card-text"> שמן זית, שום, צמחי תבלין, מיקרו בזיליקום ופרמז׳ן בבחירת טורצ'יו וללא פרמז׳ן.</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 59₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://www.landwercafe.co.il/wp-content/uploads/2020/01/%D7%A8%D7%91%D7%99%D7%95%D7%9C%D7%99.jpg"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">רביולי בטטה/גבינת עיזים</h5><br>
+                                    <p class="card-text">
+                                        רוטב לבחירה:
+                                        פטריות צלויות ושמנת או
+                                        בטטה שמנת ערמונים
+                                    </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 69₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://www.landwercafe.co.il/wp-content/uploads/2020/01/%D7%A4%D7%95%D7%A7%D7%90%D7%A6%D7%94-%D7%91%D7%99%D7%90%D7%A0%D7%A7%D7%94.jpg"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">פוקאצ'ה ביאנקה </h5><br>
+                                    <p class="card-text"> קונפי שום ועשבי תיבול, מוגשת עם טחינה ושמן זית בנגיעת בלסמי</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 32₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://www.landwercafe.co.il/wp-content/uploads/2020/01/pizza1.jpg" class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">פיצה עגבניות קלאסית</h5><br>
+                                    <p class="card-text">
+                                        מוצרלה, מיקרו בזיליקום.
+                                        ניתן לקבל עם בצק ללא גלוטן
+                                        ניתן להחליף לגבינה טבעונית בתוספת 9₪
+                                        <br>
+                                        תוספות בתשלום: פטה/פטריות/זיתי קלמטה 5₪
+                                    </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 44₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+                    <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_112646_636112723859088218.jpg?v=2
+                " class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> אגרול צמחוני</h5><br>
+                                    <p class="card-text">
+                                        חידות רול סושי חם במילוי אטריות נודלס מוקפצות ברוטב אסיאתי עם כרוב וגזר, בציפוי
+                                        טמפורה.
+                                    </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">₪32 </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6335860_637018981440917679.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> ספרינג רול יפני </h5><br>
+                                    <p class="card-text">
+                                        יחידות רול סושי חם במילוי אטריות נודלס מוקפצות ברוטב אסיאתי עם כרוב וגזר, בציפוי
+                                        טמפורה.
+                                    </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">₪32 </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6335539_637038815354186089.jpg?v=2
+                " class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> ספייסי צ'יקן- פיקנטי</h5><br>
+                                    <p class="card-text">נודלס מוקפץ עם עוף, כרוב, פלפל חריף, בצל ופטריות ברוטב אסייתי </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> ₪59</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6335545_637038809233785679.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> קוקו קארי פלייקס טופו - פיקנטי</h5><br>
+                                    <p class="card-text">
+                                        שבבי אטריות אורז מוקפצים עם טופו, גזר, נבטים, פטריות, בצל לבן וירוק, ברוטב קארי
+                                        אדום וקרם קוקוס
+                                    </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> ₪59</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_51890_636112740582407459.jpg?v=2 "
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">ריינבו רול </h5><br>
+                                    <p class="card-text"> סלמון ואבוקדו במעטפת טונה, סלמון, בטטה ואבוקדו</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> ₪49 </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_51895_636112738053495412.jpg?v=2
+                " class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> פאנקפורה</h5><br>
+                                    <p class="card-text"> סלמון ואבוקדו רול. מוגש חם</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> ₪42</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_51870_636112727342222054.jpg?v=2
+                " class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">רול פטריות שיטאקה </h5><br>
+                                    <p class="card-text"> שיטאקי, אבוקדו, גזר ומלפפון</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> ₪32 </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6111552_636388288820354990.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">קומבינצית פנקו M - מוגש חם </h5><br>
+                                    <p class="card-text">
+                                        4 יח' I/O סלמון ואבוקדו,
+                                        4 יח' I/O ספייסי טונה אדומה ואבוקדו,
+                                        4 יח' I/O דניס, פטריות שיטאקה ובצל ירוק,
+                                        4 יח' I/O ספייסי סלמון ואבוקדו.
+                                    </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> ₪79</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6335592_637026097904498431.jpg?v=2
+                " class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> סושי סנדוויץ' סלמון</h5><br>
+                                    <p class="card-text"> עם גזר, מלפפון ואבוקדו </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> ₪38</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6335901_637018996848583736.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> סנדוויץ' פאנקפורה</h5><br>
+                                    <p class="card-text"> סלמון אבוקדו ובטטה. מוגש חם </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://media.istockphoto.com/photos/hummus-with-olive-oil-paprika-lemon-and-pita-bread-picture-id1152816174?b=1&k=6&m=1152816174&s=170667a&w=0&h=TDar9VW86ijI3sL4jnRh89E6VMeELxLZAglzI3fK7gE="
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">חומוס טחינה וגרגירים </h5><br>
+                                    <p class="card-text"> חומוס תוצרת בית בתוספת טחינה וגרגירי חומוס מבושלים</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 29₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://cdn.pixabay.com/photo/2016/09/06/14/24/hummus-1649228__480.jpg" class="card-img"
+                                     alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">חומוס פטריות חמות </h5><br>
+                                    <p class="card-text"> חומוס תוצרת בית בתוספת פטריות מוקפצות</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 32₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://cdn.pixabay.com/photo/2019/05/10/18/44/hummus-4194192__480.jpg" class="card-img"
+                                     alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> חומוס טחינה וצנוברים</h5><br>
+                                    <p class="card-text">חומוס תוצרת בית בתוספת טחינה וצנוברים </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 32₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6351358_637317164029899611.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> שווארמה בלאפה </h5><br>
+                                    <p class="card-text">כבש, הודו, עוף, בקר מוגש בלאפה בתוספת סלטים לבחירה </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">45₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6351372_637317161374477298.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">מעורב ירושלמי </h5><br>
+                                    <p class="card-text">
+                                        נתחי בשר מטוגנים במחבת מכיל כבד, טחול ולבבות וכן חזה עוף והודו, המטוגן עם בצל
+                                        ותבלינים
+                                    </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 30₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6351382_637317157416094198.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">פלאפל בפיתה</h5><br>
+                                    <p class="card-text">קציצה מגרגרי חומוס, פול, מוגש בפיתה בתוספת סלטים לבחירה </p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">18₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6351394_637317154484372025.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> חציל סביח </h5><br>
+                                    <p class="card-text"> חציל בלאדי שלם קלוי עם טחינה, ביצה קשה, טחינה, נענע וסומק</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 22₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6351397_637317161108405686.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">מרק קובה </h5><br>
+                                    <p class="card-text"> בשר במעטפת סולת מבושלת במרק על בסיס עגבניות וירקות שורש.</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 39₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://t4.ftcdn.net/jpg/02/20/86/65/240_F_220866565_gWUNaLosDK5aVKS05VSNcyvzLapqjdCG.jpg"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">שקשוקה </h5><br>
+                                    <p class="card-text"> עגבניות, שמן זית וביצים ואורגנו</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">40₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/197201557699215.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> קוקה קולה זכוכית</h5><br>
+                                    <!-- <p class="card-text"> עגבניות, שמן זית וביצים ואורגנו</p> -->
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 13₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/19720152378765.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> דיאט קוקה קולה זכוכית</h5><br>
+                                    <!-- <p class="card-text"> עגבניות, שמן זית וביצים ואורגנו</p> -->
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">13₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/19720152571895.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">קוקה קולה זירו זכוכית </h5><br>
+                                    <!-- <p class="card-text"> עגבניות, שמן זית וביצים ואורגנו</p> -->
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 13₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/19720152289379.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">ספרייט זכוכית </h5><br>
+                                    <!-- <p class="card-text"> עגבניות, שמן זית וביצים ואורגנו</p> -->
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">13₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/19720153947826.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> ספרייט זירו זכוכית </h5><br>
+                                    <!-- <p class="card-text"> עגבניות, שמן זית וביצים ואורגנו</p> -->
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">13₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/19720153962719.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">פאנטה זכוכית </h5><br>
+                                    <!-- <p class="card-text"> עגבניות, שמן זית וביצים ואורגנו</p> -->
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">13₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/19720154694423.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">בקבוק פריגת ענבים </h5><br>
+                                    <!-- <p class="card-text"> עגבניות, שמן זית וביצים ואורגנו</p> -->
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">13₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/19720155843822.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> בקבוק פיוז טי אפרסק </h5><br>
+                                    <!-- <p class="card-text"> עגבניות, שמן זית וביצים ואורגנו</p> -->
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">13₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/19720153408046.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">בקבוק מים בטעם אפרסק </h5><br>
+                                    <!-- <p class="card-text"> עגבניות, שמן זית וביצים ואורגנו</p> -->
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">12₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/19720153498562.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">בקבוק מים בטעם תפוח </h5><br>
+                                    <!-- <p class="card-text"> עגבניות, שמן זית וביצים ואורגנו</p> -->
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price"> 12₪</span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/197201552041.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"> מים מינרלים</h5><br>
+                                    <!-- <p class="card-text"> עגבניות, שמן זית וביצים ואורגנו</p> -->
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">10₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                                <img src="https://files.mishloha.co.il/files/menu_food_pic/thumbnail/19720156556957.jpg?v=2"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">סודה </h5><br>
+                                    <!-- <p class="card-text"> עגבניות, שמן זית וביצים ואורגנו</p> -->
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                            <span class="col-sm-2 col-md-2 col-lg-2 ">
+                                <span class="price">10₪ </span><br>
+                                <span><button type="button" class="btn btn-outline-dark">הוסף להזמנה+</button></span>
+
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- </div> -->
+                <!-- <div class="row"> -->
+
+
+                <div class="col-sm-3 col-md-3 col-lg-3 left ">
+
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                    </svg>
+
+                    <div class="alert alert-light basket" role="alert">
+
+                        <svg width="2em" height="2em" style="background-color: white;" viewBox="0 0 16 16" class="bi bi-cart2"
+                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                        </svg><br>
+                        הוסיפו פרטים להזמנה
+
+
+                    </div>
+                    <a class="sign-in" href="payment.html" target="myFrame">
+
+                        <button type="button" class="btn btn-light btn_pay">מעבר לתשלום</button>
+
+                    </a>
+
+
+
+
+                </div>
+
+
+                <!-- </div> -->
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- jQuery and JS bundle w/ Popper.js -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+                crossorigin="anonymous"></script>
+        <!-- </div> -->
+</body>
+
+
+
+</html>
+@section Css{
+    <link rel="stylesheet" href="~/css/Delivery.css" />
+}
