@@ -58,7 +58,6 @@ iframe {
 }
 
 .navbar {
-    position: fixed;
     top: 0px;
     background-color: black !important;
     width: 100%;
@@ -168,3 +167,6 @@ h4 {
 .dropdown-menu {
     background-color: black !important;
 }
+
+
+
