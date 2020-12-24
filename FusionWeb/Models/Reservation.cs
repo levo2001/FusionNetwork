@@ -19,6 +19,8 @@ namespace FusionWeb.Models
         public DateTime DateTime { get; set; }
 
         [Range(1, 10)]
+        [Display(Name = "מס' סועדים")]
+
         public int NumOfDinners { get; set; }
 
         [Display (Name ="הערות")]

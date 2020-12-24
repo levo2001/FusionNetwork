@@ -94,10 +94,9 @@ fieldset {
 }
 
 label {
-    font-style: italic;
     display: block;
     padding: 1rem;
-    margin-right: 0 !important;
+    /*margin-right: 0 !important;*/
 }
 
 h4 {

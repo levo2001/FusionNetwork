@@ -4,21 +4,57 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>Contact</h4>
+<div class="container_img">
+    <div style="height: 260px; margin-top: 40px;">
+        <div class="page-header-bg-image" style="background-image:
+              url(https://nagisasushi.co.il/wp-content/uploads/2019/02/events.jpg);  ">
+            <div class="centered">צור קשר</div>
+
+        </div>
+
+    </div>
+</div>
+
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="container">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group w-50">
+                <label asp-for="InfoClient.Name" class="control-label"></label>
+                <input asp-for="InfoClient.Name" class="form-control" placeholder="הזן/י שם מלא" />
+                <span asp-validation-for="InfoClient.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group w-50">
+                <label asp-for="InfoClient.Email" class="control-label"></label>
+                <input asp-for="InfoClient.Email" class="form-control" placeholder="הזן/י שם מלא" />
+                <span asp-validation-for="InfoClient.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group w-50">
+                <label asp-for="InfoClient.Address" class="control-label"></label>
+                <input asp-for="InfoClient.Address" class="form-control" placeholder="הזן/י שם מלא" />
+                <span asp-validation-for="InfoClient.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group w-50">
+                <label asp-for="InfoClient.City" class="control-label"></label>
+                <input asp-for="InfoClient.City" class="form-control" placeholder="הזן/י שם מלא" />
+                <span asp-validation-for="InfoClient.City" class="text-danger"></span>
+            </div>
+            <div class="form-group w-50">
+                <label asp-for="InfoClient.PhoneNumber" class="control-label"></label>
+                <input asp-for="InfoClient.PhoneNumber" class="form-control" placeholder="הזן/י שם מלא" />
+                <span asp-validation-for="InfoClient.PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group w-50">
                 <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" />
+                <input asp-for="Content" class="form-control" placeholder="הזן/י שם מלא" />
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group w-50">
+                <input type="submit" class="btn btn-primary" style="    border-radius: .25rem;
+        " value="שלח" />
             </div>
         </form>
     </div>
@@ -30,4 +66,13 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+@section Css{
+    <link rel="stylesheet" href="~/css/Contact.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
 }

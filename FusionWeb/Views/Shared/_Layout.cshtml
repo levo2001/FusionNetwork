@@ -19,7 +19,7 @@
 
     <div class="container top">
         <nav class="navbar navbar-expand-lg navbar-dark ">
-            <a class="navbar-brand logo" href="main.html" target="myFrame">
+            <a class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index">
                 <img src="~/imag/LOGO-FUSION-Transparent-for-Web.png" id="logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -31,7 +31,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" asp-area="" asp-controller="Contacts" asp-action="Index">צור קשר </a>
+                        <a class="nav-link" asp-area="" asp-controller="Contacts" asp-action="Create">צור קשר </a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="RestGallery">גלריה</a>
@@ -40,7 +40,7 @@
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="AboutUs">אודות</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" asp-area="" asp-controller="Reservations" asp-action="Index">הזמנת מקום</a>
+                        <a class="nav-link" asp-area="" asp-controller="Reservations" asp-action="Create">הזמנת מקום</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" asp-controller="Dishes" asp-action="Index">משלוח</a>

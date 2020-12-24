@@ -12,10 +12,12 @@ namespace FusionWeb.Models
 
         [Required]
         [StringLength(30)]
+        [Display(Name = "שם מלא")]
         public string Name { get; set; }
 
         [Required]
         [EmailAddress]
+        [Display(Name = "אימייל")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Address is required.")]

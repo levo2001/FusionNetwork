@@ -5,17 +5,19 @@
 /* the inside of the textarea */
 textarea::placeholder {
     font-size: medium; /*size of the Write inside*/
-    color: rgb(143, 140, 140) !important;
+    color: white !important;
     text-align: right; /*which size the Write is*/
 }
 
 /* the inside of the input */
 input::placeholder {
     font-size: small; /*size of the Write inside*/
-    color: rgb(143, 140, 140) !important;
+    color: white !important;
     text-align: right;
 }
-
+.control-label {
+    margin-right: -14px;
+}
 #tittel {
     text-align: right !important;
 }
@@ -50,6 +52,9 @@ input {
     margin-bottom: 1.5rem;
     font-size: 20px;
     font-weight: bold;
+
+        float: right;
+
 }
 
 
@@ -58,9 +63,10 @@ input {
 }
 
 .container {
-    margin-left: 10rem !important;
+    /*margin-left: 10rem !important;
     margin-right: 18rem !important;
-    padding-left: 27rem !important;
+    padding-left: 27rem !important;*/
+    
 }
 
 .kitchen {
@@ -101,7 +107,7 @@ input {
 .page-header-bg-image {
     position: absolute;
     width: 100%;
-    height: 22%;
+    height: 90%;
     top: 0;
     left: 0;
     z-index: 9;

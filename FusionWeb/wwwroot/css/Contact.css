@@ -49,11 +49,16 @@ input {
     text-align: center !important;
 }
 
+.control-label {
+    margin-right: -14px;
+}
+
 .form-group, .w-50 {
     margin-right: 18rem;
     margin-bottom: 1.5rem;
     font-size: 20px;
     font-weight: bold;
+    float: right;
 }
 
 
@@ -61,11 +66,7 @@ input {
     margin-top: 76px;
 }
 
-.container {
-    margin-left: 10rem !important;
-    margin-right: 18rem !important;
-    padding-left: 27rem !important;
-}
+
 
 
 .container_img {
@@ -101,7 +102,7 @@ input {
 .page-header-bg-image {
     position: absolute;
     width: 100%;
-    height: 120%; /*changed*/
+    height: 98%; /*changed*/
     top: 0;
     left: 0;
     z-index: 9;
