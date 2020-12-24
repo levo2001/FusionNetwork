@@ -19,7 +19,10 @@ body{
 }
 
 .navbar-nav {
-    margin: 0 auto;
+   // margin: 0 auto;
+    margin-top: 5px;
+    margin-right: 15rem;
+    font-size: 24px;
 }
 
 .nav-link:hover {
@@ -29,12 +32,13 @@ body{
 .col-sm-5, .col-md-5, .col-lg-5 {
     /* border: solid 0.8px gray; */
     margin: 29px 118px 4px -78px;
-    height: 16%;
+    height: 3rem;
 }
 
 .fooname {
     font-weight: 600;
     font-size: 22px;
+    margin-top:1rem;
 }
 
 .nav-link {
@@ -51,7 +55,8 @@ body{
 }
 
 .bor {
-    border: solid 2px gray
+    border: solid 2px gray;
+    height:41rem;
 }
 
 .navbar-collapse {
@@ -98,7 +103,7 @@ body{
 .page-header-bg-image {
     position: absolute;
     width: 100%;
-    height: 15%;
+    height: 20%;
     top: 0;
     left: 0;
     z-index: 9;
@@ -109,4 +114,7 @@ body{
     -webkit-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+.drinks{
+   margin:1rem !important;
 }
