@@ -16,6 +16,10 @@
   margin: 0px;
 }  */
 
+.top{
+    height: 120px !important ;
+}
+
 html, body, div, iframe {
     margin: 0px;
     padding: 0px;
@@ -167,6 +171,16 @@ h4 {
 .dropdown-menu {
     background-color: black !important;
 }
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
 
 
 
