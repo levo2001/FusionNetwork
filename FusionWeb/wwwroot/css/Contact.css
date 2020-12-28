@@ -35,6 +35,13 @@ body {
 textarea,
 input {
     background-color: black !important;
+    text-align: center !important;
+}
+.sub {
+    background-color: black !important;
+    text-align: center !important;
+    color: white !important;
+    float: left;
 }
 
 
@@ -45,9 +52,7 @@ input {
     }
 
 
-input {
-    text-align: center !important;
-}
+
 
 .control-label {
     margin-right: -14px;

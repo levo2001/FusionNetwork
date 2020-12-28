@@ -58,6 +58,21 @@ body{
     border: solid 2px gray;
     height:41rem;
 }
+.American{
+    height:32rem;
+}
+.Italian{
+    height:32rem;
+}
+.Asian{
+    height:32em;
+}
+.Israly{
+    height:32rem;
+}
+.Drinks{
+    height:25rem;
+}
 
 .navbar-collapse {
     margin-top: 0px;
