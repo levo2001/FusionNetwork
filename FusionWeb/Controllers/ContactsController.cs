@@ -60,7 +60,8 @@ namespace FusionWeb.Controllers
             {
                 _context.Add(contact);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewData["Contact"] = "Order";
+                //return RedirectToAction(nameof(Index));
             }
             return View(contact);
         }

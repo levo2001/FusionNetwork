@@ -4,7 +4,6 @@
     ViewData["Title"] = "Create";
 }
 
-
 <div class="container_img">
     <div style="height: 260px; margin-top: 40px;">
         <div class="page-header-bg-image" style="background-image:
@@ -15,48 +14,78 @@
 
     </div>
 </div>
-
 <hr />
 <div class="row">
     <div class="container">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group w-50">
-                <label asp-for="InfoClient.Name" class="control-label"></label>
-                <input asp-for="InfoClient.Name" class="form-control" placeholder="הזן/י שם מלא" type="text"/>
-                <span asp-validation-for="InfoClient.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group w-50">
-                <label asp-for="InfoClient.Email" class="control-label"></label>
-                <input asp-for="InfoClient.Email" class="form-control" placeholder="הזן/י אימייל" type="email"/>
-                <span asp-validation-for="InfoClient.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group w-50">
-                <label asp-for="InfoClient.Address" class="control-label"></label>
-                <input asp-for="InfoClient.Address" class="form-control" placeholder="הזן/י כתובת" />
-                <span asp-validation-for="InfoClient.Address" class="text-danger"></span>
-            </div>
-            <div class="form-group w-50">
-                <label asp-for="InfoClient.City" class="control-label"></label>
-                <input asp-for="InfoClient.City" class="form-control" placeholder="הזן/י עיר" />
-                <span asp-validation-for="InfoClient.City" class="text-danger"></span>
-            </div>
-            <div class="form-group w-50">
-                <label asp-for="InfoClient.PhoneNumber" class="control-label"></label>
-                <input asp-for="InfoClient.PhoneNumber" class="form-control" placeholder="הזן/י מס' טלפון" />
-                <span asp-validation-for="InfoClient.PhoneNumber" class="text-danger"></span>
-            </div>
 
-            <div class="form-group w-50">
-                <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" placeholder="הזן/י סיבת הפניה" />
-                <span asp-validation-for="Content" class="text-danger"></span>
+        @if (ViewData["Contact"] == null)
+        {
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group w-50">
+                    <label asp-for="InfoClient.Name" class="control-label"></label>
+                    <input asp-for="InfoClient.Name" class="form-control" placeholder="הזן/י שם מלא" type="text" />
+                    <span asp-validation-for="InfoClient.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group w-50">
+                    <label asp-for="InfoClient.Email" class="control-label"></label>
+                    <input asp-for="InfoClient.Email" class="form-control" placeholder="הזן/י אימייל" type="email" />
+                    <span asp-validation-for="InfoClient.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group w-50">
+                    <label asp-for="InfoClient.Address" class="control-label"></label>
+                    <input asp-for="InfoClient.Address" class="form-control" placeholder="הזן/י כתובת" />
+                    <span asp-validation-for="InfoClient.Address" class="text-danger"></span>
+                </div>
+                <div class="form-group w-50">
+                    <label asp-for="InfoClient.City" class="control-label"></label>
+                    <input asp-for="InfoClient.City" class="form-control" placeholder="הזן/י עיר" />
+                    <span asp-validation-for="InfoClient.City" class="text-danger"></span>
+                </div>
+                <div class="form-group w-50">
+                    <label asp-for="InfoClient.PhoneNumber" class="control-label"></label>
+                    <input asp-for="InfoClient.PhoneNumber" class="form-control" placeholder="הזן/י מס' טלפון" />
+                    <span asp-validation-for="InfoClient.PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="form-group w-50">
+                    <label asp-for="Content" class="control-label"></label>
+                    <input asp-for="Content" class="form-control" placeholder="הזן/י סיבת הפניה" />
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+                @*<div class="form-group w-50">*@
+                    <button type="button" class="btn btn-primary" style="border-radius: .25rem;"
+                            @*value="שלח"*@ data-bs-toggle="modal" data-bs-target="#exampleModal" ></button>
+                @*</div>*@
+            </form>
+        }
+        else
+        {
+            <!-- Button trigger modal -->
+            @*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button>*@
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">פנייתך התקבלה</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ניצור איתך קשר בהקדם האפשרי<br />
+                            תודה
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">בחזרה</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group w-50">
-                <input type="submit" class="btn btn-primary" style="    border-radius: .25rem;
-        " value="שלח" />
-            </div>
-        </form>
+        }
     </div>
 </div>
 
@@ -67,11 +96,14 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
 @section Css{
     <link rel="stylesheet" href="~/css/Contact.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
             crossorigin="anonymous"></script>
