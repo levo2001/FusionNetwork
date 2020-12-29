@@ -23,7 +23,7 @@
 html, body, div, iframe {
     margin: 0px;
     padding: 0px;
-    height: 100%;
+    height: 132%;
     border: none;
     -webkit-overflow-scroll: touch;
 }
@@ -121,7 +121,7 @@ h4 {
     margin-top: 47rem;
 }
 
-.footer {
+/*.footer {
     text-align: center;
     padding: 3px;
     background-color: black;
@@ -134,9 +134,7 @@ h4 {
     line-height: 60px;
 }
 
-.col-lg-4 {
-    margin-top: 47rem;
-}
+
 
 .map {
     height: 19rem;
@@ -144,7 +142,7 @@ h4 {
     margin-top: 46rem;
     margin-bottom: 1rem;
     margin-right: 1rem;
-}
+}*/
 
 
 
