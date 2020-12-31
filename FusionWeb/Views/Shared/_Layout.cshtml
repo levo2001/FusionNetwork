@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FusionWeb</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    @section Css{
+   
+        <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="~/css/Layout/navbar.css" />
         <link rel="stylesheet" href="~/css/Layout/template.css" />
-    }
+
+
+
+
     @RenderSection("Css", required: false)
 
 
@@ -80,6 +83,34 @@
     </div>
 
 
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="footer_details ">
+                    <div class="footer_details_map col-sm-3 col-md-3 col-lg-3">
+                        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6783.357038001982!2d35.225888576795576!3d31.77925307513867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d2495bf905%3A0xe5fd457b5405ec57!2z157XnteZ15zXkCwg15nXqNeV16nXnNeZ150!5e0!3m2!1siw!2sil!4v1609359668548!5m2!1siw!2sil" width="150" height="" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+
+                    <div class="footer_details_contact col-sm-3 col-md-3 col-lg-3">
+                        <h2 class="footer_details_contact-titel"> צור קשר</h2>
+                        <h4 class="footer_details_contact-content">
+                            <label class="footer_details_contact-content-fax">פקס:031234567/א</label>
+                            <label class="footer_details_contact-content-phone">091234567:טלפון</label>
+                            <label class="footer_details_contact-content-email">Fusion@gmail.com:אימייל</label>
+                        </h4>
+                    </div>
+
+                    <div class="footer_details_address col-sm-3 col-md-3 col-lg-3">
+                        <h2 class="footer_details_address-titel">כתובת </h2>
+                        <h4 class="footer_details_address-content"> ממילא ירושלים</h4>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
 
     <div class="container">
         <main role="main" class="pb-3">
@@ -87,55 +118,37 @@
         </main>
     </div>
 
-    @*<footer>
+    <footer>
+        <!-- <span class="row">
 
-            <div class="row">
+             <span class="col-sm-7 col-md-5 col-lg-4 left">
+                 <label><h2>צור קשר </h2></label>
 
-                <div class="col-sm-7 col-md-5 col-lg-4 left">
-                    <label><h2>צור קשר </h2></label>
-                    <label><h4> 091234567:טלפון</h4></label>
-                    <label><h4>פקס:031234567/א</h4></label>
-                    <label><h4>Fusion@gmail.com:אימייל</h4></label>
-                </div>
+                 <label><h4> 091234567:טלפון</h4></label>
 
-
-                <div class="col-sm-7 col-md-5 col-lg-3 center">
-                    <label><h2>כתובת </h2></label>
-                    <label><h4> ממילא ירושלים</h4></label>
-                </div>
+                 <label><h4>פקס:031234567/א</h4></label>
+                 <label><h4>Fusion@gmail.com:אימייל</h4></label>
+             </span>
 
 
-                <div class="col-sm-1 col-md-2 col-lg-5 right">
-                    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6783.357038001982!2d35.225888576795576!3d31.77925307513867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d2495bf905%3A0xe5fd457b5405ec57!2z157XnteZ15zXkCwg15nXqNeV16nXnNeZ150!5e0!3m2!1siw!2sil!4v1609235677292!5m2!1siw!2sil" width="200" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                </div>
+             <span class="col-sm-7 col-md-5 col-lg-3 center">
+                 <label><h2>כתובת </h2></label>
 
-            </div>
-        </footer>*@
-<nav class="navbar fixed-bottom navbar-light bg-light">
-    <!--  <a class="navbar-brand" href="#">Fixed bottom</a>-->
-
-    <div class="row">
-
-        <div class="col-sm-4 col-md-4 col-lg-4 left">
-            <label><h2>צור קשר </h2></label>
-            <label><h4> 091234567:טלפון</h4></label>
-            <label><h4>פקס:031234567/א</h4></label>
-            <label><h4>Fusion@gmail.com:אימייל</h4></label>
-        </div>
+                 <label><h4> ממילא ירושלים</h4></label>
+             </span>
 
 
-        <div class="col-sm-4 col-md-4 col-lg-4 center">
-            <label><h2>כתובת </h2></label>
-            <label><h4> ממילא ירושלים</h4></label>
-        </div>
+             <span class="col-sm-1 col-md-2 col-lg-5 right">
+
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6783.357038001982!2d35.225888576795576!3d31.77925307513867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d2495bf905%3A0xe5fd457b5405ec57!2z157XnteZ15zXkCwg15nXqNeV16nXnNeZ150!5e0!3m2!1siw!2sil!4v1605870851249!5m2!1siw!2sil" class="map" width="200" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
 
-        <div class="col-sm-4 col-md-4 col-lg-4 right">
-            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6783.357038001982!2d35.225888576795576!3d31.77925307513867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d2495bf905%3A0xe5fd457b5405ec57!2z157XnteZ15zXkCwg15nXqNeV16nXnNeZ150!5e0!3m2!1siw!2sil!4v1609235677292!5m2!1siw!2sil" width="200" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-        </div>
+             </span>
 
-    </div>
-</nav>
+
+         </span>-->
+
+    </footer>
 
 
 
