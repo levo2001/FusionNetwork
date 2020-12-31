@@ -120,5 +120,8 @@ input {
     background-size: cover;
 }
 .from-control {
-    color: white!important;
+    color: white !important;
+}
+.table {
+    direction: rtl !important;
 }

@@ -26,9 +26,12 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">חזרה לרשימת הפניות</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+@section Css{
+<link rel="stylesheet" href="~/css/Contact.css" />
 }

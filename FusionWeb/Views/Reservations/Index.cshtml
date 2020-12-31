@@ -4,14 +4,21 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
+<div class="title"> הזמנת מקומות</div>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Client.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client.PhoneNumber)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.DateTime)
             </th>
@@ -32,6 +39,15 @@
         {
             <tr>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Client.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.PhoneNumber)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.DateTime)
                 </td>
                 <td>
@@ -44,14 +60,16 @@
                     @Html.DisplayFor(modelItem => item.Kitchen)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
+                    <a asp-action="Details" asp-route-id="@item.Id">הצג</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">מחק</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
+@section Css{ @*<link rel="stylesheet" href="~/css/Reservtion.css" />*@
 
-<
+<link rel="stylesheet" href="~/css/Index.css" />
+}

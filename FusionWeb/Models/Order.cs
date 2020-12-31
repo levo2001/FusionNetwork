@@ -13,6 +13,7 @@ namespace FusionWeb.Models
         [Required(ErrorMessage = "Client is required.")]
         public Client Client { get; set; }
 
+        
         public Credit Credit { get; set; }
 
         [Display (Name ="כמות מנות סופית")]
