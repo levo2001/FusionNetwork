@@ -4,24 +4,42 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
 
-<div class="title">אתה בטוח רוצה למחוק?</div>
+<div class="title">?האם את/ה בטוח/ה רוצה למחוק</div>
 <div>
     
     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InfoClient.Name)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.InfoClient.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InfoClient.PhoneNumber)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.InfoClient.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InfoClient.Email)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.InfoClient.Email)
+        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Content)
         </dt>
         <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Content)
         </dd>
+
     </dl>
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="מחק" class="btn btn-danger" /> |
+        <a asp-action="Index">חזרה לרשימה</a>
     </form>
 </div>
 @section Css{
