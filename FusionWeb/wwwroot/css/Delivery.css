@@ -236,7 +236,7 @@ img{
 
 .basket {
     font-size: 15px !important;
-    margin-top: 4.4rem;
+    margin-top: 41.4px;
 }
 
 .msg {
@@ -253,7 +253,16 @@ img{
     font-weight: 600;
     font-size: 20px !important;
 }
-
+.btnEdit {
+    position: absolute;
+    top: 25px;
+    left: 0px;
+}
+.btnDelete {
+    position: absolute;
+    top: 52px;
+    left: 98px;
+}
 
 .alert {
     /* width: 106%; */
@@ -265,6 +274,12 @@ img{
 
 .mr-2, .mx-2 {
     margin-right: -8.5rem !important;
+}
+
+.plus {
+    position: absolute;
+    top: 5px;
+    left: 2rem;
 }
 
 

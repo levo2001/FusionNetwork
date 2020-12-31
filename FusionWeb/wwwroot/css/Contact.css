@@ -114,3 +114,6 @@ input {
     -o-background-size: cover;
     background-size: cover;
 }
+.from-control {
+    color: white!important;
+}

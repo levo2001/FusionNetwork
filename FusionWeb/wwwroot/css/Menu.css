@@ -54,16 +54,26 @@ body{
     background-color: black;
 }
 
+
 .bor {
     border: solid 2px gray;
-    height:41rem;
+    height:37rem;
+
+}
+
+
+.row{
+    height:35rem;
 }
 
 .navbar-collapse {
     margin-top: 0px;
 }
 
-
+hr{
+    color:white!important;
+    border:1!important;
+}
 
 .container_img {
     position: relative;
@@ -116,6 +126,4 @@ body{
     -o-background-size: cover;
   
 }
-.drinks{
-   margin:1rem !important;
-}
+

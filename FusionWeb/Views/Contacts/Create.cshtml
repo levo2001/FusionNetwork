@@ -53,14 +53,17 @@
                     <input asp-for="Content" class="form-control" placeholder="הזן/י סיבת הפניה" />
                     <span asp-validation-for="Content" class="text-danger"></span>
                 </div>
-                @*<div class="form-group w-50">*@
-                    <button type="button" class="btn btn-primary" style="border-radius: .25rem;"
-                            @*value="שלח"*@ data-bs-toggle="modal" data-bs-target="#exampleModal" ></button>
-                @*</div>*@
+                <div class="form-group w-50">
+                    <input type="submit" class="btn btn-primary" style="border-radius: .25rem;"
+                            value="שלח" data-bs-toggle="modal" data-bs-target="#exampleModal" />
+                </div>
             </form>
         }
         else
         {
+
+
+            @*<h1>@ViewData["Contact"]</h1>*@
             <!-- Button trigger modal -->
             @*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
@@ -85,7 +88,10 @@
                     </div>
                 </div>
             </div>
+
         }
+
+
     </div>
 </div>
 

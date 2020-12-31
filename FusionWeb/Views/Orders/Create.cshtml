@@ -4,23 +4,115 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>Order</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4">
+    
+    <div class="container">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Total" class="control-label"></label>
-                <input asp-for="Total" class="form-control" />
-                <span asp-validation-for="Total" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="container">
+
+                        <div class="contact">
+                            <div class="form-group w-50">
+                                <label asp-for="Client.Name" class="control-label"></label>
+                                <input asp-for="Client.Name" class="form-control" placeholder="הזן/י שם מלא" type="text" />
+                                <span asp-validation-for="Client.Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group w-50">
+                                <label asp-for="Client.Email" class="control-label"></label>
+                                <input asp-for="Client.Email" class="form-control" placeholder="הזן/י אימייל" type="email" />
+                                <span asp-validation-for="Client.Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group w-50">
+                                <label asp-for="Client.Address" class="control-label"></label>
+                                <input asp-for="Client.Address" class="form-control" placeholder="הזן/י כתובת" />
+                                <span asp-validation-for="Client.Address" class="text-danger"></span>
+                            </div>
+                            <div class="form-group w-50">
+                                <label asp-for="Client.City" class="control-label"></label>
+                                <input asp-for="Client.City" class="form-control" placeholder="הזן/י עיר" />
+                                <span asp-validation-for="Client.City" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="shem">
+
+
+                            <div class="form-group w-75">
+                                <label asp-for="Credit.Name" for="formGroupExampleInput">שם בעל הכרטיס</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="הזן/י שם בעל הכרטיס">
+                            </div>
+
+
+                            <div class="form-row">
+                                <div class=" form-group w-25 col-75">
+                                    <label asp-for="Credit.Number" for="ccnum">מס כרטיס</label>
+                                    <input type="text" class="form-control" id="ccnum" name="cardnumber" id="formGroupExampleInput"
+                                           placeholder="1111-2222-3333-4444">
+                                </div>
+                                <div class="  form-group w-25 col-75">
+                                    <label asp-for="Credit.Month" for="expmonth">חודש</label>
+                                    <input type="text" class="form-control" id="expmonth" name="expmonth" placeholder="הזן/י חודש תוקף">
+                                </div>
+
+                            </div>
+
+                            <div class="form-row">
+                                <div class=" form-group w-25 col-75">
+                                    <label asp-for="Credit.Year" for="expyear"> שנה </label>
+                                    <input type="text" class="form-control" id="expyear" name="expyear" placeholder="הזן/י תוקף">
+                                </div>
+                                <div class="  form-group w-25 col-75">
+                                    <label asp-for="Credit.CVV" for="cvv">CVV</label>
+                                    <input type="text" class="form-control" id="cvv" name="cvv" placeholder="הזן/י 3 ספרות ">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="col-md-6 ">
+                    <div class="left">
+                        <div class="container">
+                            <h3>סיכום הזמנה</h3>
+                            <span class="price">
+                                <h4>מס פריטים : 4 </h4>
+                            </span>
+                            <br><br>
+
+                            <p><a href="#">מנה 1</a> <span class="price">₪15</span></p>
+                            <p><a href="#">מנה 2</a> <span class="price">₪5</span></p>
+                            <p><a href="#">מנה 3</a> <span class="price">₪8</span></p>
+                            <p><a href="#">מנה 4</a> <span class="price">₪2</span></p>
+                            <hr>
+                            <p>סה"כ <span class="price"><b>₪30</b></span></p>
+
+                            <!--ראו הוזהרתם לשנות את השורה הבאה בקוד !!!!!!! עבדנו על זה עד השעה 4 בלילה-->
+
+                            <button type="button" class="btn btn-dark"
+                                    formaction="C:\Users\debor\Google Drive\homework\אפליקציות\Order_Confirmation.html">
+                                לסיום הזמנה
+                            </button>
+
+
+
+                        </div>
         </form>
+
     </div>
 </div>
 
@@ -30,4 +122,12 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+
+@section Css{
+    <link rel="stylesheet" href="~/css/Payment.css" />
+
 }

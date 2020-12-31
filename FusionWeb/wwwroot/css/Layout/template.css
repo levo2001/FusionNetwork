@@ -121,7 +121,35 @@ h4 {
     /*margin-top: 47rem;*/
 }
 
-.footer {
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer_details {
+    position: relative;
+    bottom: 0;
+}
+
+.footer_details_contact {
+    position: absolute;
+    top: 24rem;
+    right: 36rem;
+}
+
+.footer_details_address {
+    position: absolute;
+    top: 24rem;
+    right: 58rem;
+}
+
+.footer_details_map {
+    position: absolute;
+    top: 86rem;
+    right: -3rem;
+}
+
+/*.footer {
     text-align: center;
     padding: 3px;
     background-color: black;
@@ -132,9 +160,15 @@ h4 {
     width: 100%;
     white-space: nowrap;
     line-height: 60px;
+}*/
+.footer{
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+text-align: center;
 }
-
-.col-lg-4 {
+/*.col-lg-4 {
     margin-top: 47rem;
 }
 
@@ -144,11 +178,7 @@ h4 {
     margin-top: 46rem;
     margin-bottom: 1rem;
     margin-right: 1rem;
-}
-
-
-
-
+}*/
 .sign-in {
     margin-top: 4px;
 }

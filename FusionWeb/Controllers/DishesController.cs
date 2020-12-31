@@ -20,9 +20,62 @@ namespace FusionWeb.Controllers
         }
 
         // GET: Dishes
+        
         public async Task<IActionResult> Index()
         {
             return View(await _context.Dish.ToListAsync());
+        }
+
+        public async Task<IActionResult> Kitchen(int Id)
+        {
+            return View("Index", await _context.Dish.ToListAsync());
+        }
+
+
+        public async Task<IActionResult> Search()
+        {
+
+            return View(await _context.Dish.ToListAsync());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Search(string Input)
+        {
+
+            int number = 0;
+            if(int.TryParse(Input, out number))
+            {
+                 var d = from dish in _context.Dish
+                        where dish.Price < number
+                        select dish;
+
+                if (d.Count() == 0)
+                {
+                    ViewData["Error"] = "NotExist";
+                    return RedirectToAction(nameof(Index));
+
+                    ///POPUP
+                }
+                else
+                    return View(await d.ToListAsync());
+            }
+            else {
+
+                var d1 = from dish in _context.Dish
+                         where dish.Name.Contains(Input)
+                         orderby dish.Name descending, dish.Price descending
+                         select dish;
+
+                if (d1.Count() == 0)
+                {
+                    ViewData["Error"] = "NotExist";
+                    return RedirectToAction(nameof(Index));
+
+                    ///POPUP
+                }
+                else
+                    return View(await d1.ToListAsync());
+            }
         }
 
         // GET: Dishes/Details/5

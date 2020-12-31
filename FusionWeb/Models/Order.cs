@@ -10,9 +10,10 @@ namespace FusionWeb.Models
     {
         public int Id { get; set; }
 
-
         [Required(ErrorMessage = "Client is required.")]
         public Client Client { get; set; }
+
+        public Credit Credit { get; set; }
 
         [Display (Name ="כמות מנות סופית")]
         public int Total{ get; set; }
