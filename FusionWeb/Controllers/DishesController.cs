@@ -28,6 +28,10 @@ namespace FusionWeb.Controllers
 
         public async Task<IActionResult> Kitchen(int Id)
         {
+            var d = from dish in _context.Dish
+                    where dish.Id == Id
+                    select dish;
+
             return View("Index", await _context.Dish.ToListAsync());
         }
 
