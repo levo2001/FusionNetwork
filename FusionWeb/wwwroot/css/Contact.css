@@ -83,7 +83,7 @@ input {
 
 .centered {
     position: absolute;
-    top: 62%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: none !important;
@@ -118,4 +118,7 @@ input {
     -webkit-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+.from-control {
+    color: white!important;
 }

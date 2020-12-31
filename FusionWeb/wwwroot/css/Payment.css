@@ -14,7 +14,6 @@ input::placeholder {
 * {
     background-color: black !important;
     color: white;
-    font-size: 20px;
     text-align: center;
     direction: rtl;
     background-size: cover;
@@ -38,7 +37,8 @@ input::placeholder {
 
 
 .row {
-    margin-top: 200px;
+    margin-top: 50px;
+    font-size: 20px;
 }
 
 

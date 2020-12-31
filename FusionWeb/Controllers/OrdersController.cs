@@ -44,7 +44,7 @@ namespace FusionWeb.Controllers
         }
 
         // GET: Orders/Create
-        public IActionResult Create()
+        public IActionResult Create(string Dishes)
         {
             return View();
         }
@@ -54,11 +54,17 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Total")] Order order)
+        public async Task<IActionResult> Create([Bind("Id,Total")] Order order, string Dishes)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(order);
+
+                DishOrder item = new DishOrder();
+                item.Order = order;
+
+                _context.Add(item);
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

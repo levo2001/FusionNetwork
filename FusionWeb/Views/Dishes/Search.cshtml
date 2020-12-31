@@ -1,0 +1,175 @@
+﻿@model IEnumerable<FusionWeb.Models.Dish>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container_img">
+
+    <div style="height: 260px; margin-top: 40px;">
+        <div class="page-header-bg-image"
+             style="background-image:
+        url(https://cdn.pixabay.com/photo/2015/03/26/10/28/restaurant-691397_1280.jpg);  ">
+            <div class="centered">משלוח</div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="container">
+
+    <div class="row">
+
+        <!-- <div class="row"> -->
+        <div class=" col-sm-3 col-md-3 col-lg-3 right ">
+
+            <nav class="navbar navbar-light ser">
+                <div class="container-fluid">
+                    <form class="d-flex"  asp-action="Search">
+                        <input class="btn btn-outline-success " type="submit" value="שלח "  />
+                        @*<svg width="1em" style="background-color: white;" height="1em" viewBox="0 0 16 16" class="bi bi-search"
+                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                </svg>*@
+                        @*</input>*@
+                        <input class="form-control mr-2" @*type="search"*@ placeholder="Search" aria-label="Search" name="Input"/>
+                    </form>
+                </div>
+            </nav>
+            <br>
+            <!-- border -->
+            <ul class="nav flex-column " style="float: left;
+       ">
+                <li class="nav-item">
+                    <a class="nav-link active border DeliNav" aria-current="page" href="#">אמריקאי</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link border DeliNav" id="size" href="#">איטלקי</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link border DeliNav" href="#">אסייתיי</a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link border DeliNav" href="#">ישראלי</a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link border DeliNav" href="#">שתיה</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class=" col-sm-6 col-md-6 col-lg-6  inner">
+
+
+            <div class="alert alert-light msg" role="alert">
+                לקוחות יקרים
+
+            </div>
+            <div class="alert alert-light msg" role="alert">
+                !שימו לב
+            </div>
+
+
+
+            @foreach (var item in Model)
+            {
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-img">
+                            <img src="@item.Image" class="card-img " alt="...">
+                        </div>
+                        <div class="col-sm-7 col-md-7 col-lg-7">
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name) </h5><br>
+                                <p class="card-text"> @Html.DisplayFor(modelItem => item.Description)</p>
+                                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                            </div>
+                        </div>
+                        <span class="col-sm-2 col-md-2 col-lg-2 ">
+                            <span class="price"> @Html.DisplayFor(modelItem => item.Price)₪ </span><br>
+                            <span><a type="button" href="/Dishes/Details/@Html.DisplayFor(modelItem => item.Id)" class="btn btn-outline-dark btnOrder">הוסף להזמנה+</a></span>
+
+                        </span>
+
+                    </div>
+                </div>
+                @*<tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>-->
+                        <img src="@item.Image" >
+                                 </td>
+                      <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>*@
+            }
+
+
+
+        </div>
+
+
+
+        <div class="col-sm-3 col-md-3 col-lg-3 left">
+
+            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+            </svg>
+
+            <div class="alert alert-light basket" role="alert">
+
+                <svg width="2em" height="2em" style="background-color: white;" viewBox="0 0 16 16" class="bi bi-cart2"
+                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                </svg><br>
+                הוסיפו פרטים להזמנה
+
+
+            </div>
+            <a class="sign-in" href="payment.html" target="myFrame">
+
+                <button type="button" class="btn btn-light btn_pay">מעבר לתשלום</button>
+
+            </a>
+
+
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+@section Css{
+    <link rel="stylesheet" href="~/css/Delivery.css" />
+
+}

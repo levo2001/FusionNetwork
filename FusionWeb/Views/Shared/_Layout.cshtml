@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FusionWeb</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-   
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/css/Layout/navbar.css" />
-        <link rel="stylesheet" href="~/css/Layout/template.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 
-
-
+    <link rel="stylesheet" href="~/css/Layout/navbar.css" />
+    <link rel="stylesheet" href="~/css/Layout/template.css" />
 
     @RenderSection("Css", required: false)
 
@@ -83,9 +80,16 @@
     </div>
 
 
-    <footer>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @*<footer class="border-top footer text-muted">
         <div class="container">
-            <div class="row">
+            <div class="row         AnnouncementBar__Content">
                 <div class="footer_details ">
                     <div class="footer_details_map col-sm-3 col-md-3 col-lg-3">
                         <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6783.357038001982!2d35.225888576795576!3d31.77925307513867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d2495bf905%3A0xe5fd457b5405ec57!2z157XnteZ15zXkCwg15nXqNeV16nXnNeZ150!5e0!3m2!1siw!2sil!4v1609359668548!5m2!1siw!2sil" width="150" height="" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -108,51 +112,55 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer>*@
 
+    @*<footer class="border-top footer text-muted">*@
 
+        @*.footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            }
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+                class=AnnouncementBar__Content
+        *@
 
-    <footer>
         <!-- <span class="row">
 
-             <span class="col-sm-7 col-md-5 col-lg-4 left">
-                 <label><h2>צור קשר </h2></label>
+            <span class="col-sm-7 col-md-5 col-lg-4 left">
+                <label><h2>צור קשר </h2></label>
 
-                 <label><h4> 091234567:טלפון</h4></label>
+                <label><h4> 091234567:טלפון</h4></label>
 
-                 <label><h4>פקס:031234567/א</h4></label>
-                 <label><h4>Fusion@gmail.com:אימייל</h4></label>
-             </span>
-
-
-             <span class="col-sm-7 col-md-5 col-lg-3 center">
-                 <label><h2>כתובת </h2></label>
-
-                 <label><h4> ממילא ירושלים</h4></label>
-             </span>
+                <label><h4>פקס:031234567/א</h4></label>
+                <label><h4>Fusion@gmail.com:אימייל</h4></label>
+            </span>
 
 
-             <span class="col-sm-1 col-md-2 col-lg-5 right">
+            <span class="col-sm-7 col-md-5 col-lg-3 center">
+                <label><h2>כתובת </h2></label>
 
-                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6783.357038001982!2d35.225888576795576!3d31.77925307513867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d2495bf905%3A0xe5fd457b5405ec57!2z157XnteZ15zXkCwg15nXqNeV16nXnNeZ150!5e0!3m2!1siw!2sil!4v1605870851249!5m2!1siw!2sil" class="map" width="200" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-
-
-             </span>
-
-
-         </span>-->
-
-    </footer>
+                <label><h4> ממילא ירושלים</h4></label>
+            </span>
 
 
+            <span class="col-sm-1 col-md-2 col-lg-5 right">
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6783.357038001982!2d35.225888576795576!3d31.77925307513867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d2495bf905%3A0xe5fd457b5405ec57!2z157XnteZ15zXkCwg15nXqNeV16nXnNeZ150!5e0!3m2!1siw!2sil!4v1605870851249!5m2!1siw!2sil" class="map" width="200" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+
+            </span>
+
+
+        </span>-->
+
+    @*</footer>*@
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script> 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

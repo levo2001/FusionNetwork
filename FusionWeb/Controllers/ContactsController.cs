@@ -60,9 +60,11 @@ namespace FusionWeb.Controllers
             {
                 _context.Add(contact);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewData["Contact"] = "Order";
+                //return RedirectToAction(nameof(Create));
             }
             return View(contact);
+
         }
 
         // GET: Contacts/Edit/5

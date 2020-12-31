@@ -17,6 +17,7 @@
     margin-top: 100px;
     /* font-size: 25px; */
     background-color: white !important;
+    height: 92.5px;
 }
 
 body {
@@ -130,7 +131,7 @@ span {
     color: black !important;
     direction: rtl;
     font-size: 25px !important;
-    line-height: 1.22rem !important;
+    line-height: 1.80rem !important;
 }
 
 .col-sm-7, .col-md-7, .col-lg-7 {
@@ -166,7 +167,12 @@ img{
     margin-left: -7px;
     margin-right: -89px;
 } */
-
+.btnOrder {
+    margin-top: 11px;
+    margin-bottom: 1px;
+    width: 6rem !important;
+    margin-left: 5px !important;
+}
 
 .card-text {
     font-size: 15px !important;
@@ -180,6 +186,7 @@ img{
 .no-gutters {
     background-color: white !important;
     margin-top: 0 !important;
+    
 }
 
 .price {
@@ -200,7 +207,7 @@ img{
 }
 
 .card-img {
-    height: 90px;
+    height: 93px;
     /* width: auto;
     border-radius: 0.25rem !important;
 } */
@@ -220,6 +227,7 @@ img{
 
 .col-img {
     background-color: white;
+    height: 5.5rem;
 }
 
 
@@ -228,7 +236,7 @@ img{
 
 .basket {
     font-size: 15px !important;
-    margin-top: 4.4rem;
+    margin-top: 41.4px;
 }
 
 .msg {
@@ -240,12 +248,21 @@ img{
 
 
 .btn_pay {
-    height: 1.5rem !important;
-    width: 8.25rem !important;
+    height: 2.5rem !important;
+    width: 15.25rem !important;
     font-weight: 600;
     font-size: 20px !important;
 }
-
+.btnEdit {
+    position: absolute;
+    top: 25px;
+    left: 0px;
+}
+.btnDelete {
+    position: absolute;
+    top: 52px;
+    left: 98px;
+}
 
 .alert {
     /* width: 106%; */
@@ -257,6 +274,12 @@ img{
 
 .mr-2, .mx-2 {
     margin-right: -8.5rem !important;
+}
+
+.plus {
+    position: absolute;
+    top: 5px;
+    left: 2rem;
 }
 
 
@@ -278,7 +301,7 @@ img{
 
 .centered {
     position: absolute;
-    top: 62%;
+    top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: none !important;
@@ -301,7 +324,7 @@ img{
 .page-header-bg-image {
     position: absolute;
     width: 100%;
-    height: 5%;
+    height: 96%;
     top: 0;
     left: 0;
     z-index: 9;
