@@ -1,26 +1,26 @@
-﻿body {
+﻿
+body {
 }
+
 .row {
     direction: rtl;
     margin-top: 13rem;
     /* margin-left: 0rem; */
     margin-right: 8rem;
-
 }
+
 .table {
     color: white !important;
     direction: rtl !important;
     margin-top: 10rem;
-
 }
 
 .title {
     font-size: 34px !important;
-    top: 180px;
-    left: 28rem;
-    position: absolute;
+    top: 180px !important;
+    left: 39rem !important;
+    position: absolute !important;
 }
-
 .urlImage {
     font-size: 18px !important;
     margin-top: 1rem;

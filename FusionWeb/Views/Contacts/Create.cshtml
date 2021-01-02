@@ -17,10 +17,11 @@
 <hr />
 <div class="row">
     <div class="container">
-
+       
         @if (ViewData["Contact"] == null)
         {
             <form asp-action="Create">
+                
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group w-50">
                     <label asp-for="InfoClient.Name" class="control-label"></label>
@@ -57,9 +58,11 @@
                     <input type="submit" class="btn btn-primary" style="border-radius: .25rem;"
                             value="שלח" data-bs-toggle="modal" data-bs-target="#exampleModal" />
                 </div>
+
+
             </form>
         }
-        else
+      else
         {
 
 
@@ -96,7 +99,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">חזרה לרשימה</a>
 </div>
 
 @section Scripts {

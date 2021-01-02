@@ -8,34 +8,39 @@
 <div class="row">
     <div class="container">
 
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group w-50">
-                    <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" placeholder="הזן/י שם מנה" type="text" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
-                </div>
-                <div class="form-group w-50">
-                    <label asp-for="Price" class="control-label"></label>
-                    <input asp-for="Price" class="form-control" placeholder="הזן/י מחיר" type="number" />
-                    <span asp-validation-for="Price" class="text-danger"></span>
-                </div>
-                <div class="form-group w-50">
-                    <label asp-for="Description" class="control-label"></label>
-                    <input asp-for="Description" class="form-control" placeholder="הזן/י תיאור מנה" />
-                    <span asp-validation-for="Description" class="text-danger"></span>
-                </div>
-                <div class="form-group w-50">
-                    <label asp-for="Image" class="control-label"></label>
-                    <input asp-for="Image" class="form-control" placeholder="הזן/י כתובת תמונה" />
-                    <span asp-validation-for="Image" class="text-danger"></span>
-                </div>
-    
-                <div class="form-group w-50">
-                    <input type="submit" class="btn btn-primary" style="border-radius: .25rem;"
-                           value="שלח" data-bs-toggle="modal" data-bs-target="#exampleModal" />
-                </div>
-            </form>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group w-50">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="הזן/י שם מנה" type="text" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group w-50">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" placeholder="הזן/י מחיר" type="number" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group w-50">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" placeholder="הזן/י תיאור מנה" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group w-50">
+                <label asp-for="KitchenDish" class="control-label"></label>
+                <input asp-for="Description" class="form-control" placeholder="הזן/י תיאור מנה" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group w-50">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" placeholder="הזן/י כתובת תמונה" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+            <div class="form-group w-50">
+                <input type="submit" class="btn btn-primary" style="border-radius: .25rem;"
+                       value="שלח" data-bs-toggle="modal" data-bs-target="#exampleModal" />
+            </div>
+        </form>
         
        </div>
     </div>
@@ -43,7 +48,7 @@
 
 
         <div>
-            <a asp-action="Index">Back to List</a>
+            <a asp-action="Index">חזרה לרשימה</a>
         </div>
 
         @section Scripts {

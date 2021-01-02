@@ -21,9 +21,10 @@ namespace FusionWeb.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Address is required.")]
+        [Display(Name = "כתובת")]
         public string Address { get; set; }
 
-        
+        [Display(Name = "עיר")]
         public string City { get; set; }
 
         //  public ICollection<Reservasion> Reservasions { get; set; }

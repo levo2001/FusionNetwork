@@ -15,7 +15,7 @@ namespace FusionWeb.Models
 
         [DataType(DataType.Date)]
         [Display(Name = "תאריך")]
-        [Range(0, 999.99)]
+        //[Range(0, 999.99)]
         public DateTime DateTime { get; set; }
 
         [Range(1, 10)]
