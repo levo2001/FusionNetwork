@@ -1,4 +1,7 @@
-﻿SET IDENTITY_INSERT [dbo].[Dish] ON
+﻿--SET IDENTITY_INSERT [dbo].[Dish] ON
+--INSERT INTO [dbo].[Dish] ([Id], [Name], [Price], [Description], [Image]) VALUES (NULL, NULL, NULL, NULL, NULL)
+--SET IDENTITY_INSERT [dbo].[Dish] OFF
+SET IDENTITY_INSERT [dbo].[Dish] ON
 INSERT INTO [dbo].[Dish] ([Id], [Name], [Price], [Description], [Image]) VALUES (1, N'Sausage party', 47, N'.נקניקיות צ''וריסוס ביתיות, כרוב כבוש, קוביות צ''יפס, רוטב הולנדייז וביצת עין', N'https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6119500_636458426331881339.jpg?v=2')
 INSERT INTO [dbo].[Dish] ([Id], [Name], [Price], [Description], [Image]) VALUES (2, N'Wild Goose', 61, N'.חזה אווז מעושן בפלאנצ''ה,צ''יפס בטטה,חסה,סלרי,תפוחים,שקדים,חמוציות בויניגרייט', N'https://files.mishloha.co.il/files/menu_food_pic/thumbnail/FIL_6069381_636227736520604721.jpg?v=2')
 INSERT INTO [dbo].[Dish] ([Id], [Name], [Price], [Description], [Image]) VALUES (3, N'THE BASE ', 59, N'100% בורגר בקר מבשר בקר איכותי טחון במקום-400 גרם. מוגש בלחמנייה עם מיונז,חסה ועגבניה.', N'https://cdn.pixabay.com/photo/2017/09/18/16/53/burger-2762371__480.jpg')
