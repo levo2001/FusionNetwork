@@ -28,7 +28,7 @@ namespace FusionWeb.Models
         public ICollection<DishOrder> Order { get; set; }
 
 
-
+        public Kitchen KitchenDish { get; set; }
 
     }
 }

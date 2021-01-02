@@ -22,7 +22,8 @@ namespace FusionWeb.Data
 
         public DbSet<FusionWeb.Models.DishOrder> DishOrder { get; set; }
 
-        
+        //public DbSet<FusionWeb.Models.Kitchen> Kitchen { get; set; }
+
 
         public DbSet<FusionWeb.Models.Manager> Manager { get; set; }
 
