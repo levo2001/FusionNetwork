@@ -58,13 +58,16 @@ namespace FusionWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                
+                //Client c = new Client();
+                //c = reservation.Client;
+                //_context.Client.Add(c);
                 _context.Add(reservation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(reservation);
         }
-
         // GET: Reservations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
