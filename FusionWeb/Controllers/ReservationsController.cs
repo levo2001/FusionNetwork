@@ -13,15 +13,22 @@ namespace FusionWeb.Controllers
     public class ReservationsController : Controller
     {
         private readonly FusionWebContext _context;
-
+         
         public ReservationsController(FusionWebContext context)
         {
-            _context = context;
-        }
+            _context = context;   
+
+        } 
 
         // GET: Reservations
         public async Task<IActionResult> Index()
         {
+            //var query = from r in _context.
+            //             join c in _context.Client on r equals c.ClientId
+            //            select new { ClientEmail = C.Email, PetName = pet.Name };
+
+
+
             return View(await _context.Reservasion.ToListAsync());
         }
 
