@@ -23,13 +23,13 @@ namespace FusionWeb.Controllers
         // GET: Reservations
         public async Task<IActionResult> Index()
         {
-            //var query = from r in _context.
-            //             join c in _context.Client on r equals c.ClientId
-            //            select new { ClientEmail = C.Email, PetName = pet.Name };
+                 var query = from r in _context.Reservasion
+                         join c in _context.Client on r.Client equals c
+                        select new { ClientEmail = c.Email, ClientName = c.Name,ClientAddres=c.Address,NumOfDinneer=r.NumOfDinners,Kitchen=r.Kitchen,Id=r.Id,Note=r.Note,DateTime=r.DateTime};
 
 
 
-            return View(await _context.Reservasion.ToListAsync());
+            return View(query);
         }
 
         // GET: Reservations/Details/5
@@ -65,13 +65,14 @@ namespace FusionWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                
                 //Client c = new Client();
                 //c = reservation.Client;
                 //_context.Client.Add(c);
+
                 _context.Add(reservation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+
             }
             return View(reservation);
         }
