@@ -54,7 +54,7 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DateTime,NumOfDinners,Note,Kitchen")] Reservation reservation)
+        public async Task<IActionResult> Create([Bind("ClientId,DateTime,NumOfDinners,Note,Kitchen")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {

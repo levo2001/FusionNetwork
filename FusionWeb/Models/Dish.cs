@@ -30,5 +30,7 @@ namespace FusionWeb.Models
 
         public int KitchenDish { get; set; }
 
+
+
     }
 }

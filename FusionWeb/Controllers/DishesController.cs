@@ -56,12 +56,16 @@ namespace FusionWeb.Controllers
                         where myInts.Contains(d.Id)
                         select d;
 
+                //TempData["listdishes"] = c;
+
+                //return RedirectToAction("ActionName", "Home2", new { Date = date });
+
                 return View(await c.ToListAsync());
             }
 
         }
 
-        
+
 
         public async Task<IActionResult> Kitchen(int Id)
         {

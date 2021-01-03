@@ -100,14 +100,16 @@
                             </div>
                             <span class="col-sm-2 col-md-2 col-lg-2 ">
                                 <span class="price"> @Html.DisplayFor(modelItem => item.Price)₪ </span><br>
-                                <form asp-action="Cart">
-                                 <input type="hidden" name="Id" id="Id" value="@Html.DisplayFor(modelItem => item.Id)" />
+                                
+                                <form asp-action = "Cart">
+                                 
+                                    <input type="hidden" name="Id" id="Id" value="@Html.DisplayFor(modelItem => item.Id)" />
+                                    <span><input type="submit" @*href="/Dishes/Details/@Html.DisplayFor(modelItem => item.Id)"*@ class="btn btn-outline-dark btnOrder" value="הוסף להזמנה+"></span>
 
-                                <span><a type="button" @*href="/Dishes/Details/@Html.DisplayFor(modelItem => item.Id)"*@ class="btn btn-outline-dark btnOrder">הוסף להזמנה+</a></span>
                                 </form>
+                                
                                 @if (Context.Session.GetString("user") != null)
                                 {
-
                                     <span><a type="button" href="/Dishes/Edit/@Html.DisplayFor(modelItem => item.Id)" class="btn btn-outline-dark btnOrder btnEdit">עריכת מנה</a></span>
                                     <span><a type="button" href="/Dishes/Delete/@Html.DisplayFor(modelItem => item.Id)" class="btn btn-outline-dark btnOrder btnDelete">מחיקת מנה</a></span>
                                 }
@@ -170,7 +172,7 @@
 
                 </div>
                 @*<a class="sign-in">*@
-                <form asp-area="" asp-controller="Orders" asp-action="Create" method="get">
+                <form asp-area="" asp-controller="Orders" asp-action="Create" method="post">
                     <input type="hidden" name="Dishes" id="Dishes" value="1,2,3" />
                     <input type="submit" class="btn btn-light btn_pay" value="מעבר לתשלום" />
                 </form>
