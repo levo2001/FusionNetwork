@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FusionWeb.Data;
 using FusionWeb.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace FusionWeb.Controllers
 {
@@ -23,6 +24,39 @@ namespace FusionWeb.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Order.ToListAsync());
+        }
+
+
+        public async Task<IActionResult> Cart(int id)
+        {
+            if (HttpContext.Session.GetString("cart") == null)
+            {
+                string myString = id.ToString();
+                HttpContext.Session.SetString("cart", myString);
+                var dishes = from d in _context.Dish
+                             where id == d.Id
+                             select d;
+
+                return View(await dishes.ToListAsync());
+
+
+            }
+            else
+            {
+                string dishId = HttpContext.Session.GetString("cart");
+                dishId += ",";
+                dishId += id;
+                HttpContext.Session.SetString("cart", dishId);
+                string[] ids = dishId.Split(',');
+                int[] myInts = ids.Select(int.Parse).ToArray();
+
+                var c = from d in _context.Dish
+                        where myInts.Contains(d.Id)
+                        select d;
+
+                return View(await c.ToListAsync());
+            }
+
         }
 
         // GET: Orders/Details/5
@@ -54,8 +88,11 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Total")] Order order, string Dishes)
+        public async Task<IActionResult> Create([Bind("Id,Total")] Order order, string IdDishes)
         {
+
+            //object data = TempData["listdishes"];
+
             if (ModelState.IsValid)
             {
                 _context.Add(order);
@@ -63,8 +100,13 @@ namespace FusionWeb.Controllers
                 DishOrder item = new DishOrder();
                 item.Order = order;
 
-                _context.Add(item);
+                var c = from d in _context.Dish
+                        where IdDishes.Contains((char)d.Id)
+                        select d;
 
+                item.Order.Cart.Dishes = (ICollection<Dish>)c;
+
+                _context.Add(item);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

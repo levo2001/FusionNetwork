@@ -9,7 +9,8 @@ namespace FusionWeb.Models
     {
         public int Id { get; set; }
 
-        public ICollection<Dish> SelectedDishes { get; set; }
+        //public ICollection<Dish> SelectedDishes { get; set; }
+        public ICollection<Dish> Dishes { get; set; }
 
     }
 }
