@@ -104,7 +104,7 @@ namespace FusionWeb.Controllers
                         where IdDishes.Contains((char)d.Id)
                         select d;
 
-                item.Order.Cart.Dishes = (ICollection<Dish>)c;
+              //  item.Order.Cart.Dishes = (ICollection<Dish>)c;
 
                 _context.Add(item);
                 await _context.SaveChangesAsync();
