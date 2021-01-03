@@ -7,61 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FusionWeb.Data;
 using FusionWeb.Models;
-using Microsoft.AspNetCore.Http;
 
 namespace FusionWeb.Controllers
 {
-    public class ManagersController : Controller
+    public class CartsController : Controller
     {
         private readonly FusionWebContext _context;
 
-        public ManagersController(FusionWebContext context)
+        public CartsController(FusionWebContext context)
         {
             _context = context;
         }
 
-        // GET: Managers
+        // GET: Carts
         public async Task<IActionResult> Index()
         {
-            if (HttpContext.Session.GetString("user") == null)
-            {
-                return RedirectToAction(nameof(LogIn));
-            }
-
-            return View(await _context.Manager.ToListAsync());
+            return View(await _context.Cart.ToListAsync());
         }
 
-        public IActionResult LogIn()
-        {
-            return View();
-        }
-
-        [HttpPost][ValidateAntiForgeryToken]
-        public async Task<IActionResult> LogIn([Bind("Id,UserName,Password")] Manager manager)
-        {
-            var q = from m in _context.Manager
-                    where manager.UserName.Contains("levona") && m.UserName.Contains("levona") &&
-                          manager.Password == m.Password
-                    select m;
-
-            if (q.Count() > 0)
-            {
-                HttpContext.Session.SetString("user", q.First().FullName);
-                return RedirectToAction("Index","Home");
-            }
-            else
-            {
-                ViewData["Error"] = "User does not exist!";
-            }
-
-            return View(manager);
-        }
-
-
-
-
-
-        // GET: Managers/Details/5
+        // GET: Carts/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -69,41 +33,39 @@ namespace FusionWeb.Controllers
                 return NotFound();
             }
 
-            var manager = await _context.Manager
+            var cart = await _context.Cart
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (manager == null)
+            if (cart == null)
             {
                 return NotFound();
             }
 
-            return View(manager);
+            return View(cart);
         }
 
-        // GET: Managers/Create
+        // GET: Carts/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Managers/Create
+        // POST: Carts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,Password,FullName")] Manager manager)
+        public async Task<IActionResult> Create([Bind("Id")] Cart cart)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(manager);
+                _context.Add(cart);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(manager);
+            return View(cart);
         }
 
-
-        
-        // GET: Managers/Edit/5
+        // GET: Carts/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -111,22 +73,22 @@ namespace FusionWeb.Controllers
                 return NotFound();
             }
 
-            var manager = await _context.Manager.FindAsync(id);
-            if (manager == null)
+            var cart = await _context.Cart.FindAsync(id);
+            if (cart == null)
             {
                 return NotFound();
             }
-            return View(manager);
+            return View(cart);
         }
 
-        // POST: Managers/Edit/5
+        // POST: Carts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserName,Password,FullName")] Manager manager)
+        public async Task<IActionResult> Edit(int id, [Bind("Id")] Cart cart)
         {
-            if (id != manager.Id)
+            if (id != cart.Id)
             {
                 return NotFound();
             }
@@ -135,12 +97,12 @@ namespace FusionWeb.Controllers
             {
                 try
                 {
-                    _context.Update(manager);
+                    _context.Update(cart);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ManagerExists(manager.Id))
+                    if (!CartExists(cart.Id))
                     {
                         return NotFound();
                     }
@@ -151,10 +113,10 @@ namespace FusionWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(manager);
+            return View(cart);
         }
 
-        // GET: Managers/Delete/5
+        // GET: Carts/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -162,30 +124,30 @@ namespace FusionWeb.Controllers
                 return NotFound();
             }
 
-            var manager = await _context.Manager
+            var cart = await _context.Cart
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (manager == null)
+            if (cart == null)
             {
                 return NotFound();
             }
 
-            return View(manager);
+            return View(cart);
         }
 
-        // POST: Managers/Delete/5
+        // POST: Carts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var manager = await _context.Manager.FindAsync(id);
-            _context.Manager.Remove(manager);
+            var cart = await _context.Cart.FindAsync(id);
+            _context.Cart.Remove(cart);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ManagerExists(int id)
+        private bool CartExists(int id)
         {
-            return _context.Manager.Any(e => e.Id == id);
+            return _context.Cart.Any(e => e.Id == id);
         }
     }
 }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FusionWeb.Migrations
 {
     [DbContext(typeof(FusionWebContext))]
-    [Migration("20210102185732_db")]
-    partial class db
+    [Migration("20210103110158_KitchenDish")]
+    partial class KitchenDish
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -163,13 +163,17 @@ namespace FusionWeb.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
-                    b.Property<int>("UserName")
-                        .HasColumnType("int")
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
                     b.HasKey("Id");

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -22,12 +24,15 @@
             <a class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index">
                 <img src="~/imag/LOGO-FUSION-Transparent-for-Web.png" id="logo">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            @if (Context.Session.GetString("user") != null)
+            {
 
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            }
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -88,79 +93,78 @@
     </div>
 
     @*<footer class="border-top footer text-muted">
-        <div class="container">
-            <div class="row         AnnouncementBar__Content">
-                <div class="footer_details ">
-                    <div class="footer_details_map col-sm-3 col-md-3 col-lg-3">
-                        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6783.357038001982!2d35.225888576795576!3d31.77925307513867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d2495bf905%3A0xe5fd457b5405ec57!2z157XnteZ15zXkCwg15nXqNeV16nXnNeZ150!5e0!3m2!1siw!2sil!4v1609359668548!5m2!1siw!2sil" width="150" height="" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                    </div>
+            <div class="container">
+                <div class="row         AnnouncementBar__Content">
+                    <div class="footer_details ">
+                        <div class="footer_details_map col-sm-3 col-md-3 col-lg-3">
+                            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6783.357038001982!2d35.225888576795576!3d31.77925307513867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d2495bf905%3A0xe5fd457b5405ec57!2z157XnteZ15zXkCwg15nXqNeV16nXnNeZ150!5e0!3m2!1siw!2sil!4v1609359668548!5m2!1siw!2sil" width="150" height="" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </div>
 
-                    <div class="footer_details_contact col-sm-3 col-md-3 col-lg-3">
-                        <h2 class="footer_details_contact-titel"> צור קשר</h2>
-                        <h4 class="footer_details_contact-content">
-                            <label class="footer_details_contact-content-fax">פקס:031234567/א</label>
-                            <label class="footer_details_contact-content-phone">091234567:טלפון</label>
-                            <label class="footer_details_contact-content-email">Fusion@gmail.com:אימייל</label>
-                        </h4>
-                    </div>
+                        <div class="footer_details_contact col-sm-3 col-md-3 col-lg-3">
+                            <h2 class="footer_details_contact-titel"> צור קשר</h2>
+                            <h4 class="footer_details_contact-content">
+                                <label class="footer_details_contact-content-fax">פקס:031234567/א</label>
+                                <label class="footer_details_contact-content-phone">091234567:טלפון</label>
+                                <label class="footer_details_contact-content-email">Fusion@gmail.com:אימייל</label>
+                            </h4>
+                        </div>
 
-                    <div class="footer_details_address col-sm-3 col-md-3 col-lg-3">
-                        <h2 class="footer_details_address-titel">כתובת </h2>
-                        <h4 class="footer_details_address-content"> ממילא ירושלים</h4>
-                    </div>
+                        <div class="footer_details_address col-sm-3 col-md-3 col-lg-3">
+                            <h2 class="footer_details_address-titel">כתובת </h2>
+                            <h4 class="footer_details_address-content"> ממילא ירושלים</h4>
+                        </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>*@
+        </footer>*@
 
     @*<footer class="border-top footer text-muted">*@
 
-        @*.footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            }
+    @*.footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        }
 
-                class=AnnouncementBar__Content
-        *@
+            class=AnnouncementBar__Content
+    *@
 
-        <!-- <span class="row">
+    <!-- <span class="row">
 
-            <span class="col-sm-7 col-md-5 col-lg-4 left">
-                <label><h2>צור קשר </h2></label>
+        <span class="col-sm-7 col-md-5 col-lg-4 left">
+            <label><h2>צור קשר </h2></label>
 
-                <label><h4> 091234567:טלפון</h4></label>
+            <label><h4> 091234567:טלפון</h4></label>
 
-                <label><h4>פקס:031234567/א</h4></label>
-                <label><h4>Fusion@gmail.com:אימייל</h4></label>
-            </span>
-
-
-            <span class="col-sm-7 col-md-5 col-lg-3 center">
-                <label><h2>כתובת </h2></label>
-
-                <label><h4> ממילא ירושלים</h4></label>
-            </span>
+            <label><h4>פקס:031234567/א</h4></label>
+            <label><h4>Fusion@gmail.com:אימייל</h4></label>
+        </span>
 
 
-            <span class="col-sm-1 col-md-2 col-lg-5 right">
+        <span class="col-sm-7 col-md-5 col-lg-3 center">
+            <label><h2>כתובת </h2></label>
 
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6783.357038001982!2d35.225888576795576!3d31.77925307513867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d2495bf905%3A0xe5fd457b5405ec57!2z157XnteZ15zXkCwg15nXqNeV16nXnNeZ150!5e0!3m2!1siw!2sil!4v1605870851249!5m2!1siw!2sil" class="map" width="200" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <label><h4> ממילא ירושלים</h4></label>
+        </span>
 
 
-            </span>
+        <span class="col-sm-1 col-md-2 col-lg-5 right">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6783.357038001982!2d35.225888576795576!3d31.77925307513867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d2495bf905%3A0xe5fd457b5405ec57!2z157XnteZ15zXkCwg15nXqNeV16nXnNeZ150!5e0!3m2!1siw!2sil!4v1605870851249!5m2!1siw!2sil" class="map" width="200" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
 
-        </span>-->
+        </span>
 
+
+    </span>-->
     @*</footer>*@
 
 
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script> 
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

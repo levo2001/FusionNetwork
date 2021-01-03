@@ -2,7 +2,7 @@
 
 namespace FusionWeb.Migrations
 {
-    public partial class db : Migration
+    public partial class KitchenDish : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
