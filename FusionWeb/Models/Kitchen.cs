@@ -8,6 +8,7 @@ namespace FusionWeb.Models
 {
     public enum Kitchen 
     {
+       
         [Display(Name = "איטלקי")]
         Italian,
         [Display(Name = "ישראלי")]

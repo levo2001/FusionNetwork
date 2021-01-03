@@ -4,32 +4,22 @@ using FusionWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FusionWeb.Migrations
 {
     [DbContext(typeof(FusionWebContext))]
-    partial class FusionWebContextModelSnapshot : ModelSnapshot
+    [Migration("20210103110158_KitchenDish")]
+    partial class KitchenDish
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("FusionWeb.Models.Cart", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cart");
-                });
 
             modelBuilder.Entity("FusionWeb.Models.Client", b =>
                 {
@@ -117,9 +107,6 @@ namespace FusionWeb.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CartId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -137,8 +124,6 @@ namespace FusionWeb.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CartId");
 
                     b.ToTable("Dish");
                 });
@@ -255,13 +240,6 @@ namespace FusionWeb.Migrations
                     b.HasOne("FusionWeb.Models.Client", "InfoClient")
                         .WithMany()
                         .HasForeignKey("InfoClientId");
-                });
-
-            modelBuilder.Entity("FusionWeb.Models.Dish", b =>
-                {
-                    b.HasOne("FusionWeb.Models.Cart", null)
-                        .WithMany("SelectedDishes")
-                        .HasForeignKey("CartId");
                 });
 
             modelBuilder.Entity("FusionWeb.Models.DishOrder", b =>

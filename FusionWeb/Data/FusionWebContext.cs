@@ -22,12 +22,15 @@ namespace FusionWeb.Data
 
         public DbSet<FusionWeb.Models.DishOrder> DishOrder { get; set; }
 
-        
+        //public DbSet<FusionWeb.Models.Kitchen> Kitchen { get; set; }
+
 
         public DbSet<FusionWeb.Models.Manager> Manager { get; set; }
 
         public DbSet<FusionWeb.Models.Order> Order { get; set; }
 
         public DbSet<FusionWeb.Models.Reservation> Reservasion { get; set; }
+
+        public DbSet<FusionWeb.Models.Cart> Cart { get; set; }
     }
 }

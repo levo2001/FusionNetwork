@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FusionWeb.Data;
 using FusionWeb.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace FusionWeb.Controllers
 {
@@ -23,14 +24,51 @@ namespace FusionWeb.Controllers
         
         public async Task<IActionResult> Index()
         {
+
             return View(await _context.Dish.ToListAsync());
         }
 
+
+        public async Task<IActionResult> Cart(int id)
+        {
+            if (HttpContext.Session.GetString("cart") == null)
+            {
+                string myString = id.ToString();
+                HttpContext.Session.SetString("cart", myString);
+                var dishes = from d in _context.Dish
+                             where id == d.Id
+                             select d;
+
+                return View(await dishes.ToListAsync());
+
+
+            }
+            else
+            {
+                string dishId = HttpContext.Session.GetString("cart");
+                dishId += ",";
+                dishId += id;
+                HttpContext.Session.SetString("cart", dishId);
+                string[] ids = dishId.Split(',');
+                int[] myInts = ids.Select(int.Parse).ToArray();
+
+                var c = from d in _context.Dish
+                        where myInts.Contains(d.Id)
+                        select d;
+
+                return View(await c.ToListAsync());
+            }
+
+        }
+
+        
+
         public async Task<IActionResult> Kitchen(int Id)
         {
+
             var dish2 = from dish in _context.Dish
-                    where dish.Id == Id
-                    select dish;
+                        where dish.KitchenDish == Id
+                        select dish;
 
             return View("Index", await dish2.ToListAsync());
         }
@@ -111,7 +149,7 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,Description,Image")] Dish dish)
+        public async Task<IActionResult> Create([Bind("Id,Name,Price,Description,Image,KitchenDish")] Dish dish)
         {
             if (ModelState.IsValid)
             {
