@@ -12,6 +12,7 @@ namespace FusionWeb.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        int i;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -64,8 +65,12 @@ namespace FusionWeb.Controllers
         {
             return View();
         }
-        public IActionResult SignIn()
+        public IActionResult LogIn()
         {
+
+
+            i++;
+
             return View();
         }
 

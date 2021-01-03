@@ -1,4 +1,5 @@
 ﻿@model FusionWeb.Models.Dish
+@using Microsoft.AspNetCore.Http;
 
 @{
     ViewData["Title"] = "Create";
@@ -41,24 +42,26 @@
                        value="שלח" data-bs-toggle="modal" data-bs-target="#exampleModal" />
             </div>
         </form>
-        
-       </div>
+
     </div>
+</div>
+
+
+@if (Context.Session.GetString("user") != null)
+{
+    <div>
+        <a asp-action="Index">חזרה לרשימה</a>
+    </div>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
 
 
 
-        <div>
-            <a asp-action="Index">חזרה לרשימה</a>
-        </div>
+@section Css{
+    <link rel="stylesheet" href="~/css/Contact.css" />
 
-        @section Scripts {
-            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-        }
-
-
-
-        @section Css{
-            <link rel="stylesheet" href="~/css/Contact.css" />
-
-        }
+}
 

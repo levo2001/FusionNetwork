@@ -1,8 +1,7 @@
 ﻿@model FusionWeb.Models.Manager
-@using Microsoft.AspNetCore.Http;
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "LogIn";
 }
 
 
@@ -39,25 +38,17 @@
 
 
 <div class="row">
-    <form asp-action="LogIn" method="get">
-        <input type="submit" value="משתמש קיים" class="btn btn-primary btn-lg btn-block text-uppercase" />
-    </form>
-    <form asp-action="Create">
+
+    <form asp-action="LogIn">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card card-signin my-5">
                 <div class="card-body">
-                    <div class="card-title text-center">התחברות-משתמש חדש</div>
-
-                    <div class="form-group form-label-group">
-                        <label asp-for="FullName" class="control-label"></label>
-                        <input asp-for="FullName" class="form-control" type="text" placeholder="שם" />
-                        <span asp-validation-for="FullName" class="text-danger" for="input"></span>
-                    </div>
+                    <div class="card-title text-center">התחברות</div>
 
                     <div class="form-group form-label-group">
                         <label asp-for="UserName" class="control-label"></label>
-                        <input asp-for="UserName" class="form-control" type="email" id="inputEmail" placeholder="שם משתמש" />
+                        <input asp-for="UserName" class="form-control" type="email" id="inputEmail" placeholder="אימייל" required autofocus />
                         <span asp-validation-for="UserName" class="text-danger" for="inputEmail"></span>
                     </div>
 
@@ -75,6 +66,23 @@
                 </div><br>
                 <div></div>
                 <input type="submit" value="התחבר" class="btn btn-primary btn-lg btn-block text-uppercase" />
+               
+                
+                <form asp-action="Create">
+                    <input type="submit" value="צור חשבון" class="btn btn-primary btn-lg btn-block text-uppercase" />
+                </form>
+
+
+
+
+
+                @if (ViewData["Error"] != null)
+                {
+                    <div style="color:red; font-weight:bold">@ViewData["Error"]</div>
+                }
+
+
+
             </div>
         </div>
 
@@ -89,15 +97,9 @@
 
 </div>
 
-
-@if (Context.Session.GetString("user") != null)
-{
-
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
-
-}
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

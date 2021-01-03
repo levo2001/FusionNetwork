@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FusionWeb.Data;
 using FusionWeb.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace FusionWeb.Controllers
 {
@@ -22,8 +23,43 @@ namespace FusionWeb.Controllers
         // GET: Managers
         public async Task<IActionResult> Index()
         {
+            if (HttpContext.Session.GetString("user") == null)
+            {
+                return RedirectToAction(nameof(LogIn));
+            }
+
             return View(await _context.Manager.ToListAsync());
         }
+
+        public IActionResult LogIn()
+        {
+            return View();
+        }
+
+        [HttpPost][ValidateAntiForgeryToken]
+        public async Task<IActionResult> LogIn([Bind("Id,UserName,Password")] Manager manager)
+        {
+            var q = from m in _context.Manager
+                    where manager.UserName.Contains("levona") && m.UserName.Contains("levona") &&
+                          manager.Password == m.Password
+                    select m;
+
+            if (q.Count() > 0)
+            {
+                HttpContext.Session.SetString("user", q.First().FullName);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewData["Error"] = "User does not exist!";
+            }
+
+            return View(manager);
+        }
+
+
+
+
 
         // GET: Managers/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -54,7 +90,7 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,Password")] Manager manager)
+        public async Task<IActionResult> Create([Bind("Id,UserName,Password,FullName")] Manager manager)
         {
             if (ModelState.IsValid)
             {
@@ -65,6 +101,8 @@ namespace FusionWeb.Controllers
             return View(manager);
         }
 
+
+        
         // GET: Managers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -86,7 +124,7 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserName,Password")] Manager manager)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UserName,Password,FullName")] Manager manager)
         {
             if (id != manager.Id)
             {

@@ -29,6 +29,13 @@ namespace FusionWeb
 
             services.AddDbContext<FusionWebContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("FusionWebContext")));
+
+            //WeAdd
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(1);
+            }
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +55,9 @@ namespace FusionWeb
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            //WeAdd
+            app.UseSession();
 
             app.UseAuthorization();
 

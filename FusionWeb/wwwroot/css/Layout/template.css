@@ -106,9 +106,9 @@ h4 {
 
 .col-lg-5 {
     margin-top: 0rem !important;
-    margin-bottom: 0 !important;
+    /*margin-bottom: 0 !important;
     height: 15rem;
-    width: 10rem;
+    width: 10rem;*/
     direction: rtl !important;
 }
 
