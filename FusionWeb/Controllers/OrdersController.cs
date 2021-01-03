@@ -23,7 +23,7 @@ namespace FusionWeb.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Order.ToListAsync());
+            return View(await _context.Order.Include( x => x.Dishes ).ThenInclude(x => x.Dish).ToListAsync());
         }
 
 
@@ -49,6 +49,7 @@ namespace FusionWeb.Controllers
                 HttpContext.Session.SetString("cart", dishId);
                 string[] ids = dishId.Split(',');
                 int[] myInts = ids.Select(int.Parse).ToArray();
+
 
                 var c = from d in _context.Dish
                         where myInts.Contains(d.Id)
@@ -78,8 +79,11 @@ namespace FusionWeb.Controllers
         }
 
         // GET: Orders/Create
-        public IActionResult Create(string Dishes)
+        public IActionResult Create( )
         {
+
+            ViewData["DishId"] = new SelectList(_context.Dish, "Id", "Name");
+
             return View();
         }
 
@@ -88,29 +92,32 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Total")] Order order, string IdDishes)
+        public async Task<IActionResult> Create([Bind("Id,Total")] Order order, int[] DishId)
         {
+            //if (ModelState.IsValid)
+            //{
 
-            //object data = TempData["listdishes"];
+                order.Dishes = new List<DishOrder>();
+                foreach(var id in DishId)
+                {
+                    order.Dishes.Add(new DishOrder() { DishId = id, OrderId = order.Id });
+                }
 
-            if (ModelState.IsValid)
-            {
                 _context.Add(order);
 
-                DishOrder item = new DishOrder();
-                item.Order = order;
+                //DishOrder item = new DishOrder();
+                //item.Order = order;
 
-                var c = from d in _context.Dish
-                        where IdDishes.Contains((char)d.Id)
-                        select d;
+                //var c = from d in _context.Dish
+                //        where IdDishes.Contains((char)d.Id)
+                //        select d;
 
-                item.Order.Cart.Dishes = (ICollection<Dish>)c;
+                //item.Order.Cart.Dishes = (ICollection<Dish>)c;
 
-                _context.Add(item);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(order);
+            //}
+            //return View(order);
         }
 
         // GET: Orders/Edit/5

@@ -101,11 +101,11 @@
                             <span class="col-sm-2 col-md-2 col-lg-2 ">
                                 <span class="price"> @Html.DisplayFor(modelItem => item.Price)₪ </span><br>
                                 
-                                <form asp-action = "Cart">
+                                <form asp-action = "Cart" method="post">
                                  
                                     <input type="hidden" name="Id" id="Id" value="@Html.DisplayFor(modelItem => item.Id)" />
-                                    <span><input type="submit" @*href="/Dishes/Details/@Html.DisplayFor(modelItem => item.Id)"*@ class="btn btn-outline-dark btnOrder" value="הוסף להזמנה+"></span>
-
+                                    <span><input type="submit"  class="btn btn-outline-dark btnOrder" value="הוסף להזמנה+"></span>
+                                     @*href="/Dishes/Details/@Html.DisplayFor(modelItem => item.Id)"*@
                                 </form>
                                 
                                 @if (Context.Session.GetString("user") != null)
@@ -172,7 +172,7 @@
 
                 </div>
                 @*<a class="sign-in">*@
-                <form asp-area="" asp-controller="Orders" asp-action="Create" method="post">
+                <form asp-area="" asp-controller="Orders" asp-action="Create" method="get">
                     <input type="hidden" name="Dishes" id="Dishes" value="1,2,3" />
                     <input type="submit" class="btn btn-light btn_pay" value="מעבר לתשלום" />
                 </form>
