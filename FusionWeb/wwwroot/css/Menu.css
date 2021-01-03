@@ -56,9 +56,9 @@ body{
 
 
 .bor {
-    border: solid 2px gray;
+    /*border: solid 2px gray;*/
     height:37rem;
-
+   border: none;
 }
 
 
@@ -86,8 +86,9 @@ body{
 }
 
 hr{
-    color:white!important;
-    border:1!important;
+    color:white;
+    /*border:1px !important;*/
+    border: 9;
 }
 
 .container_img {
