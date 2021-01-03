@@ -34,10 +34,11 @@
                             </svg>
                         </button>
                     </th>
-                    <td><img src="@Html.DisplayFor(modelItem => item.Image)" height="80px"></td>
+                    <td><img src="@Html.DisplayFor(modelItem => item.Image)" class="card-img " alt="..." height="80px"></td>
                     <td>@Html.DisplayFor(modelItem => item.Name)</td>
                     <td>@Html.DisplayFor(modelItem => item.Price)</td>
                     <td></td>
+
                 </tr>
                 <tr>
                 </tr>
@@ -58,4 +59,5 @@
 
 @section Css{
     <link rel="stylesheet" herf="~/css/Delivey.css" />
+    <link rel="stylesheet" herf="~/css/Cart.css" />
 }

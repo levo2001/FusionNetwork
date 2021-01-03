@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FusionWeb.Models
 {
-    public enum Kitchen 
+    public enum Kitchen
     {
-       
+
         [Display(Name = "איטלקי")]
         Italian,
         [Display(Name = "ישראלי")]
@@ -16,6 +16,8 @@ namespace FusionWeb.Models
         [Display(Name = "אמריקאי")]
         American,
         [Display(Name = "אסייתי")]
-        Asian 
+        Asian,
+        [Display(Name = "שתיה")]
+        Drink
     }
 }
