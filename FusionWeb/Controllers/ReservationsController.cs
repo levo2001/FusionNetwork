@@ -13,16 +13,23 @@ namespace FusionWeb.Controllers
     public class ReservationsController : Controller
     {
         private readonly FusionWebContext _context;
-
+         
         public ReservationsController(FusionWebContext context)
         {
-            _context = context;
-        }
+            _context = context;   
+
+        } 
 
         // GET: Reservations
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Reservasion.ToListAsync());
+                 var query = from r in _context.Reservasion
+                         join c in _context.Client on r.Client equals c
+                        select new { ClientEmail = c.Email, ClientName = c.Name,ClientAddres=c.Address,NumOfDinneer=r.NumOfDinners,Kitchen=r.Kitchen,Id=r.Id,Note=r.Note,DateTime=r.DateTime};
+
+
+
+            return View(query);
         }
 
         // GET: Reservations/Details/5
@@ -54,17 +61,21 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DateTime,NumOfDinners,Note,Kitchen")] Reservation reservation)
+        public async Task<IActionResult> Create([Bind("ClientId,DateTime,NumOfDinners,Note,Kitchen")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
+                //Client c = new Client();
+                //c = reservation.Client;
+                //_context.Client.Add(c);
+
                 _context.Add(reservation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+
             }
             return View(reservation);
         }
-
         // GET: Reservations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
