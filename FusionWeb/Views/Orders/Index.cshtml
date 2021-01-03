@@ -19,11 +19,24 @@
         </tr>
     </thead>
     <tbody>
+
 @foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Total)
             </td>
+
+            <td>
+                <ul>
+                    @foreach (var order in item.Dishes)
+                    {
+                        <li>@order.Dish.Name</li>
+
+                    }
+
+                </ul>
+            </td>
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

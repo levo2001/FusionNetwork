@@ -19,7 +19,7 @@ namespace FusionWeb.Models
         [Display (Name ="כמות מנות סופית")]
         public int Total{ get; set; }
 
-        public ICollection<DishOrder> Dishes{ get; set; }
+        public ICollection<DishOrder> Dishes { get; set; }
 
         //public Cart Cart { get; set; }
 

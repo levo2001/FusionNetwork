@@ -37,6 +37,11 @@
                                 <input asp-for="Client.City" class="form-control" placeholder="הזן/י עיר" />
                                 <span asp-validation-for="Client.City" class="text-danger"></span>
                             </div>
+
+                            <div class="form-group w-50">
+                                <label for="DishId" class="control-label"></label>
+                                <select name="DishId" class="form-control" asp-items="ViewBag.DishId" multiple></select>
+                            </div>
                         </div>
 
                         <div class="shem">
