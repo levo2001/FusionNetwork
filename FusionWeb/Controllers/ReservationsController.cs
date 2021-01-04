@@ -23,13 +23,13 @@ namespace FusionWeb.Controllers
         // GET: Reservations
         public async Task<IActionResult> Index()
         {
-                 var query = from r in _context.Reservasion
-                         join c in _context.Client on r.Client equals c
-                        select new { ClientEmail = c.Email, ClientName = c.Name,ClientAddres=c.Address,NumOfDinneer=r.NumOfDinners,Kitchen=r.Kitchen,Id=r.Id,Note=r.Note,DateTime=r.DateTime};
+              //   var query = from r in _context.Reservasion
+               //          join c in _context.Client on r.Client equals c
+               //         select new { ClientEmail = c.Email, ClientName = c.Name,ClientAddres=c.Address,NumOfDinneer=r.NumOfDinners,Kitchen=r.Kitchen,Id=r.Id,Note=r.Note,DateTime=r.DateTime};
 
 
 
-            return View(query);
+            return View(await _context.Reservasion.ToListAsync());
         }
 
         // GET: Reservations/Details/5

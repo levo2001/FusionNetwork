@@ -4,14 +4,16 @@ using FusionWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FusionWeb.Migrations
 {
     [DbContext(typeof(FusionWebContext))]
-    partial class FusionWebContextModelSnapshot : ModelSnapshot
+    [Migration("20210104092145_man")]
+    partial class man
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -258,7 +260,7 @@ namespace FusionWeb.Migrations
             modelBuilder.Entity("FusionWeb.Models.Contact", b =>
                 {
                     b.HasOne("FusionWeb.Models.Client", "InfoClient")
-                        .WithMany("Contacts")
+                        .WithMany()
                         .HasForeignKey("InfoClientId");
                 });
 
@@ -304,7 +306,7 @@ namespace FusionWeb.Migrations
             modelBuilder.Entity("FusionWeb.Models.Reservation", b =>
                 {
                     b.HasOne("FusionWeb.Models.Client", "Client")
-                        .WithMany("Reservasions")
+                        .WithMany()
                         .HasForeignKey("ClientId");
                 });
 #pragma warning restore 612, 618
