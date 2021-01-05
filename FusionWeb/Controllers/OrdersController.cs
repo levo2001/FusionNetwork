@@ -28,6 +28,11 @@ namespace FusionWeb.Controllers
             //return View(await _context.Order.Include( x => x.Dishes ).ThenInclude(x => x.Dish).ToListAsync());
         }
 
+        public async Task<IActionResult> Orders()
+        {
+            return View(await _context.Order.Include(x => x.Dishes).ThenInclude(x => x.Dish).ToListAsync());
+        }
+
 
         public async Task<IActionResult> Cart(int id)
         {
