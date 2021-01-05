@@ -24,8 +24,13 @@ namespace FusionWeb.Controllers
         
         public async Task<IActionResult> Index()
         {
+            //var dishes = _context.Dish.OrderBy(x => x.Id);
+            var dishes = from d in _context.Dish
+                                  orderby d.KitchenDish ascending
+                                  select d;
 
-            return View(await _context.Dish.ToListAsync());
+            return View(await dishes.ToListAsync());
+
         }
 
 
@@ -57,10 +62,9 @@ namespace FusionWeb.Controllers
                         select d;
 
                 //TempData["listdishes"] = c;
-
                 //return RedirectToAction("ActionName", "Home2", new { Date = date });
-
                 return View(await c.ToListAsync());
+                //return RedirectToAction("Orders", "Creat", myInts);
             }
 
         }

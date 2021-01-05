@@ -9,10 +9,11 @@ namespace FusionWeb.Models
     public enum Kitchen
     {
 
-        [Display(Name = "איטלקי")]
-        Italian,
+      
         [Display(Name = "ישראלי")]
         Israeli,
+        [Display(Name = "איטלקי")]
+        Italian,
         [Display(Name = "אמריקאי")]
         American,
         [Display(Name = "אסייתי")]

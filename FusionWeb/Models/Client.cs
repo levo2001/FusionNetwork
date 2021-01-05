@@ -26,8 +26,9 @@ namespace FusionWeb.Models
 
         [Display(Name = "עיר")]
         public string City { get; set; }
-          public ICollection<Reservation> Reservasions { get; set; }
-       // public ICollection<Dish> Dishes { get; set; }
+        public ICollection<Reservation> Reservasions { get; set; }
+        public ICollection <Contact> Contacts{ get; set; }
+        public ICollection<DishOrder> Dishes { get; set; }
        
         [Required]
         [Phone]
