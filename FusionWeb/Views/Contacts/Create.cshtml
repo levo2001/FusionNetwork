@@ -57,27 +57,27 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group w-50">
                     <label asp-for="InfoClient.Name" class="control-label"></label>
-                    <input asp-for="InfoClient.Name" class="form-control" placeholder="הזן/י שם מלא" type="text" />
+                    <input asp-for="InfoClient.Name" name="Name" class="form-control" placeholder="הזן/י שם מלא" type="text" />
                     <span asp-validation-for="InfoClient.Name" class="text-danger"></span>
                 </div>
                 <div class="form-group w-50">
                     <label asp-for="InfoClient.Email" class="control-label"></label>
-                    <input asp-for="InfoClient.Email" class="form-control" placeholder="הזן/י אימייל" type="email" />
+                    <input asp-for="InfoClient.Email" name="Email"class="form-control" placeholder="הזן/י אימייל" type="email" />
                     <span asp-validation-for="InfoClient.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group w-50">
                     <label asp-for="InfoClient.Address" class="control-label"></label>
-                    <input asp-for="InfoClient.Address" class="form-control" placeholder="הזן/י כתובת" />
+                    <input asp-for="InfoClient.Address" name="Address" class="form-control" placeholder="הזן/י כתובת" />
                     <span asp-validation-for="InfoClient.Address" class="text-danger"></span>
                 </div>
                 <div class="form-group w-50">
                     <label asp-for="InfoClient.City" class="control-label"></label>
-                    <input asp-for="InfoClient.City" class="form-control" placeholder="הזן/י עיר" />
+                    <input asp-for="InfoClient.City"name="City" class="form-control" placeholder="הזן/י עיר" />
                     <span asp-validation-for="InfoClient.City" class="text-danger"></span>
                 </div>
                 <div class="form-group w-50">
                     <label asp-for="InfoClient.PhoneNumber" class="control-label"></label>
-                    <input asp-for="InfoClient.PhoneNumber" class="form-control" placeholder="הזן/י מס' טלפון" />
+                    <input asp-for="InfoClient.PhoneNumber"name="PhoneNumber" class="form-control" placeholder="הזן/י מס' טלפון" />
                     <span asp-validation-for="InfoClient.PhoneNumber" class="text-danger"></span>
                 </div>
 

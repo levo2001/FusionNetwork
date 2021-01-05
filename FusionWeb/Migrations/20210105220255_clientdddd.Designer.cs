@@ -4,14 +4,16 @@ using FusionWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FusionWeb.Migrations
 {
     [DbContext(typeof(FusionWebContext))]
-    partial class FusionWebContextModelSnapshot : ModelSnapshot
+    [Migration("20210105220255_clientdddd")]
+    partial class clientdddd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

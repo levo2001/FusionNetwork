@@ -22,7 +22,8 @@ namespace FusionWeb.Controllers
         // GET: Contacts
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Contact.ToListAsync());
+            //return View(await _context.Contact.ToListAsync());
+            return View(await _context.Contact.Include(x => x.InfoClient).ToListAsync());
         }
 
         // GET: Contacts/Details/5
@@ -33,7 +34,7 @@ namespace FusionWeb.Controllers
                 return NotFound();
             }
 
-            var contact = await _context.Contact
+            var contact = await _context.Contact.Include(x => x.InfoClient)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (contact == null)
             {
@@ -54,18 +55,41 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Content")] Contact contact)
+        public async Task<IActionResult> Create([Bind("Id,Content")] Contact contact, Client client)
         {
-            if (ModelState.IsValid)
+            var existclient = _context.Client.FirstOrDefault(c => c.Id == client.Id);
+            if (existclient == null)
             {
-                _context.Add(contact);
-                await _context.SaveChangesAsync();
-                ViewData["Contact"] = "Order";
-                //return RedirectToAction(nameof(Create));
+                _context.Client.Add(client);
+                _context.SaveChanges();
+
+            }
+            bool succes = true;
+            if (succes)
+            {
+                contact.InfoClient = client;
+                _context.Contact.Add(contact);
+                _context.SaveChanges();
+                return RedirectToAction("Index", "Home");
+
+            }
+            else
+            {
+
             }
             return View(contact);
-
         }
+
+
+        //if (ModelState.IsValid)
+        //{
+        //    _context.Add(contact);
+        //    await _context.SaveChangesAsync();
+        //    ViewData["Contact"] = "Order";
+        //    //return RedirectToAction(nameof(Create));
+        //}
+        //return View(contact);
+
 
         // GET: Contacts/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -88,6 +112,7 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Edit(int id, [Bind("Id,Content")] Contact contact)
         {
             if (id != contact.Id)
@@ -126,7 +151,7 @@ namespace FusionWeb.Controllers
                 return NotFound();
             }
 
-            var contact = await _context.Contact
+            var contact = await _context.Contact.Include(x => x.InfoClient)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (contact == null)
             {
@@ -153,3 +178,5 @@ namespace FusionWeb.Controllers
         }
     }
 }
+
+

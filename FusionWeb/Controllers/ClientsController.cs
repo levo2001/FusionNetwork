@@ -22,7 +22,7 @@ namespace FusionWeb.Controllers
         // GET: Clients
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Client.ToListAsync());
+            return View(await _context.Client.Include(x => x.Dishes).ThenInclude(x => x.Dish).ToListAsync());
         }
         public async Task<IActionResult> func([Bind("ClientId,Name,Email,Address")] Client client)
         {

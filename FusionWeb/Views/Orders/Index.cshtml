@@ -1,50 +1,49 @@
 ﻿@model IEnumerable<FusionWeb.Models.Order>
-@model IEnumerable<FusionWeb.Models.Client>
 
-        @{
-            ViewData["Title"] = "Index";
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.Name)
+                </td>
+
+                <td>
+                    <ul>
+                        @foreach (var order in item.Dishes)
+                        {
+                            <li>@order.Dish.Name</li>
+                         }
+
+                    </ul>
+                </td>
+            
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
         }
-
-        <h1>Index</h1>
-
-        <p>
-            <a asp-action="Create">Create New</a>
-        </p>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Total)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Total)
-                        </td>
-
-                        <td>
-                            <ul>
-                                @foreach (var order in item.Dishes)
-                                {
-                                    <li>@order.Dish.Name</li>
-
-                                }
-
-                            </ul>
-                        </td>
-
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+    </tbody>
+</table>
