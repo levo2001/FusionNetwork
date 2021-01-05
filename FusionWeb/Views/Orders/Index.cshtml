@@ -20,29 +20,30 @@
     </thead>
     <tbody>
 
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Total)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.Name)
+                </td>
 
-            <td>
-                <ul>
-                    @foreach (var order in item.Dishes)
-                    {
-                        <li>@order.Dish.Name</li>
+                <td>
+                    <ul>
+                        @foreach (var order in item.Dishes)
+                        {
+                            <li>@order.Dish.Name</li>
+                         }
 
-                    }
+                    </ul>
+                </td>
+            
 
-                </ul>
-            </td>
-
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -30,13 +30,13 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="form-group w-50">
                             <label asp-for="Client.Name"  class="control-label"></label>
-                            <input asp-for="Client.Name" class="form-control" placeholder="הזן/י שם מלא" />
+                            <input asp-for="Client.Name" name="Name" class="form-control" placeholder="הזן/י שם מלא" />
                             <span asp-validation-for="Client.Name"  class="text-danger"></span>
                         </div>
 
                         <div class="form-group w-50">
                             <label asp-for="Client.Email" class="control-label"></label>
-                            <input asp-for="Client.Email" class="form-control" placeholder="הזן/י אימייל" type="text" />
+                            <input asp-for="Client.Email"  name="Email"class="form-control" placeholder="הזן/י אימייל" type="text" />
                             <span asp-validation-for="Client.Email" class="text-danger"></span>
                         </div>
 
@@ -44,14 +44,14 @@
 
                         <div class="form-group w-50">
                             <label asp-for="Client.PhoneNumber" class="control-label"></label>
-                            <input asp-for="Client.PhoneNumber" class="form-control" placeholder="הזן/י טלפון" />
+                            <input asp-for="Client.PhoneNumber" name="PhoneNumber" class="form-control" placeholder="הזן/י טלפון" />
                             <span asp-validation-for="Client.PhoneNumber" class="text-danger"></span>
                         </div>
                     </div>
 
                     <div class="form-group w-50">
                         <label asp-for="DateTime" class="control-label"></label>
-                        <input asp-for="DateTime" class="form-control" placeholder="הזן/י תאריך" />
+                        <input asp-for="DateTime"  class="form-control" placeholder="הזן/י תאריך" />
                         <span asp-validation-for="DateTime" class="text-danger"></span>
                     </div>
                     <div class="form-group w-50">

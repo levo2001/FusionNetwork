@@ -23,7 +23,9 @@ namespace FusionWeb.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Order.Include( x => x.Dishes ).ThenInclude(x => x.Dish).ToListAsync());
+            return View(await _context.Order.Include(x => x.Dishes).ThenInclude(x => x.Dish).ToListAsync());
+
+            //return View(await _context.Order.Include( x => x.Dishes ).ThenInclude(x => x.Dish).ToListAsync());
         }
 
 

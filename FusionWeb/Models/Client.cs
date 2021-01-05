@@ -20,14 +20,13 @@ namespace FusionWeb.Models
         [Display(Name = "אימייל")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Address is required.")]
+        //[Required(ErrorMessage = "Address is required.")]
         [Display(Name = "כתובת")]
         public string Address { get; set; }
 
         [Display(Name = "עיר")]
         public string City { get; set; }
-
-        //  public ICollection<Reservasion> Reservasions { get; set; }
+          public ICollection<Reservation> Reservasions { get; set; }
        // public ICollection<Dish> Dishes { get; set; }
        
         [Required]
