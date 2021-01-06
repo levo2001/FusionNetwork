@@ -6,7 +6,7 @@
 
 
 <div class="row">
-    
+
     <div class="container">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -37,52 +37,54 @@
                                 <input asp-for="Client.City" class="form-control" placeholder="הזן/י עיר" />
                                 <span asp-validation-for="Client.City" class="text-danger"></span>
                             </div>
-
                             <div class="form-group w-50">
-                                <label for="DishId" class="control-label"></label>
-                                <select name="DishId" class="form-control" asp-items="ViewBag.DishId" multiple></select>
+                                <label asp-for="Client.PhoneNumber" class="control-label">מספר פלאפון</label>
+                                <input asp-for="Client.PhoneNumber" class="form-control" name="PhoneNumber" placeholder="" />
+                                <span asp-validation-for="Client.PhoneNumber" class="text-danger"></span>
                             </div>
+
+                            @*<div class="form-group w-50">
+            <label for="DishId" class="control-label"></label>
+            <select name="DishId" class="form-control" asp-items="ViewBag.DishId" multiple></select>
+        </div>*@
                         </div>
 
                         <div class="shem">
 
 
                             <div class="form-group w-75">
-                                <label asp-for="Credit.Name" for="formGroupExampleInput">שם בעל הכרטיס</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="הזן/י שם בעל הכרטיס">
+                                <label  for="CreditOwnerName">שם בעל הכרטיס</label>
+                                <input type="text" class="form-control" name="CreditOwnerName" id="formGroupExampleInput" placeholder="הזן/י שם בעל הכרטיס">
                             </div>
 
 
                             <div class="form-row">
                                 <div class=" form-group w-25 col-75">
-                                    <label asp-for="Credit.Number" for="ccnum">מס כרטיס</label>
-                                    <input type="text" class="form-control" id="ccnum" name="cardnumber" id="formGroupExampleInput"
+                                    <label  for="cardNumber">מס כרטיס</label>
+                                    <input type="text" class="form-control" id="ccnum" name="cardNumber" id="formGroupExampleInput"
                                            placeholder="1111-2222-3333-4444">
                                 </div>
                                 <div class="  form-group w-25 col-75">
-                                    <label asp-for="Credit.Month" for="expmonth">חודש</label>
-                                    <input type="text" class="form-control" id="expmonth" name="expmonth" placeholder="הזן/י חודש תוקף">
+                                    <label  for="expiryMonth">חודש</label>
+                                    <input type="text" class="form-control" id="expmonth" name="expiryMonth" placeholder="הזן/י חודש תוקף">
                                 </div>
 
                             </div>
 
                             <div class="form-row">
                                 <div class=" form-group w-25 col-75">
-                                    <label asp-for="Credit.Year" for="expyear"> שנה </label>
-                                    <input type="text" class="form-control" id="expyear" name="expyear" placeholder="הזן/י תוקף">
+                                    <label  for="expiryYear"> שנה </label>
+                                    <input type="text" class="form-control" id="expyear" name="expiryYear" placeholder="הזן/י תוקף">
                                 </div>
                                 <div class="  form-group w-25 col-75">
-                                    <label asp-for="Credit.CVV" for="cvv">CVV</label>
+                                    <label  for="cvv">CVV</label>
                                     <input type="text" class="form-control" id="cvv" name="cvv" placeholder="הזן/י 3 ספרות ">
                                 </div>
 
                             </div>
 
                         </div>
-
                     </div>
-
-
                 </div>
 
 
@@ -95,31 +97,19 @@
                         <div class="container">
                             <h3>סיכום הזמנה</h3>
                             <span class="price">
-                                <h4>מס פריטים : 4 </h4>
+                                <h4>מס סוגי מנות: @Model.Dishes.Count()</h4>
+                                <h4>סה"כ: @Model.Total</h4>
                             </span>
-                            <br><br>
-
-                            <p><a href="#">מנה 1</a> <span class="price">₪15</span></p>
-                            <p><a href="#">מנה 2</a> <span class="price">₪5</span></p>
-                            <p><a href="#">מנה 3</a> <span class="price">₪8</span></p>
-                            <p><a href="#">מנה 4</a> <span class="price">₪2</span></p>
-                            <hr>
-                            <div>
-                               @*@ViewData["orderDishes"];*@
-                            </div>
-
-                            <p>סה"כ <span class="price"><b>₪30</b></span></p>
-
-                            <!--ראו הוזהרתם לשנות את השורה הבאה בקוד !!!!!!! עבדנו על זה עד השעה 4 בלילה-->
-
-                            <button type="button" class="btn btn-dark"
-                                    formaction="C:\Users\debor\Google Drive\homework\אפליקציות\Order_Confirmation.html">
-                                לסיום הזמנה
-                            </button>
-
+               
+                            <form asp-action="Create" method="post">
+                                <input value="סיום הזמנה" type="submit" class="btn btn-dark" />
+                            </form>
 
 
                         </div>
+                    </div>
+                </div>
+            </div>
         </form>
 
     </div>

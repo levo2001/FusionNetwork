@@ -33,14 +33,29 @@ namespace FusionWeb.Data
 
         public DbSet<FusionWeb.Models.Cart> Cart { get; set; }
 
-       /* protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // configures one-to-many relationship
-            modelBuilder.Entity<Reservation>()
-                .HasRequired<Client>(r => r.Client)
-                .WithMany(g => g.Students)
-                .HasForeignKey<int>(s => s.CurrentGradeId);
-        }*/
+            modelBuilder.Entity<DishOrder>()
+                .HasKey(t => new { t.DishId, t.OrderId });
+
+            modelBuilder.Entity<DishOrder>()
+                .HasOne(pt => pt.Dish)
+                .WithMany(p => p.Orders)
+                .HasForeignKey(pt => pt.DishId);
+
+            modelBuilder.Entity<DishOrder>()
+                .HasOne(pt => pt.Order)
+                .WithMany(t => t.Dishes)
+                .HasForeignKey(pt => pt.OrderId);
+        }
+        /* protected override void OnModelCreating(ModelBuilder modelBuilder)
+         {
+             // configures one-to-many relationship
+             modelBuilder.Entity<Reservation>()
+                 .HasRequired<Client>(r => r.Client)
+                 .WithMany(g => g.Students)
+                 .HasForeignKey<int>(s => s.CurrentGradeId);
+         }*/
     }
 
 }

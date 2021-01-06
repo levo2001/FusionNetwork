@@ -13,10 +13,17 @@ namespace FusionWeb.Models
         [Required(ErrorMessage = "Client is required.")]
         public Client Client { get; set; }
 
-        
-        public Credit Credit { get; set; }
+      
+        //public string CreditOwnerName { get; set; }
+        //public string cvv{ get; set; }
+        //public string expiryYear { get; set; }
 
-        [Display (Name ="כמות מנות סופית")]
+        //public string expiryMonth { get; set; }
+        //public int cardNumber { get; set; }
+       
+        //public Credit Credit { get; set; }
+
+        [Display (Name = "סהכ לתשלום")]
         public int Total{ get; set; }
 
         public ICollection<DishOrder> Dishes { get; set; }

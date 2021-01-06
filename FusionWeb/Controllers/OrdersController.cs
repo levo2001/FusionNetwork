@@ -14,6 +14,8 @@ namespace FusionWeb.Controllers
     public class OrdersController : Controller
     {
         private readonly FusionWebContext _context;
+        private static Order newOrder;
+        private static List<DishOrder> ldo;
 
         public OrdersController(FusionWebContext context)
         {
@@ -84,16 +86,29 @@ namespace FusionWeb.Controllers
         }
 
         // GET: Orders/Create
-        public IActionResult Create(int[] DishId)
+        [HttpGet]
+        public IActionResult Create(Order order)
         {
+            newOrder = order;
+            DishOrder d = new DishOrder();
+            ldo = new List<DishOrder>();
+            for (int i = 0; i < HttpContext.Session.GetInt32("numDishes"); i++)
+            {
+                d.DishId = Convert.ToInt32(HttpContext.Session.GetInt32("Dish" + i));
+                d.Quantity = Convert.ToInt32(HttpContext.Session.GetInt32("DishQ" + i));
+                if (newOrder.Dishes == null)
+                    newOrder.Dishes = new List<DishOrder>();
+                ldo.Add(d);
+                newOrder.Dishes.Add(d);
+            }
+            
             //var c = from d in _context.Dish
             //        where DishId.Contains(d.Id)
             //        select d;
             //ViewData["orderDishes"] = c;
 
             //ViewData["DishId"] = new SelectList(_context.Dish, "Id", "Name");
-
-            return View();
+            return View(newOrder);
         }
 
         // POST: Orders/Create
@@ -101,13 +116,64 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Total")] Order order, int[] DishId)
+        public async Task<IActionResult> Create([Bind("Id,Total")] Order order, Client client  
+                                                ,string cardNumber,string expiryMonth, string expiryYear, 
+                                                  string cvv, string CreditOwnerName)
         {
+            newOrder.Dishes = ldo;
+            
+            order = newOrder;
+               // order.id = 0;
+                //check if client did order in the past.
+                var existsClient = _context.Client.FirstOrDefault(c => c.Id == client.Id);
+                //if is new client, add him to the system.
+                if (existsClient == null)
+                {
+                    _context.Client.Add(client);
+                    _context.SaveChanges();
+                }
+                bool success = true;//should use payment paramters for perform payment. now ignore it.
+                if (success)
+                {
 
-           
+                    //enter the order to DB
+                    order.Client = client;
+                    _context.Order.Add(order);
+                    _context.SaveChanges();
+                //DishOrder dishOrd = new DishOrder();
+                foreach (var dishOrd in order.Dishes)
+                {
+                    //dishOrd.DishId = Convert.ToInt32(HttpContext.Session.GetInt32("Dish" + i));
+                    dishOrd.OrderId = order.Id;
+                    dishOrd.Order = order;
+                    dishOrd.Dish = _context.Dish.FirstOrDefault(r => r.Id == dishOrd.DishId);
+                    //dishOrd.Quantity = Convert.ToInt32(HttpContext.Session.GetInt32("DishQ" + i));
+                    if(_context.DishOrder.FirstOrDefault(r => r.DishId == dishOrd.DishId && r.OrderId == dishOrd.OrderId) == null)
+                    {
+                        _context.DishOrder.Add(dishOrd);
+                        _context.SaveChanges();
+                    }
+                }
+                //for (int i = 0; i < order.Dishes.Count(); i++)
+                //{
+                // dishOrd.DishId = Convert.ToInt32(HttpContext.Session.GetInt32("Dish" + i));
+                //dishOrd.OrderId = order.Id;
+                //dishOrd.Order = order;
+                //dishOrd.Dish = _context.Dish.FirstOrDefault(r => r.Id == dishOrd.DishId);
+                //dishOrd.Quantity = Convert.ToInt32(HttpContext.Session.GetInt32("DishQ" + i));
+                //_context.DishOrder.Add(dishOrd);
+                //    _context.SaveChanges();
 
-
-
+                //}
+                ViewBag.OrderDone = "הזמנתך התקבלה בהצלחה. מחכים לראות אותך";
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.OrderFailed = "מצטערים הזמנה נכשלה. אנא צרו קשר עם שירות לקוחות";
+                }
+                return View(order);
+        }
 
             //if (ModelState.IsValid)
             //{
@@ -130,11 +196,11 @@ namespace FusionWeb.Controllers
 
             //item.Order.Cart.Dishes = (ICollection<Dish>)c;
 
-            await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+            //await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
             //}
             //return View(order);
-        }
+            //}
 
         // GET: Orders/Edit/5
         public async Task<IActionResult> Edit(int? id)

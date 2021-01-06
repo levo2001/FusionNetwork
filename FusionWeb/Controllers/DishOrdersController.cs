@@ -37,7 +37,7 @@ namespace FusionWeb.Controllers
             var dishOrder = await _context.DishOrder
                 .Include(d => d.Dish)
                 .Include(d => d.Order)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.DishId == id);
             if (dishOrder == null)
             {
                 return NotFound();
@@ -50,7 +50,7 @@ namespace FusionWeb.Controllers
         public IActionResult Create()
         {
             ViewData["DishId"] = new SelectList(_context.Dish, "Id", "Id");
-            ViewData["OrderId"] = new SelectList(_context.Set<Order>(), "Id", "Id");
+            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "Id");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DishId,OrderId,Quantity,Comment")] DishOrder dishOrder)
+        public async Task<IActionResult> Create([Bind("DishId,OrderId,Quantity")] DishOrder dishOrder)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace FusionWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["DishId"] = new SelectList(_context.Dish, "Id", "Id", dishOrder.DishId);
-            ViewData["OrderId"] = new SelectList(_context.Set<Order>(), "Id", "Id", dishOrder.OrderId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "Id", dishOrder.OrderId);
             return View(dishOrder);
         }
 
@@ -86,7 +86,7 @@ namespace FusionWeb.Controllers
                 return NotFound();
             }
             ViewData["DishId"] = new SelectList(_context.Dish, "Id", "Id", dishOrder.DishId);
-            ViewData["OrderId"] = new SelectList(_context.Set<Order>(), "Id", "Id", dishOrder.OrderId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "Id", dishOrder.OrderId);
             return View(dishOrder);
         }
 
@@ -95,9 +95,9 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DishId,OrderId,Quantity,Comment")] DishOrder dishOrder)
+        public async Task<IActionResult> Edit(int id, [Bind("DishId,OrderId,Quantity")] DishOrder dishOrder)
         {
-            if (id != dishOrder.Id)
+            if (id != dishOrder.DishId)
             {
                 return NotFound();
             }
@@ -111,7 +111,7 @@ namespace FusionWeb.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DishOrderExists(dishOrder.Id))
+                    if (!DishOrderExists(dishOrder.DishId))
                     {
                         return NotFound();
                     }
@@ -123,7 +123,7 @@ namespace FusionWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["DishId"] = new SelectList(_context.Dish, "Id", "Id", dishOrder.DishId);
-            ViewData["OrderId"] = new SelectList(_context.Set<Order>(), "Id", "Id", dishOrder.OrderId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "Id", dishOrder.OrderId);
             return View(dishOrder);
         }
 
@@ -138,7 +138,7 @@ namespace FusionWeb.Controllers
             var dishOrder = await _context.DishOrder
                 .Include(d => d.Dish)
                 .Include(d => d.Order)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.DishId == id);
             if (dishOrder == null)
             {
                 return NotFound();
@@ -160,7 +160,7 @@ namespace FusionWeb.Controllers
 
         private bool DishOrderExists(int id)
         {
-            return _context.DishOrder.Any(e => e.Id == id);
+            return _context.DishOrder.Any(e => e.DishId == id);
         }
     }
 }

@@ -30,7 +30,7 @@
                 <nav class="navbar navbar-light ser">
                     <div class="container-fluid">
                         <form class="d-flex" asp-action="Search">
-                            <input class="btn btn-outline-success " type="submit" value="שלח "   />
+                            <input class="btn btn-outline-success " type="submit" value="שלח"   />
                                 @*<svg width="1em" style="background-color: white;" height="1em" viewBox="0 0 16 16" class="bi bi-search"
                                      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -75,11 +75,11 @@
 
 
                 <div class="alert alert-light msg" role="alert">
-                    לקוחות יקרים
-
+                  לקןחות יקרים! אתם מוזמנים להנות ממגוון מנות מ4 המטבחים שלנו במשלוח מהיר עד פתח הבית
                 </div>
                 <div class="alert alert-light msg" role="alert">
-                    !שימו לב
+                    שימו לב!! המטבח האיטלקי הינו מטבח חלבי,
+                    ושאר המטבחים במתכונת בשרית! בתאבון
                 </div>
 
                 @if(ViewData["Error"] != null)
@@ -104,7 +104,7 @@
                             <span class="col-sm-2 col-md-2 col-lg-2 ">
                                 <span class="price"> @Html.DisplayFor(modelItem => item.Price)₪ </span><br>
                                 
-                                <form asp-action = "Cart" method="post">
+                                <form asp-action = "AddToCart" method="post" class="formButton">
                                  
                                     <input type="hidden" name="Id" id="Id" value="@Html.DisplayFor(modelItem => item.Id)" />
                                     <span><input type="submit"  class="btn btn-outline-dark btnOrder" value="הוסף להזמנה+"></span>
@@ -163,21 +163,21 @@
                     </svg>
                 }
 
-                <div class="alert alert-light basket" role="alert">
+                <!--<div class="alert alert-light basket" role="alert">
 
                     <svg width="2em" height="2em" style="background-color: white;" viewBox="0 0 16 16" class="bi bi-cart2 "
                          fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
                               d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
                     </svg><br>
-                    הוסיפו פרטים להזמנה
-
-
-                </div>
+                    הוסיפו פרטים להזמנה-->
+                    @*@Html.Partial("_Cart");*@
+                <!--</div>-->
+              
                 @*<a class="sign-in">*@
-                <form asp-area="" asp-controller="Orders" asp-action="Create" method="get">
-                    <input type="hidden" name="Dishes" id="Dishes" value="1,2,3" />
-                    <input type="submit" class="btn btn-light btn_pay" value="מעבר לתשלום" />
+                <form asp-action="Cart" method="get">
+                    @*<input type="hidden" name="Dishes" id="Dishes" value="1,2,3" />*@
+                    <input type="submit" class="btn btn-light btn_pay" value="לצפיה בסל ותשלום" />
                 </form>
                 @*</a>*@
 

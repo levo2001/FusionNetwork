@@ -8,13 +8,19 @@
     color: white !important;
 }
 
+
 .btn-block {
     display: block;
     width: 50% !important;
-    margin: 35px 0 0px 1px !important;
+    margin: 29px 17rem 0px 1px !important;
     padding: 0 0 0 0 !important;
 }
-
+.mang {
+    display: block;
+    width: 50% !important;
+    margin: 37px 0rem 0px 1px !important;
+    padding: 0 0 0 0 !important;
+}
 input {
     background-color: black !important;
     color: white !important;

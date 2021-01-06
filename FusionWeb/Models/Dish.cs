@@ -25,7 +25,7 @@ namespace FusionWeb.Models
         public string Image { get; set; }
 
 
-        public ICollection<DishOrder> Order { get; set; }
+        public ICollection<DishOrder> Orders { get; set; }
 
 
         public int KitchenDish { get; set; }

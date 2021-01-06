@@ -28,12 +28,11 @@ namespace FusionWeb.Models
         public string City { get; set; }
         public ICollection<Reservation> Reservasions { get; set; }
         public ICollection <Contact> Contacts{ get; set; }
-        public ICollection<DishOrder> Dishes { get; set; }
+        public ICollection<Order> Orders { get; set; }
        
-        [Required]
+      
         [Phone]
         [Display(Name ="מס טלפון")]
-        [RegularExpression(@"^\d{3}-\d{3}-\d{4}$")]
         public string PhoneNumber { get; set; }        
     
     }
