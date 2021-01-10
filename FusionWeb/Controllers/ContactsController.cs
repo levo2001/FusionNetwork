@@ -57,6 +57,7 @@ namespace FusionWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Content")] Contact contact, Client client)
         {
+            ViewData["Contact"] = "Order";
             var existclient = _context.Client.FirstOrDefault(c => c.Id == client.Id);
             if (existclient == null)
             {
@@ -70,7 +71,7 @@ namespace FusionWeb.Controllers
                 contact.InfoClient = client;
                 _context.Contact.Add(contact);
                 _context.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                //return RedirectToAction("Index", "Home");
 
             }
             else

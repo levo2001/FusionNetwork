@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FusionWeb.Data;
 using FusionWeb.Models;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace FusionWeb.Controllers
 {
@@ -101,7 +102,7 @@ namespace FusionWeb.Controllers
                 ldo.Add(d);
                 newOrder.Dishes.Add(d);
             }
-            
+
             //var c = from d in _context.Dish
             //        where DishId.Contains(d.Id)
             //        select d;
@@ -116,30 +117,30 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Total")] Order order, Client client  
-                                                ,string cardNumber,string expiryMonth, string expiryYear, 
+        public async Task<IActionResult> Create([Bind("Id,Total")] Order order, Client client
+                                                , string cardNumber, string expiryMonth, string expiryYear,
                                                   string cvv, string CreditOwnerName)
         {
             newOrder.Dishes = ldo;
-            
-            order = newOrder;
-               // order.id = 0;
-                //check if client did order in the past.
-                var existsClient = _context.Client.FirstOrDefault(c => c.Id == client.Id);
-                //if is new client, add him to the system.
-                if (existsClient == null)
-                {
-                    _context.Client.Add(client);
-                    _context.SaveChanges();
-                }
-                bool success = true;//should use payment paramters for perform payment. now ignore it.
-                if (success)
-                {
 
-                    //enter the order to DB
-                    order.Client = client;
-                    _context.Order.Add(order);
-                    _context.SaveChanges();
+            order = newOrder;
+            // order.id = 0;
+            //check if client did order in the past.
+            var existsClient = _context.Client.FirstOrDefault(c => c.Id == client.Id);
+            //if is new client, add him to the system.
+            if (existsClient == null)
+            {
+                _context.Client.Add(client);
+                _context.SaveChanges();
+            }
+            bool success = true;//should use payment paramters for perform payment. now ignore it.
+            if (success)
+            {
+
+                //enter the order to DB
+                order.Client = client;
+                _context.Order.Add(order);
+                _context.SaveChanges();
                 //DishOrder dishOrd = new DishOrder();
                 foreach (var dishOrd in order.Dishes)
                 {
@@ -148,7 +149,7 @@ namespace FusionWeb.Controllers
                     dishOrd.Order = order;
                     dishOrd.Dish = _context.Dish.FirstOrDefault(r => r.Id == dishOrd.DishId);
                     //dishOrd.Quantity = Convert.ToInt32(HttpContext.Session.GetInt32("DishQ" + i));
-                    if(_context.DishOrder.FirstOrDefault(r => r.DishId == dishOrd.DishId && r.OrderId == dishOrd.OrderId) == null)
+                    if (_context.DishOrder.FirstOrDefault(r => r.DishId == dishOrd.DishId && r.OrderId == dishOrd.OrderId) == null)
                     {
                         _context.DishOrder.Add(dishOrd);
                         _context.SaveChanges();
@@ -166,41 +167,48 @@ namespace FusionWeb.Controllers
 
                 //}
                 ViewBag.OrderDone = "הזמנתך התקבלה בהצלחה. מחכים לראות אותך";
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ViewBag.OrderFailed = "מצטערים הזמנה נכשלה. אנא צרו קשר עם שירות לקוחות";
-                }
-                return View(order);
+                
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.OrderFailed = "מצטערים הזמנה נכשלה. אנא צרו קשר עם שירות לקוחות";
+            }
+
+
+            
+
+            
+
+            return View(order);
         }
 
-            //if (ModelState.IsValid)
-            //{
+        //if (ModelState.IsValid)
+        //{
 
-            //    order.Dishes = new List<DishOrder>();
-            //    foreach(var id in DishId)
-            //    {
-            //    order.Dishes.Add(new DishOrder() { DishId = id, OrderId = order.Id });
+        //    order.Dishes = new List<DishOrder>();
+        //    foreach(var id in DishId)
+        //    {
+        //    order.Dishes.Add(new DishOrder() { DishId = id, OrderId = order.Id });
 
-            //}
+        //}
 
-            //    _context.Add(order);
+        //    _context.Add(order);
 
-            //DishOrder item = new DishOrder();
-            //item.Order = order;
+        //DishOrder item = new DishOrder();
+        //item.Order = order;
 
-            //var c = from d in _context.Dish
-            //        where IdDishes.Contains((char)d.Id)
-            //        select d;
+        //var c = from d in _context.Dish
+        //        where IdDishes.Contains((char)d.Id)
+        //        select d;
 
-            //item.Order.Cart.Dishes = (ICollection<Dish>)c;
+        //item.Order.Cart.Dishes = (ICollection<Dish>)c;
 
-            //await _context.SaveChangesAsync();
-            //    return RedirectToAction(nameof(Index));
-            //}
-            //return View(order);
-            //}
+        //await _context.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
+        //return View(order);
+        //}
 
         // GET: Orders/Edit/5
         public async Task<IActionResult> Edit(int? id)

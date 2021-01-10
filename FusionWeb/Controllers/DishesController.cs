@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FusionWeb.Data;
 using FusionWeb.Models;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace FusionWeb.Controllers
 {
@@ -62,15 +63,30 @@ namespace FusionWeb.Controllers
 
         public async Task<IActionResult> Cart()
         {
+            // save dictionary to session
+            // JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+            // HttpContext.Session.SetString("foo", JsonConvert.SerializeObject(ldishes.ToArray(), Formatting.Indented, jsonSerializerSettings));
+
+            // get dictionary from session
+            // string val = HttpContext.Session.GetString("foo");
+            // Dictionary<Dish, int> aa2 = JsonConvert.DeserializeObject<KeyValuePair<Dish, int>[]>(val, jsonSerializerSettings).ToDictionary(kv => kv.Key, kv => kv.Value);
+
             return View(ldishes);
 
+        }
+        public async Task<IActionResult> DeleteFromCart(int id)
+        {
+            var exsDish = ldishes.Keys.FirstOrDefault(d => d.Id == id);
+            ldishes.Remove(exsDish) ;
+
+            return View("Cart",ldishes);
         }
 
         public async Task<IActionResult> AddToCart(int id)
         {
             if (ldishes == null)
                 ldishes = new Dictionary<Dish, int>();
-            var dish = _context.Dish.FirstOrDefault(d => d.Id == id);
+            var dish = _context.Dish.FirstOrDefault(d => d.Id == id);//where, change!! where the id exsist in the string i save in the session!
             var exsDish = ldishes.Keys.FirstOrDefault(d => d.Id == id);
             if (exsDish != null)
                 ldishes[exsDish] += 1;

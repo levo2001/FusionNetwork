@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FusionWeb.Models
 {
+    [Serializable()]
     public class Dish
     {
         public int Id { get; set; }
