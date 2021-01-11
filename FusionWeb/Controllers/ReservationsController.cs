@@ -64,7 +64,7 @@ namespace FusionWeb.Controllers
 
         public async Task<IActionResult> Create([Bind("Id,DateTime,NumOfDinners,Note,Kitchen")] Reservation reservation, Client client)
         {
-            ViewData["Reservation"] = "order";
+            ViewData["Reservation"] = "orderres";
             var existclient = _context.Client.FirstOrDefault(c => c.Id == client.Id);
             if (existclient == null)
             {
@@ -78,7 +78,7 @@ namespace FusionWeb.Controllers
                 reservation.Client = client;
                 _context.Reservasion.Add(reservation);
                 _context.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                //return RedirectToAction("Index", "Home");
 
             }
             else
