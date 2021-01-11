@@ -57,20 +57,20 @@ namespace FusionWeb.Controllers
             return RedirectToAction("Create", "Orders", newOrder);
                
            //return View("");
-        }
+         }
 
         // GET: DishesCart
 
         public async Task<IActionResult> Cart()
         {
             // save dictionary to session
-            // JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
-            // HttpContext.Session.SetString("foo", JsonConvert.SerializeObject(ldishes.ToArray(), Formatting.Indented, jsonSerializerSettings));
+            JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+             HttpContext.Session.SetString("foo", JsonConvert.SerializeObject(ldishes.ToArray(), Formatting.Indented, jsonSerializerSettings));
 
             // get dictionary from session
-            // string val = HttpContext.Session.GetString("foo");
-            // Dictionary<Dish, int> aa2 = JsonConvert.DeserializeObject<KeyValuePair<Dish, int>[]>(val, jsonSerializerSettings).ToDictionary(kv => kv.Key, kv => kv.Value);
-
+             string val = HttpContext.Session.GetString("foo");
+             Dictionary<Dish, int> aa2 = JsonConvert.DeserializeObject<KeyValuePair<Dish, int>[]>(val, jsonSerializerSettings).ToDictionary(kv => kv.Key, kv => kv.Value);
+            
             return View(ldishes);
 
         }

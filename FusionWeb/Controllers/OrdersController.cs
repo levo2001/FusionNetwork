@@ -122,7 +122,6 @@ namespace FusionWeb.Controllers
                                                   string cvv, string CreditOwnerName)
         {
             newOrder.Dishes = ldo;
-
             order = newOrder;
             // order.id = 0;
             //check if client did order in the past.
@@ -167,7 +166,12 @@ namespace FusionWeb.Controllers
 
                 //}
                 ViewBag.OrderDone = "הזמנתך התקבלה בהצלחה. מחכים לראות אותך";
-                
+                foreach (var deltDish in order.Dishes)
+                {
+                    //DeleteFromCart(deltDish.Dish.Id); 
+                    var exsDish = newOrder.Dishes.FirstOrDefault(d => d.DishId == deltDish.Dish.Id);
+                    newOrder.Dishes.Remove(exsDish);
+                }
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -181,6 +185,13 @@ namespace FusionWeb.Controllers
             
 
             return View(order);
+        }
+        public /*async Task<IActionResult>*/ void DeleteFromCart(int id)
+        {
+            var exsDish = newOrder.Dishes.FirstOrDefault(d => d.DishId == id);
+            newOrder.Dishes.Remove(exsDish);
+
+            return;
         }
 
         //if (ModelState.IsValid)
