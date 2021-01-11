@@ -45,6 +45,8 @@ namespace FusionWeb.Controllers
             {
                 d.DishId = dish.Key.Id;
                 d.Quantity = dish.Value;
+                d.Dish = dish.Key;
+           
                 HttpContext.Session.SetInt32("Dish" + i, dish.Key.Id);
                 HttpContext.Session.SetInt32("DishQ" + i, dish.Value);
                 total += dish.Key.Price * dish.Value;
