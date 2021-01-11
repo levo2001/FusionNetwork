@@ -15,7 +15,10 @@ namespace FusionWeb.Controllers
     public class DishesController : Controller
     {
         private readonly FusionWebContext _context;
+        //private static Dictionary<Dish,int> ldishes;
         private static Dictionary<Dish,int> ldishes;
+
+
 
         public DishesController(FusionWebContext context)
         {
@@ -64,15 +67,15 @@ namespace FusionWeb.Controllers
         public async Task<IActionResult> Cart()
         {
             // save dictionary to session
-            JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
-             HttpContext.Session.SetString("foo", JsonConvert.SerializeObject(ldishes.ToArray(), Formatting.Indented, jsonSerializerSettings));
+            //JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+            // HttpContext.Session.SetString("ListDishes", JsonConvert.SerializeObject(ldishes.ToArray(), Formatting.Indented, jsonSerializerSettings));
 
             // get dictionary from session
-             string val = HttpContext.Session.GetString("foo");
-             Dictionary<Dish, int> aa2 = JsonConvert.DeserializeObject<KeyValuePair<Dish, int>[]>(val, jsonSerializerSettings).ToDictionary(kv => kv.Key, kv => kv.Value);
-            
-            return View(ldishes);
+            // string val = HttpContext.Session.GetString("ListDishes");
+            // Dictionary<Dish, int> DicOfDishes = JsonConvert.DeserializeObject<KeyValuePair<Dish, int>[]>(val, jsonSerializerSettings).ToDictionary(kv => kv.Key, kv => kv.Value);
 
+            //return View(ldishes);
+            return View(ldishes);
         }
         public async Task<IActionResult> DeleteFromCart(int id)
         {
@@ -92,6 +95,7 @@ namespace FusionWeb.Controllers
                 ldishes[exsDish] += 1;
             else
                 ldishes.Add(dish, 1);
+
             return RedirectToAction("Cart", "Dishes", ldishes);
             //return View("");
             //from d in _context.Dish
