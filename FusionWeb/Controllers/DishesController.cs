@@ -26,7 +26,6 @@ namespace FusionWeb.Controllers
         
         public async Task<IActionResult> Index()
         {
-            //var dishes = _context.Dish.OrderBy(x => x.Id);
             var dishes = from d in _context.Dish
                                   orderby d.KitchenDish ascending
                                   select d;
@@ -36,6 +35,32 @@ namespace FusionWeb.Controllers
         }
         public IActionResult RedirectToPayment()
         {
+            
+            string cart = HttpContext.Session.GetString("Cart");
+            var dishes = new List<Dish>();
+            ViewData["Dish"] = dishes;
+           // dishes = ViewData["Dish"].
+
+            if (cart != null)
+            {
+                string[] dishIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);
+
+                dishes = _context.Dish.Where(x => dishIds.Contains(x.Id.ToString())).ToList();
+
+                Dictionary<string, int> dict = new Dictionary<string, int>();
+
+                double total = 0;
+                foreach (var d in dishes)
+                {
+                    total += d.Price* ViewBag.quantity[d.Id.ToString()];
+                }
+
+                //ViewData["quantity"] = dict;
+                ViewData["total"] = total;
+            }
+            return RedirectToAction("Create", "Orders");
+
+            /*
             double total = 0;
             DishOrder d = new DishOrder();
             Order newOrder = new Order();
@@ -59,12 +84,13 @@ namespace FusionWeb.Controllers
             return RedirectToAction("Create", "Orders", newOrder);
                
            //return View("");
-         }
+           */
+        }
 
         // GET: DishesCart
 
         public async Task<IActionResult> Cart()
-        {
+        {/*
             // save dictionary to session
             JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
              HttpContext.Session.SetString("foo", JsonConvert.SerializeObject(ldishes.ToArray(), Formatting.Indented, jsonSerializerSettings));
@@ -72,8 +98,30 @@ namespace FusionWeb.Controllers
             // get dictionary from session
              string val = HttpContext.Session.GetString("foo");
              Dictionary<Dish, int> aa2 = JsonConvert.DeserializeObject<KeyValuePair<Dish, int>[]>(val, jsonSerializerSettings).ToDictionary(kv => kv.Key, kv => kv.Value);
-            
-            return View(ldishes);
+           */
+
+            string cart = HttpContext.Session.GetString("Cart");
+            var dishes = new List<Dish>();
+
+            if (cart != null)
+            {
+                string[] dishIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);
+
+                dishes = _context.Dish.Where(x => dishIds.Contains(x.Id.ToString())).ToList();
+
+                Dictionary<string, int> dict = new Dictionary<string, int>();
+                foreach (var id in dishIds)
+                {
+                    if (dict.ContainsKey(id))
+                        dict[id]++;
+                    else
+                        dict.Add(id, 1);
+                }
+
+                ViewData["quantity"] = dict;
+                ViewData["Dish"] = dishes;
+            }
+            return View(dishes);
 
         }
         public async Task<IActionResult> DeleteFromCart(int id)
@@ -86,6 +134,16 @@ namespace FusionWeb.Controllers
 
         public async Task<IActionResult> AddToCart(int id)
         {
+
+                string cart = HttpContext.Session.GetString("Cart");
+                if (cart == null)
+                    cart = "";
+
+                cart += id + ",";
+                HttpContext.Session.SetString("Cart", cart);
+
+                return RedirectToAction("Cart");
+            /*
             if (ldishes == null)
                 ldishes = new Dictionary<Dish, int>();
             var dish = _context.Dish.FirstOrDefault(d => d.Id == id);//where, change!! where the id exsist in the string i save in the session!
@@ -95,41 +153,8 @@ namespace FusionWeb.Controllers
             else
                 ldishes.Add(dish, 1);
             return RedirectToAction("Cart", "Dishes", ldishes);
-            //return View("");
-            //from d in _context.Dish
-                             //where id == d.Id
-                             //select d;
-            //if (HttpContext.Session.GetString("cart") == null)
-            //{
-            //    string myString = id.ToString();
-            //    HttpContext.Session.SetString("cart", myString);
-            //    var dishes = from d in _context.Dish
-            //                 where id == d.Id
-            //                 select d;
-
-                             //    return View(await dishes.ToListAsync());
-
-
-                             //}
-                             //else
-                             //{
-                             //    string dishId = HttpContext.Session.GetString("cart");
-                             //    dishId += ",";
-                             //    dishId += id;
-                             //    HttpContext.Session.SetString("cart", dishId);
-                             //    string[] ids = dishId.Split(',');
-                             //    int[] myInts = ids.Select(int.Parse).ToArray();
-
-                             //    var c = from d in _context.Dish
-                             //            where myInts.Contains(d.Id)
-                             //            select d;
-
-                             //    //TempData["listdishes"] = c;
-                             //    //return RedirectToAction("ActionName", "Home2", new { Date = date });
-                             //    return View(await c.ToListAsync());
-                             //    //return RedirectToAction("Orders", "Creat", myInts);
-                             //}
-
+                    
+             */
         }
 
 

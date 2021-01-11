@@ -18,9 +18,6 @@ namespace FusionWeb.Models
 
         public int Quantity { get; set; }
 
-        //[Display(Name = "הערות")]
-        //public string Comment { get; set; }
-
 
     }
 }

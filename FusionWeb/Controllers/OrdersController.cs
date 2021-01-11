@@ -103,12 +103,7 @@ namespace FusionWeb.Controllers
                 newOrder.Dishes.Add(d);
             }
 
-            //var c = from d in _context.Dish
-            //        where DishId.Contains(d.Id)
-            //        select d;
-            //ViewData["orderDishes"] = c;
-
-            //ViewData["DishId"] = new SelectList(_context.Dish, "Id", "Name");
+            
             return View(newOrder);
         }
 
@@ -154,16 +149,7 @@ namespace FusionWeb.Controllers
                         _context.SaveChanges();
                     }
                 }
-                //for (int i = 0; i < order.Dishes.Count(); i++)
-                //{
-                // dishOrd.DishId = Convert.ToInt32(HttpContext.Session.GetInt32("Dish" + i));
-                //dishOrd.OrderId = order.Id;
-                //dishOrd.Order = order;
-                //dishOrd.Dish = _context.Dish.FirstOrDefault(r => r.Id == dishOrd.DishId);
-                //dishOrd.Quantity = Convert.ToInt32(HttpContext.Session.GetInt32("DishQ" + i));
-                //_context.DishOrder.Add(dishOrd);
-                //    _context.SaveChanges();
-
+                
                 //}
                 ViewBag.OrderDone = "הזמנתך התקבלה בהצלחה. מחכים לראות אותך";
                 //foreach (var deltDish in order.Dishes)
