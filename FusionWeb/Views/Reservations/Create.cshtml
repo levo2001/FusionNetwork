@@ -25,7 +25,7 @@
         <div class="container">
 
 
-            @if (ViewData["Contact"] == null)
+            @if (ViewData["Reservation"] == null)
             {
                 <form asp-action="Create">
 
@@ -91,7 +91,7 @@
 
                 </form>
             }
-            @if (ViewData[""] != null)
+            @if (ViewData["Reservation"] != null)
             {
 
                 <!-- Modal -->
@@ -136,11 +136,7 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-<script>
-    $(function () {
-        $('#exampleModal').modal('show');
-    });
-</script>
+
 
 @section Css{
     <link rel="stylesheet" href="~/css/Reservtion.css" />
