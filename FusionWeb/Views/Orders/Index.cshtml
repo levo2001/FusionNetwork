@@ -16,8 +16,9 @@
                 </tr>
             </thead>
             <tbody>
-
+                
 @foreach (var item in Model) {
+                
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Total)
@@ -25,6 +26,7 @@
 
             <td>
                 <ul>
+                    
                     @foreach (var order in item.Dishes)
                     {
                         <li>@order.Dish.Name</li>

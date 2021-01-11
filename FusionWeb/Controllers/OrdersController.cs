@@ -166,12 +166,12 @@ namespace FusionWeb.Controllers
 
                 //}
                 ViewBag.OrderDone = "הזמנתך התקבלה בהצלחה. מחכים לראות אותך";
-                foreach (var deltDish in order.Dishes)
-                {
-                    //DeleteFromCart(deltDish.Dish.Id); 
-                    var exsDish = newOrder.Dishes.FirstOrDefault(d => d.DishId == deltDish.Dish.Id);
-                    newOrder.Dishes.Remove(exsDish);
-                }
+                //foreach (var deltDish in order.Dishes)
+                //{
+                //    //DeleteFromCart(deltDish.Dish.Id); 
+                //    var exsDish = newOrder.Dishes.FirstOrDefault(d => d.DishId == deltDish.Dish.Id);
+                //    newOrder.Dishes.Remove(exsDish);
+                //}
                 return RedirectToAction("Index", "Home");
             }
             else
