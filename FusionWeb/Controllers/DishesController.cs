@@ -39,27 +39,67 @@ namespace FusionWeb.Controllers
             string cart = HttpContext.Session.GetString("Cart");
             var dishes = new List<Dish>();
             ViewData["Dish"] = dishes;
-           // dishes = ViewData["Dish"].
+            // dishes = ViewData["Dish"].
+            Order newOrder = new Order();
 
             if (cart != null)
             {
                 string[] dishIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);
 
                 dishes = _context.Dish.Where(x => dishIds.Contains(x.Id.ToString())).ToList();
+                
+                //DishOrder d = new DishOrder();
+                //Order newOrder = new Order();
 
                 Dictionary<string, int> dict = new Dictionary<string, int>();
 
                 double total = 0;
-                foreach (var d in dishes)
+
+                foreach (var id in dishIds)
                 {
-                    total += d.Price* ViewBag.quantity[d.Id.ToString()];
+                    if (dict.ContainsKey(id))
+                        dict[id]++;
+                    else
+                        dict.Add(id, 1);
                 }
+                int i = 0;
+                int size = dishes.Count() - 1;
+                Dish currentDish;
+
+
+                foreach (var dish in dict)
+                {
+                    DishOrder d = new DishOrder();
+
+                    d.DishId = Convert.ToInt32(dish.Key);
+                    d.Quantity = dish.Value;
+
+                    foreach (var tmp in dishes)
+                    {
+                        if (tmp.Id == Convert.ToInt32(dish.Key))
+                        {
+                            currentDish = tmp;
+                            total += (currentDish.Price * dish.Value);
+                            break;
+                        }
+
+                    }
+
+                    if (newOrder.Dishes == null)
+                        newOrder.Dishes = new List<DishOrder>();
+                    newOrder.Dishes.Add(d);
+
+                }
+                newOrder.Total = Convert.ToInt32(total);
+                
 
                 //ViewData["quantity"] = dict;
                 ViewData["total"] = total;
-            }
-            return RedirectToAction("Create", "Orders");
 
+
+            }
+
+            return RedirectToAction("Create", "Orders", newOrder ) ;
             /*
             double total = 0;
             DishOrder d = new DishOrder();
@@ -102,7 +142,6 @@ namespace FusionWeb.Controllers
 
             string cart = HttpContext.Session.GetString("Cart");
             var dishes = new List<Dish>();
-
             if (cart != null)
             {
                 string[] dishIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);

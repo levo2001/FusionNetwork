@@ -33,7 +33,7 @@ namespace FusionWeb
             //WeAdd
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromMinutes(1);
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
             }
             );
         }

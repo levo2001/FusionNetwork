@@ -88,22 +88,86 @@ namespace FusionWeb.Controllers
 
         // GET: Orders/Create
         [HttpGet]
-        public IActionResult Create(Order order)
+        public IActionResult Create()//FromRedirectToPayment - newOrder
         {
-            newOrder = order;
-            DishOrder d = new DishOrder();
-            ldo = new List<DishOrder>();
-            for (int i = 0; i < HttpContext.Session.GetInt32("numDishes"); i++)
+            string cart = HttpContext.Session.GetString("Cart");
+            var dishes = new List<Dish>();
+            ViewData["Dish"] = dishes;
+            // dishes = ViewData["Dish"].
+            Order newOrder = new Order();
+
+            if (cart != null)
             {
-                d.DishId = Convert.ToInt32(HttpContext.Session.GetInt32("Dish" + i));
-                d.Quantity = Convert.ToInt32(HttpContext.Session.GetInt32("DishQ" + i));
-                if (newOrder.Dishes == null)
-                    newOrder.Dishes = new List<DishOrder>();
-                ldo.Add(d);
-                newOrder.Dishes.Add(d);
+                string[] dishIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);
+
+                dishes = _context.Dish.Where(x => dishIds.Contains(x.Id.ToString())).ToList();
+
+                //DishOrder d = new DishOrder();
+                //Order newOrder = new Order();
+
+                Dictionary<string, int> dict = new Dictionary<string, int>();
+
+                double total = 0;
+
+                foreach (var id in dishIds)
+                {
+                    if (dict.ContainsKey(id))
+                        dict[id]++;
+                    else
+                        dict.Add(id, 1);
+                }
+                int i = 0;
+                int size = dishes.Count() - 1;
+                Dish currentDish;
+
+
+                foreach (var dish in dict)
+                {
+                    DishOrder d = new DishOrder();
+
+                    d.DishId = Convert.ToInt32(dish.Key);
+                    d.Quantity = dish.Value;
+
+                    foreach (var tmp in dishes)
+                    {
+                        if (tmp.Id == Convert.ToInt32(dish.Key))
+                        {
+                            currentDish = tmp;
+                            total += (currentDish.Price * dish.Value);
+                            break;
+                        }
+
+                    }
+
+                    if (newOrder.Dishes == null)
+                        newOrder.Dishes = new List<DishOrder>();
+                    newOrder.Dishes.Add(d);
+
+                }
+                newOrder.Total = Convert.ToInt32(total);
+
+
+                //ViewData["quantity"] = dict;
+                ViewData["total"] = total;
+
+
             }
 
-            
+            //newOrder = order;
+            //DishOrder d = new DishOrder();
+            //ldo = new List<DishOrder>();
+            //for (int i = 0; i < HttpContext.Session.GetInt32("numDishes"); i++)
+            //{
+            //    d.DishId = Convert.ToInt32(HttpContext.Session.GetInt32("Dish" + i));
+            //    d.Quantity = Convert.ToInt32(HttpContext.Session.GetInt32("DishQ" + i));
+            //    if (newOrder.Dishes == null)
+            //        newOrder.Dishes = new List<DishOrder>();
+            //    ldo.Add(d);
+            //    newOrder.Dishes.Add(d);
+            //}
+
+
+            //return View(newOrder);
             return View(newOrder);
         }
 
