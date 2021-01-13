@@ -12,6 +12,7 @@ namespace FusionWeb.Controllers
 {
     public class CartsController : Controller
     {
+
         private readonly FusionWebContext _context;
 
         public CartsController(FusionWebContext context)
