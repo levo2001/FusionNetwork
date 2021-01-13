@@ -15,11 +15,8 @@ namespace FusionWeb.Controllers
     public class OrdersController : Controller
     {
         private readonly FusionWebContext _context;
-        private static Order newOrder;
+        //private static Order newOrder;
         private static List<DishOrder> ldo;
-
-
-        private static Order globalOrder;
 
         public OrdersController(FusionWebContext context)
         {
@@ -104,12 +101,12 @@ namespace FusionWeb.Controllers
                 string[] dishIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);
 
                 dishes = _context.Dish.Where(x => dishIds.Contains(x.Id.ToString())).ToList();
-
+                
                 //DishOrder d = new DishOrder();
                 //Order newOrder = new Order();
 
                 Dictionary<string, int> dict = new Dictionary<string, int>();
-
+                Dictionary<string, int> Orderdict = new Dictionary<string,int>();
                 double total = 0;
 
                 foreach (var id in dishIds)
@@ -122,7 +119,11 @@ namespace FusionWeb.Controllers
                 int i = 0;
                 int size = dishes.Count() - 1;
                 Dish currentDish;
-
+           
+                //foreach(var x in dishes)
+                //{
+                //    newOrder.Dishes. = x;
+                //}
 
                 foreach (var dish in dict)
                 {
@@ -130,14 +131,15 @@ namespace FusionWeb.Controllers
 
                     d.DishId = Convert.ToInt32(dish.Key);
                     d.Quantity = dish.Value;
-
-
+                //   d.OrderId= Convert.ToInt32(order.Key);// chack if we need  a dict for the order id (he is NULL)
                     foreach (var tmp in dishes)
                     {
                         if (tmp.Id == Convert.ToInt32(dish.Key))
                         {
+
                             currentDish = tmp;
                             total += (currentDish.Price * dish.Value);
+                            d.Dish = currentDish;
                             break;
                         }
 
@@ -146,14 +148,17 @@ namespace FusionWeb.Controllers
                     if (newOrder.Dishes == null)
                         newOrder.Dishes = new List<DishOrder>();
                     newOrder.Dishes.Add(d);
-
+                    _context.SaveChangesAsync();
+                 
+                  
                 }
                 newOrder.Total = Convert.ToInt32(total);
-
+                
+              
 
                 //ViewData["quantity"] = dict;
                 ViewData["total"] = total;
-
+                
 
             }
 
@@ -170,7 +175,6 @@ namespace FusionWeb.Controllers
             //    newOrder.Dishes.Add(d);
             //}
 
-            globalOrder = newOrder;
 
             //return View(newOrder);
             return View(newOrder);
@@ -186,110 +190,71 @@ namespace FusionWeb.Controllers
                                                   string cvv, string CreditOwnerName)
         {
 
-            //if (ModelState.IsValid)
-            //{
-                order = globalOrder;
-                //newOrder.Dishes = ldo;
-                //order = newOrder;
-                // order.id = 0;
+            string cart = HttpContext.Session.GetString("Cart");
+           
+            //newOrder.Dishes = ldo;
+            //order = newOrder;
+            // order.id = 0;
+            //check if client did order in the past.
+            var existsClient = _context.Client.FirstOrDefault(c => c.Id == client.Id);
+            //if is new client, add him to the system.
+            if (existsClient == null)
+            {
+                _context.Client.Add(client);
+                _context.SaveChanges();
+            }
+            bool success = true;//should use payment paramters for perform payment. now ignore it.
+            if (success)
+            {
 
-                //check if client did order in the past.
-                var existsClient = _context.Client.FirstOrDefault(c => c.Id == client.Id);
-
-                //if is new client, add him to the system.
-                if (existsClient == null)
+                //enter the order to DB
+                order.Client = client;
+                _context.Order.Add(order);
+                _context.SaveChanges();
+                //DishOrder dishOrd = new DishOrder();
+                foreach (var dishOrd in order.Dishes)
                 {
-                    _context.Client.Add(client);
-                    _context.SaveChanges();
-                }
-
-                bool success = true;//should use payment paramters for perform payment. now ignore it.     :))))))))))))))))BE HAPPY))))))))))))))))))
-
-                if (success)
-                {
-                    //enter the order to DB
-                    order.Client = client;
-                    _context.Add(order);
-                    await _context.SaveChangesAsync();
-
-
-
-                    //foreach (var dishOrd in order.Dishes)
-                    //{
-
-                    //DishOrder di = new DishOrder();
-
-                    //di = dishOrd;
                     //dishOrd.DishId = Convert.ToInt32(HttpContext.Session.GetInt32("Dish" + i));
-                    //dishOrd.OrderId = order.Id;
-                    //dishOrd.Order = order;
-                    //dishOrd.Dish = _context.Dish.FirstOrD efault(r => r.Id == dishOrd.DishId);
+                    dishOrd.OrderId = order.Id;
+                    dishOrd.Order = order;
+                    dishOrd.Dish = _context.Dish.FirstOrDefault(r => r.Id == dishOrd.DishId);
                     //dishOrd.Quantity = Convert.ToInt32(HttpContext.Session.GetInt32("DishQ" + i));
-                    //if (_context.DishOrder.FirstOrDefault(r => r.DishId == dishOrd.DishId && r.OrderId == dishOrd.OrderId) == null)
-                    //{
-                    // _context.Add(dishOrd);
-                    //_context.SaveChanges();
-                    //}
-                    //_context.Add(di);
-                    //await _context.SaveChangesAsync();
-
-                    //}
-
-                    ///}
-                    ViewBag.OrderDone = "הזמנתך התקבלה בהצלחה. מחכים לראות אותך";
+                    if (_context.DishOrder.FirstOrDefault(r => r.DishId == dishOrd.DishId && r.OrderId == dishOrd.OrderId) == null)
+                    {
+                        _context.DishOrder.Add(dishOrd);
+                        _context.SaveChanges();
+                    }
+                }
+                
+                //}
+                ViewBag.OrderDone = "הזמנתך התקבלה בהצלחה. מחכים לראות אותך";
                 //foreach (var deltDish in order.Dishes)
                 //{
                 //    //DeleteFromCart(deltDish.Dish.Id); 
                 //    var exsDish = newOrder.Dishes.FirstOrDefault(d => d.DishId == deltDish.Dish.Id);
                 //    newOrder.Dishes.Remove(exsDish);
                 //}
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.OrderFailed = "מצטערים הזמנה נכשלה. אנא צרו קשר עם שירות לקוחות";
+            }
 
 
+            
 
-                string cart = HttpContext.Session.GetString("Cart");
-                string[] DishesIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);
-                string[] Ids_NonDuplicate;
-                
-                Ids_NonDuplicate = RemoveDuplicates(DishesIds);
-
-                foreach ( var id in Ids_NonDuplicate)
-                {
-                    DeleteFromCart(int.Parse(id), order);
-                }  
-
-                    HttpContext.Session.SetString("Cart", " ");
-
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ViewBag.OrderFailed = "מצטערים הזמנה נכשלה. אנא צרו קשר עם שירות לקוחות";
-                }
-
-            //}
+            
 
             return View(order);
         }
+    //public /*async Task<IActionResult>*/ void DeleteFromCart(int id)
+    //    {
+    //        var exsDish = newOrder.Dishes.FirstOrDefault(d => d.DishId == id);
+    //        newOrder.Dishes.Remove(exsDish);
 
-
-        public static string[] RemoveDuplicates(string[] s)
-        {
-            HashSet<string> set = new HashSet<string>(s);
-            string[] result = new string[set.Count];
-            set.CopyTo(result);
-            return result;
-        }
-
-
-
-        public /*async Task<IActionResult>*/ void DeleteFromCart(int id , Order order)
-        {
- 
-             var exsDish = order.Dishes.FirstOrDefault(d => d.DishId == id);
-             order.Dishes.Remove(exsDish);
-
-            return;
-        }
+    //        return;
+    //    }
 
         //if (ModelState.IsValid)
         //{
