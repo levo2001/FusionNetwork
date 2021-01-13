@@ -54,41 +54,9 @@ namespace FusionWeb.Controllers
                 Dictionary<string, int> dict = new Dictionary<string, int>();
 
                 double total = 0;
-
-                foreach (var id in dishIds)
+                foreach (var d in dishes)
                 {
-                    if (dict.ContainsKey(id))
-                        dict[id]++;
-                    else
-                        dict.Add(id, 1);
-                }
-                int i = 0;
-                int size = dishes.Count() - 1;
-                Dish currentDish;
-
-
-                foreach (var dish in dict)
-                {
-                    DishOrder d = new DishOrder();
-
-                    d.DishId = Convert.ToInt32(dish.Key);
-                    d.Quantity = dish.Value;
-
-                    foreach (var tmp in dishes)
-                    {
-                        if (tmp.Id == Convert.ToInt32(dish.Key))
-                        {
-                            currentDish = tmp;
-                            total += (currentDish.Price * dish.Value);
-                            break;
-                        }
-
-                    }
-
-                    if (newOrder.Dishes == null)
-                        newOrder.Dishes = new List<DishOrder>();
-                    newOrder.Dishes.Add(d);
-
+                    total += d.Price* ViewBag.quantity[d.Id.ToString()];
                 }
                 newOrder.Total = Convert.ToInt32(total);
                 
