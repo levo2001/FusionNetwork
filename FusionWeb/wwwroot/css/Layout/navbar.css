@@ -33,7 +33,9 @@ body {
     text-align: center;
 }
 
-
+.dropdown {
+    direction: rtl;
+}
 
 .col-3 {
     text-align: right;
