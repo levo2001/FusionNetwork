@@ -189,6 +189,7 @@ namespace FusionWeb.Controllers
             //{
             //NEW
             //Lev
+            int j = 0;
                 order = globalOrder;
                 //newOrder.Dishes = ldo;
                 //order = newOrder;
@@ -246,6 +247,7 @@ namespace FusionWeb.Controllers
                 //}
 
 
+                globalOrder = order;
 
                 string cart = HttpContext.Session.GetString("Cart");
                 string[] DishesIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);
@@ -255,10 +257,10 @@ namespace FusionWeb.Controllers
 
                 foreach ( var id in Ids_NonDuplicate)
                 {
-                    DeleteFromCart(int.Parse(id), order);
+                    DeleteDIshesOrder(int.Parse(id), order);
                 }  
 
-                    HttpContext.Session.SetString("Cart", " ");
+                    HttpContext.Session.SetString("Cart","");
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -283,7 +285,7 @@ namespace FusionWeb.Controllers
 
 
 
-        public /*async Task<IActionResult>*/ void DeleteFromCart(int id , Order order)
+        public /*async Task<IActionResult>*/ void DeleteDIshesOrder(int id , Order order)
         {
  
              var exsDish = order.Dishes.FirstOrDefault(d => d.DishId == id);
@@ -291,6 +293,31 @@ namespace FusionWeb.Controllers
 
             return;
         }
+
+
+        public async Task<IActionResult> DeleteFromCart(int id)
+        {
+            string cart = HttpContext.Session.GetString("Cart");
+            string[] DishesIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);
+
+            DishesIds = DishesIds.Where(w => w != id.ToString() ).ToArray();
+
+            string AfterDelete = null;
+            
+            for( int i=0; i <DishesIds.Length; i++)
+            {
+                AfterDelete += DishesIds[i] + ",";
+
+
+            }
+            if(AfterDelete == null)
+                HttpContext.Session.SetString("Cart", "");
+            else
+                HttpContext.Session.SetString("Cart", AfterDelete);
+
+            return RedirectToAction("Cart","Dishes");        
+        }
+
 
         //if (ModelState.IsValid)
         //{
