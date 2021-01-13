@@ -185,9 +185,9 @@ namespace FusionWeb.Controllers
                                                 , string cardNumber, string expiryMonth, string expiryYear,
                                                   string cvv, string CreditOwnerName)
         {
-
             //if (ModelState.IsValid)
             //{
+            //NEW
                 order = globalOrder;
                 //newOrder.Dishes = ldo;
                 //order = newOrder;
