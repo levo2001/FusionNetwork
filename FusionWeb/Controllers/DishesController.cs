@@ -52,7 +52,7 @@ namespace FusionWeb.Controllers
                 double total = 0;
                 foreach (var d in dishes)
                 {
-                    total += d.Price* ViewBag.quantity[d.Id.ToString()];
+                    total += d.Price;//* ViewBag.quantity[d.Id.ToString()];
                 }
 
                 //ViewData["quantity"] = dict;
