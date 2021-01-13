@@ -1,27 +1,44 @@
 ﻿@model IEnumerable<FusionWeb.Models.Order>
 
-        @{
-            ViewData["Title"] = "Index";
-        }
+@{
+    ViewData["Title"] = "Index";
+}
 
+<div class="title">
+    רשימת הזמנות
+</div>
 
-      
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Total)
-                    </th>
-                    <th> מנות</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-@foreach (var item in Model) {
-                
+<table class="table Order">
+    <thead>
         <tr>
+            <th> שם לקוח</th>
+            <th> כתובת</th>
+            <th> עיר</th>
+            <th> טלפון</th>
+            <th> מנות</th>
+            <th>סה"כ לתשלום</th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+
+        <tr>
+
             <td>
-                @Html.DisplayFor(modelItem => item.Total)
+                @Html.DisplayFor(modelItem => item.Client.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.PhoneNumber)
             </td>
 
             <td>
@@ -29,19 +46,37 @@
 
                     @foreach (var order in item.Dishes)
                     {
-                        <li>@order.Dish.Name</li>
-                     
+                    <li>@order.Dish.Name , @order.Quantity</li> 
                     }
 
                 </ul>
             </td>
 
             <td>
+                ₪@Html.DisplayFor(modelItem => item.Total)
+            </td>
+
+            <td>
                 @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
                 @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
-                <a asp-action="Delete" asp-route-id="@item.Id">מחיקת הזמנה</a>
+
+                <p class="mb-0">
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square-fill" viewBox="0 0 16 16">
+                            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"></path>
+                        </svg>
+                    </a>
+                </p>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
+
+
+@section Css
+{
+    <link rel="stylesheet" href="~/css/Index.css">
+
+}
+
