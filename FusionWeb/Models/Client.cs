@@ -10,12 +10,12 @@ namespace FusionWeb.Models
     {
       public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "שדה חובה* ")]
         [StringLength(30)]
         [Display(Name = "שם מלא")]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "שדה חובה* ")]
         [EmailAddress]
         [Display(Name = "אימייל")]
         public string Email { get; set; }
