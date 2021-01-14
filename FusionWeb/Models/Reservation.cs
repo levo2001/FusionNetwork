@@ -11,14 +11,15 @@ namespace FusionWeb.Models
     {
 
         public int Id { get; set; }
-
+        [Required(ErrorMessage = "שדה חובה* ")]
         public Client Client { get; set; }
 
+        [Required(ErrorMessage = "שדה חובה* ")]
         [DataType(DataType.Date)]
         [Display(Name = "תאריך")]
         //[Range(0, 999.99)]
         public DateTime DateTime { get; set; }
-
+        [Required(ErrorMessage = "שדה חובה* ")]
         [Range(1, 10)]
         [Display(Name = "מס' סועדים")]
 
@@ -28,7 +29,7 @@ namespace FusionWeb.Models
         public string Note { get; set; }
 
         [Display(Name = "סוג מטבח")]
-        [Required(ErrorMessage = "need to pick a kitchen ")]
+        [Required(ErrorMessage = "שדה חובה* ")]
         public Kitchen Kitchen { get; set; }
 
         //  [Required]

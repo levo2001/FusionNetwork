@@ -10,7 +10,7 @@ namespace FusionWeb.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Client is required.")]
+        [Required(ErrorMessage = "שדה חובה* ")]
         public Client Client { get; set; }
 
         [Display (Name = "סהכ לתשלום")]

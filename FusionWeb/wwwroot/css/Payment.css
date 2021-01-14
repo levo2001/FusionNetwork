@@ -10,8 +10,8 @@ input::placeholder {
     text-align: right;
 }
 
-h4{
-    margin-top: 0!important;
+h4 {
+    margin-top: 0 !important;
 }
 * {
     background-color: black !important;
@@ -46,4 +46,9 @@ h4{
 
 .form-group, .w-75, .w-25 {
     font-weight: bold;
+}
+.modal-content {
+    
+    background-color: white!important;
+    color: black !important;
 }

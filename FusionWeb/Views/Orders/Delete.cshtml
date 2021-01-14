@@ -1,5 +1,6 @@
 ﻿@model FusionWeb.Models.Order
 
+
 @{
     ViewData["Title"] = "Delete";
 }
@@ -7,39 +8,28 @@
 
 
 <h3>?אתה בטוח רוצה למחוק הזמנה זו</h3>
-<div>
+
+@*<div>
 
 
     <dl class="row">
         <dt class="col-sm-2">
-            מנות
+            לקוח
         </dt>
-        @*<dd class="col-sm-8">
 
-            @foreach (var item in Model.Dishes)
-            {
-
-            <ul>
-                @foreach (var order in item)
-                {
-                    <li>@order.Dish.Name</li>
-                    @Html.DisplayFor(model => model.Dishes.Name)
-                }
-
-            </ul>
-
-            }
-        </dd>*@
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Client.Name)
+        </dd>
 
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Total)
+            סכום לתשלום
         </dt>
-      
+
         <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Total)
         </dd>
-    </dl>
- 
+    </dl>*@
+
 
 
     <form asp-action="Delete">
@@ -47,4 +37,4 @@
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">חזרה לרשימה</a>
     </form>
-</div>
+@*</div>*@

@@ -329,7 +329,7 @@ namespace FusionWeb.Controllers
             {
                 return NotFound();
             }
-            ldishes.Remove(dish);
+
             return View(dish);
         }
 

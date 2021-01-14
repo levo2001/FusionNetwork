@@ -34,10 +34,19 @@ button {
         height: 470px;
     } */
 video {
-    width: 84vw;
+    /*width: 84vw;
     height: 72vh;
     flex-basis: 10%;
-    margin-top: 50px;
+    margin-top: 50px;*/
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 70%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: 84vw;
+    height: 72vh;
+    /*transform: translateX(-50%) translateY(-50%);*/
 }
 
 .feature-box {
@@ -100,4 +109,30 @@ footer {
     width: 30rem !important;
     position: absolute;
     bottom: 44rem;
+}
+
+
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+
+#smallAbout {
+    position: absolute;
+    top: 157%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.kitchensPic {
+    position: absolute;
+    top: 80rem;
+
 }

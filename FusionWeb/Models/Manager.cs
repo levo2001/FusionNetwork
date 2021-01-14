@@ -14,10 +14,10 @@ namespace FusionWeb.Models
         [EmailAddress]
         [Display(Name = "אימייל")]
         [StringLength(30)]
-        [Required(ErrorMessage = "  UserName is required.")]
+        [Required(ErrorMessage = "שדה חובה* ")]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "Password is required")]
+        [Required(ErrorMessage = "שדה חובה* ")]
         [StringLength(30, ErrorMessage = "Must be between 5 and 30 characters", MinimumLength = 5)]
         public string Password { get; set; }
 
