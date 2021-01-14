@@ -22,7 +22,6 @@ namespace FusionWeb.Controllers
         // GET: Contacts
         public async Task<IActionResult> Index()
         {
-            //return View(await _context.Contact.ToListAsync());
             return View(await _context.Contact.Include(x => x.InfoClient).ToListAsync());
         }
 
@@ -57,7 +56,9 @@ namespace FusionWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Content")] Contact contact, Client client)
         {
+            //popup for contact
             ViewData["Contact"] = "Order";
+
             var existclient = _context.Client.FirstOrDefault(c => c.Id == client.Id);
             if (existclient == null)
             {
@@ -65,34 +66,15 @@ namespace FusionWeb.Controllers
                 _context.SaveChanges();
 
             }
-            bool succes = true;
-            if (succes)
-            {
+           
                 contact.InfoClient = client;
                 _context.Contact.Add(contact);
                 _context.SaveChanges();
-                //return RedirectToAction("Index", "Home");
 
-            }
-            else
-            {
-
-            }
             return View(contact);
         }
 
 
-        //if (ModelState.IsValid)
-        //{
-        //    _context.Add(contact);
-        //    await _context.SaveChangesAsync();
-        //    ViewData["Contact"] = "Order";
-        //    //return RedirectToAction(nameof(Create));
-        //}
-        //return View(contact);
-
-
-        // GET: Contacts/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)

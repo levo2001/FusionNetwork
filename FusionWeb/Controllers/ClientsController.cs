@@ -18,25 +18,27 @@ namespace FusionWeb.Controllers
         {
             _context = context;
         }
-
+        //?
         // GET: Clients
         //public async Task<IActionResult> Index()
         //{
         //    return View(await _context.Client.Include(x => x.Orders).ThenInclude(x => x.Dish).ToListAsync());
         //}
-        public async Task<IActionResult> func([Bind("ClientId,Name,Email,Address")] Client client)
-        {
-            if (ModelState.IsValid)
-            { 
-                _context.Add(client);
 
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-                
-            }
 
-            return View(client);
-        }
+        //public async Task<IActionResult> func([Bind("ClientId,Name,Email,Address")] Client client)
+        //{
+        //    if (ModelState.IsValid)
+        //    { 
+        //        _context.Add(client);
+
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+
+        //    }
+
+        //    return View(client);
+        //}
 
         // GET: Clients/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -101,6 +103,7 @@ namespace FusionWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Address,City,PhoneNumber")] Client client)
         {
+            //the client was not found in DB
             if (id != client.Id)
             {
                 return NotFound();
