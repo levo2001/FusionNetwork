@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 namespace FusionWeb.Models
 {
     public enum Kitchen
-    {
-
-      
+    { 
         [Display(Name = "ישראלי")]
         Israeli,
         [Display(Name = "איטלקי")]
