@@ -186,9 +186,7 @@ namespace FusionWeb.Controllers
                                                   string cvv, string CreditOwnerName)
         {
             //if (ModelState.IsValid)
-            //{
-            //NEW
-            //Lev
+            ViewData["Order"] = "order";
             int j = 0;
                 order = globalOrder;
                 //newOrder.Dishes = ldo;
@@ -238,7 +236,8 @@ namespace FusionWeb.Controllers
                     //}
 
                     ///}
-                    ViewBag.OrderDone = "הזמנתך התקבלה בהצלחה. מחכים לראות אותך";
+                   
+                    //ViewBag.OrderDone = "הזמנתך התקבלה בהצלחה. מחכים לראות אותך";
                 //foreach (var deltDish in order.Dishes)
                 //{
                 //    //DeleteFromCart(deltDish.Dish.Id); 
@@ -262,7 +261,7 @@ namespace FusionWeb.Controllers
 
                     HttpContext.Session.SetString("Cart","");
 
-                    return RedirectToAction("Index", "Home");
+                    //return RedirectToAction("Index", "Home");
                 }
                 else
                 {
