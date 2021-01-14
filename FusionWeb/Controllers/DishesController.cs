@@ -15,7 +15,6 @@ namespace FusionWeb.Controllers
     public class DishesController : Controller
     {
         private readonly FusionWebContext _context;
-        private static Dictionary<Dish,int> ldishes;
 
         public DishesController(FusionWebContext context)
         {
@@ -33,87 +32,19 @@ namespace FusionWeb.Controllers
             return View(await dishes.ToListAsync());
 
         }
-        public IActionResult RedirectToPayment()
-        {
-            
-            string cart = HttpContext.Session.GetString("Cart");
-            var dishes = new List<Dish>();
-            ViewData["Dish"] = dishes;
-            // dishes = ViewData["Dish"].
-            Order newOrder = new Order();
-
-            if (cart != null)
-            {
-                string[] dishIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);
-
-                dishes = _context.Dish.Where(x => dishIds.Contains(x.Id.ToString())).ToList();
-                
-                //DishOrder d = new DishOrder();
-                //Order newOrder = new Order();
-
-                Dictionary<string, int> dict = new Dictionary<string, int>();
-
-                double total = 0;
-                foreach (var d in dishes)
-                {
-                    total += d.Price* ViewBag.quantity[d.Id.ToString()];
-                }
-                newOrder.Total = Convert.ToInt32(total);
-                
-
-                //ViewData["quantity"] = dict;
-                ViewData["total"] = total;
-
-
-            }
-
-            return RedirectToAction("Create", "Orders", newOrder ) ;
-            /*
-            double total = 0;
-            DishOrder d = new DishOrder();
-            Order newOrder = new Order();
-            HttpContext.Session.SetInt32("numDishes", ldishes.Count());
-            int i = 0;
-            foreach (var dish in ldishes)
-            {
-                d.DishId = dish.Key.Id;
-                d.Quantity = dish.Value;
-                d.Dish = dish.Key;
-           
-                HttpContext.Session.SetInt32("Dish" + i, dish.Key.Id);
-                HttpContext.Session.SetInt32("DishQ" + i, dish.Value);
-                total += dish.Key.Price * dish.Value;
-                if (newOrder.Dishes == null)
-                    newOrder.Dishes = new List<DishOrder>();
-                newOrder.Dishes.Add(d);
-                i++;
-            }
-            newOrder.Total = Convert.ToInt32(total);
-            return RedirectToAction("Create", "Orders", newOrder);
-               
-           //return View("");
-           */
-        }
 
         // GET: DishesCart
-
         public async Task<IActionResult> Cart()
-        {/*
-            // save dictionary to session
-            JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
-             HttpContext.Session.SetString("foo", JsonConvert.SerializeObject(ldishes.ToArray(), Formatting.Indented, jsonSerializerSettings));
+        {
 
-            // get dictionary from session
-             string val = HttpContext.Session.GetString("foo");
-             Dictionary<Dish, int> aa2 = JsonConvert.DeserializeObject<KeyValuePair<Dish, int>[]>(val, jsonSerializerSettings).ToDictionary(kv => kv.Key, kv => kv.Value);
-           */
-
-            string cart = HttpContext.Session.GetString("Cart");
+            string cart = HttpContext.Session.GetString("Cart"); //creat cart for evert client
             var dishes = new List<Dish>();
             if (cart != null)
             {
                 string[] dishIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);
 
+                //Check which ID I chose in the order is equal to the ID in the DB 
+                //and I will put it in a "dishes" which is a packet list
                 dishes = _context.Dish.Where(x => dishIds.Contains(x.Id.ToString())).ToList();
 
                 Dictionary<string, int> dict = new Dictionary<string, int>();
@@ -131,13 +62,6 @@ namespace FusionWeb.Controllers
             return View(dishes);
 
         }
-        public async Task<IActionResult> DeleteFromCart(int id)
-        {
-            var exsDish = ldishes.Keys.FirstOrDefault(d => d.Id == id);
-            ldishes.Remove(exsDish) ;
-
-            return View("Cart",ldishes);
-        }
 
         public async Task<IActionResult> AddToCart(int id)
         {
@@ -150,25 +74,14 @@ namespace FusionWeb.Controllers
                 HttpContext.Session.SetString("Cart", cart);
 
                 return RedirectToAction("Cart");
-            /*
-            if (ldishes == null)
-                ldishes = new Dictionary<Dish, int>();
-            var dish = _context.Dish.FirstOrDefault(d => d.Id == id);//where, change!! where the id exsist in the string i save in the session!
-            var exsDish = ldishes.Keys.FirstOrDefault(d => d.Id == id);
-            if (exsDish != null)
-                ldishes[exsDish] += 1;
-            else
-                ldishes.Add(dish, 1);
-            return RedirectToAction("Cart", "Dishes", ldishes);
-                    
-             */
+           
         }
 
 
 
         public async Task<IActionResult> Kitchen(int Id)
         {
-
+            //dish2 = dishes from the same KitchenId;
             var dish2 = from dish in _context.Dish
                         where dish.KitchenDish == Id
                         select dish;
@@ -196,10 +109,8 @@ namespace FusionWeb.Controllers
 
                 if (d.Count() == 0)
                 {
-                    ViewData["Error"] = "NotExist";
                     return RedirectToAction(nameof(Index));
 
-                    ///POPUP
                 }
                 else
                     return View(await d.ToListAsync());
@@ -213,10 +124,8 @@ namespace FusionWeb.Controllers
 
                 if (d1.Count() == 0)
                 {
-                    ViewData["Error"] = "NotExist";
                     return RedirectToAction(nameof(Index));
 
-                    ///POPUP
                 }
                 else
                     return View(await d1.ToListAsync());
