@@ -51,7 +51,7 @@ namespace FusionWeb.Controllers
             }
             else
             {
-                ViewData["Error"] = "User does not exist!";
+                ViewData["Error"] = "משתמש/סיסמא לא קיים";
             }
 
             return View(manager);

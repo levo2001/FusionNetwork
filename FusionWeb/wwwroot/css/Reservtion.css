@@ -7,8 +7,14 @@ textarea::placeholder {
     font-size: medium; /*size of the Write inside*/
     color: white !important;
     text-align: right; /*which size the Write is*/
+
 }
 
+
+.note {
+    color: white;
+    font-size: 20px;
+}
 /* the inside of the input */
 input::placeholder {
     font-size: small; /*size of the Write inside*/
@@ -49,12 +55,10 @@ input {
 
 .form-group, .w-50 {
     margin-right: 18rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     font-size: 20px;
     font-weight: bold;
-
-        float: right;
-
+    float: right;
 }
 
 

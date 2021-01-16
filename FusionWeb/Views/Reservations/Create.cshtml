@@ -4,18 +4,15 @@
 @{
     ViewData["Title"] = "Create";
 }
-
 <body>
-
+    
     <div class="container_img">
         <div style="height: 260px; margin-top: 40px;">
             <div class="page-header-bg-image"
                  style="background-image:
-              url(https://cdn.pixabay.com/photo/2017/01/26/02/06/platter-2009590_1280.jpg);  ">
+              url(https://cdn.pixabay.com/photo/2017/01/26/02/06/platter-2009590_1280.jpg);">
                 <div class="centered">הזמנת מקום</div>
-
             </div>
-
         </div>
     </div>
 
@@ -24,31 +21,30 @@
 
         <div class="container">
 
-
             @if (ViewData["Reservation"] == null)
             {
-                <form asp-action="Create">
+                <form asp-action="Create" onsubmit="foo(event)">
 
                     <div class="contact">
+                        
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="form-group w-50">
                             <label asp-for="Client.Name" class="control-label"></label>
-                            <input asp-for="Client.Name" name="Name" class="form-control" placeholder="הזן/י שם מלא" />
-                            <span asp-validation-for="Client.Name" class="text-danger"></span>
+                            <input asp-for="Client.Name" name="Name" id="fname" class="form-control" placeholder="הזן/י שם מלא" />
+                            <span asp-validation-for="Client.Name" id="validName" class="text-danger"></span>
+
                         </div>
 
                         <div class="form-group w-50">
                             <label asp-for="Client.Email" class="control-label"></label>
-                            <input asp-for="Client.Email" name="Email" class="form-control" placeholder="הזן/י אימייל" type="text" />
-                            <span asp-validation-for="Client.Email" class="text-danger"></span>
+                            <input asp-for="Client.Email" name="Email" class="form-control" placeholder="הזן/י אימייל"/>
+                            <span asp-validation-for="Client.Email" class="text-danger" id="validPhone" ></span>
                         </div>
-
-
 
                         <div class="form-group w-50">
                             <label asp-for="Client.PhoneNumber" class="control-label"></label>
-                            <input asp-for="Client.PhoneNumber" name="PhoneNumber" class="form-control" placeholder="הזן/י טלפון" />
-                            <span asp-validation-for="Client.PhoneNumber" class="text-danger"></span>
+                            <input asp-for="Client.PhoneNumber" name="PhoneNumber" id="phone" class="form-control" placeholder="הזן/י טלפון" />
+                            <span asp-validation-for="Client.PhoneNumber" id="validPhone" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -62,32 +58,24 @@
                         <input asp-for="NumOfDinners" class="form-control" type="number" />
                         <span asp-validation-for="NumOfDinners" class="text-danger"></span>
                     </div>
-                    <div class="form-group w-50">
+                    <div class="form-group w-50 note">
                         <label asp-for="Note" class="control-label"></label>
                         <input asp-for="Note" class="form-control" placeholder="הזן/י"
                                style="height:200px" />
                         <span asp-validation-for="Note" class="text-danger"></span>
-
                     </div>
 
                     <div class="kitchen">
-
-
                         <div class="form-group w-50 ">
                             <label asp-for="Kitchen" class="control-label">בחר מטבח</label>
-                            <select asp-for="Kitchen" class="form-control" asp-items="Html.GetEnumSelectList<Kitchen>()">
+                            <select asp-for="Kitchen" class="form-control" asp-items="Html.GetEnumSelectList<Kitchen>().Take(4)">
                             </select>
                         </div>
 
                         <div class="form-group w-50">
                             <input type="submit" value="הזמן" class="btn btn-primary" />
                         </div>
-
-
                     </div>
-
-
-
 
                 </form>
             }
@@ -153,4 +141,19 @@
     $(function () {
         $('#exampleModal').modal('show');
     });
+
+    function foo(e) {
+        var isValid = true;
+        var f = true;
+        var name = document.getElementById("fname").value;
+        var phone = document.getElementById("phone").value;
+        
+        if (name == "") {
+          document.getElementById("validName").innerHTML = "שדה חובה*";
+        }
+        if (phone == "") {
+          document.getElementById("validPhone").innerHTML = "שדה חובה*";
+        }
+    }
+
 </script>

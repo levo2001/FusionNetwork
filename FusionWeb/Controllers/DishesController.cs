@@ -57,7 +57,6 @@ namespace FusionWeb.Controllers
                 }
 
                 ViewData["quantity"] = dict;
-                ViewData["Dish"] = dishes;
             }
             return View(dishes);
 
@@ -65,7 +64,6 @@ namespace FusionWeb.Controllers
 
         public async Task<IActionResult> AddToCart(int id)
         {
-
                 string cart = HttpContext.Session.GetString("Cart");
                 if (cart == null)
                     cart = "";
@@ -74,10 +72,7 @@ namespace FusionWeb.Controllers
                 HttpContext.Session.SetString("Cart", cart);
 
                 return RedirectToAction("Cart");
-           
         }
-
-
 
         public async Task<IActionResult> Kitchen(int Id)
         {
@@ -88,7 +83,6 @@ namespace FusionWeb.Controllers
 
             return View("Index", await dish2.ToListAsync());
         }
-
 
         public async Task<IActionResult> Search()
         {
@@ -110,7 +104,6 @@ namespace FusionWeb.Controllers
                 if (d.Count() == 0)
                 {
                     return RedirectToAction(nameof(Index));
-
                 }
                 else
                     return View(await d.ToListAsync());
@@ -130,7 +123,6 @@ namespace FusionWeb.Controllers
                 else
                     return View(await d1.ToListAsync());
             }
-
         }
 
         // GET: Dishes/Details/5

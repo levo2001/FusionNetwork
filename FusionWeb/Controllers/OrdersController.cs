@@ -15,9 +15,9 @@ namespace FusionWeb.Controllers
     public class OrdersController : Controller
     {
         private readonly FusionWebContext _context;
-        private static Order newOrder;
+        /*private static Order newOrder;
         private static List<DishOrder> ldo;
-
+        */
 
         private static Order globalOrder;
 
@@ -30,45 +30,6 @@ namespace FusionWeb.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Order.Include(x => x.Dishes).ThenInclude(x => x.Dish).Include(x => x.Client).ToListAsync());
-        }
-
-        public async Task<IActionResult> Orders()
-        {
-            return View(await _context.Order.Include(x => x.Dishes).ThenInclude(x => x.Dish).ToListAsync());
-        }
-
-
-        public async Task<IActionResult> Cart(int id)
-        {
-            if (HttpContext.Session.GetString("cart") == null)
-            {
-                string myString = id.ToString();
-                HttpContext.Session.SetString("cart", myString);
-                var dishes = from d in _context.Dish
-                             where id == d.Id
-                             select d;
-
-                return View(await dishes.ToListAsync());
-
-
-            }
-            else
-            {
-                string dishId = HttpContext.Session.GetString("cart");
-                dishId += ",";
-                dishId += id;
-                HttpContext.Session.SetString("cart", dishId);
-                string[] ids = dishId.Split(',');
-                int[] myInts = ids.Select(int.Parse).ToArray();
-
-
-                var c = from d in _context.Dish
-                        where myInts.Contains(d.Id)
-                        select d;
-
-                return View(await c.ToListAsync());
-            }
-
         }
 
         // GET: Orders/Details/5
@@ -95,23 +56,18 @@ namespace FusionWeb.Controllers
         {
             string cart = HttpContext.Session.GetString("Cart");
             var dishes = new List<Dish>();
-            ViewData["Dish"] = dishes;
-            // dishes = ViewData["Dish"].
             Order newOrder = new Order();
 
             if (cart != null)
             {
                 string[] dishIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);
-
+                //Get the all info of the dishes from DB
                 dishes = _context.Dish.Where(x => dishIds.Contains(x.Id.ToString())).ToList();
-
-                //DishOrder d = new DishOrder();
-                //Order newOrder = new Order();
 
                 Dictionary<string, int> dict = new Dictionary<string, int>();
 
                 double total = 0;
-
+                //Create dictionary
                 foreach (var id in dishIds)
                 {
                     if (dict.ContainsKey(id))
@@ -119,28 +75,27 @@ namespace FusionWeb.Controllers
                     else
                         dict.Add(id, 1);
                 }
-                int i = 0;
-                int size = dishes.Count() - 1;
-                Dish currentDish;
 
+                int i = 0;
+                Dish currentDish;
 
                 foreach (var dish in dict)
                 {
                     DishOrder d = new DishOrder();
 
-                    d.DishId = Convert.ToInt32(dish.Key);
+                    d.DishId = int.Parse(dish.Key);
                     d.Quantity = dish.Value;
 
-
+                    //Update total order
                     foreach (var tmp in dishes)
                     {
+                        //Find the price of the dish in the dict
                         if (tmp.Id == Convert.ToInt32(dish.Key))
                         {
                             currentDish = tmp;
                             total += (currentDish.Price * dish.Value);
                             break;
                         }
-
                     }
 
                     if (newOrder.Dishes == null)
@@ -149,30 +104,11 @@ namespace FusionWeb.Controllers
 
                 }
                 newOrder.Total = Convert.ToInt32(total);
-
-
-                //ViewData["quantity"] = dict;
-                ViewData["total"] = total;
-
-
             }
 
-            //newOrder = order;
-            //DishOrder d = new DishOrder();
-            //ldo = new List<DishOrder>();
-            //for (int i = 0; i < HttpContext.Session.GetInt32("numDishes"); i++)
-            //{
-            //    d.DishId = Convert.ToInt32(HttpContext.Session.GetInt32("Dish" + i));
-            //    d.Quantity = Convert.ToInt32(HttpContext.Session.GetInt32("DishQ" + i));
-            //    if (newOrder.Dishes == null)
-            //        newOrder.Dishes = new List<DishOrder>();
-            //    ldo.Add(d);
-            //    newOrder.Dishes.Add(d);
-            //}
-
+            //For using in create post
             globalOrder = newOrder;
-
-            //return View(newOrder);
+            
             return View(newOrder);
         }
 
@@ -186,12 +122,9 @@ namespace FusionWeb.Controllers
                                                   string cvv, string CreditOwnerName)
         {
             //if (ModelState.IsValid)
-            ViewData["Order"] = "order";
-            int j = 0;
+                ViewData["Order"] = "order";
+                int j = 0;
                 order = globalOrder;
-                //newOrder.Dishes = ldo;
-                //order = newOrder;
-                // order.id = 0;
 
                 //check if client did order in the past.
                 var existsClient = _context.Client.FirstOrDefault(c => c.Id == client.Id);
@@ -212,40 +145,6 @@ namespace FusionWeb.Controllers
                     _context.Add(order);
                     await _context.SaveChangesAsync();
 
-
-
-                    //foreach (var dishOrd in order.Dishes)
-                    //{
-
-                    //DishOrder di = new DishOrder();
-
-                    //di = dishOrd;
-                    //dishOrd.DishId = Convert.ToInt32(HttpContext.Session.GetInt32("Dish" + i));
-                    //dishOrd.OrderId = order.Id;
-                    //dishOrd.Order = order;
-                    //dishOrd.Dish = _context.Dish.FirstOrD efault(r => r.Id == dishOrd.DishId);
-                    //dishOrd.Quantity = Convert.ToInt32(HttpContext.Session.GetInt32("DishQ" + i));
-                    //if (_context.DishOrder.FirstOrDefault(r => r.DishId == dishOrd.DishId && r.OrderId == dishOrd.OrderId) == null)
-                    //{
-                    // _context.Add(dishOrd);
-                    //_context.SaveChanges();
-                    //}
-                    //_context.Add(di);
-                    //await _context.SaveChangesAsync();
-
-                    //}
-
-                    ///}
-                   
-                    //ViewBag.OrderDone = "הזמנתך התקבלה בהצלחה. מחכים לראות אותך";
-                //foreach (var deltDish in order.Dishes)
-                //{
-                //    //DeleteFromCart(deltDish.Dish.Id); 
-                //    var exsDish = newOrder.Dishes.FirstOrDefault(d => d.DishId == deltDish.Dish.Id);
-                //    newOrder.Dishes.Remove(exsDish);
-                //}
-
-
                 globalOrder = order;
 
                 string cart = HttpContext.Session.GetString("Cart");
@@ -258,10 +157,7 @@ namespace FusionWeb.Controllers
                 {
                     DeleteDIshesOrder(int.Parse(id), order);
                 }  
-
                     HttpContext.Session.SetString("Cart","");
-
-                    //return RedirectToAction("Index", "Home");
                 }
                 else
                 {

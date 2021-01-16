@@ -18,7 +18,5 @@ namespace FusionWeb.Models
 
         public ICollection<DishOrder> Dishes { get; set; }
 
-
-
     }
 }
