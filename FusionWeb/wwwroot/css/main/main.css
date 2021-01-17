@@ -40,7 +40,7 @@ video {
     margin-top: 50px;*/
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 85%;
+    top: 70%;
     left: 50%;
     min-width: 100%;
     min-height: 100%;
@@ -127,7 +127,7 @@ video::-webkit-media-controls {
 
 #smallAbout {
     position: absolute;
-    top: 180%;
+    top: 160%;
     left: 50%;
     transform: translate(-50%, -50%);
 }

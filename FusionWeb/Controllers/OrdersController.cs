@@ -31,7 +31,10 @@ namespace FusionWeb.Controllers
         {
             return View(await _context.Order.Include(x => x.Dishes).ThenInclude(x => x.Dish).Include(x => x.Client).ToListAsync());
         }
-
+        public async Task<IActionResult> OrderDone()
+        {
+            return View();
+        }
         // GET: Orders/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -159,14 +162,15 @@ namespace FusionWeb.Controllers
                     }  
                         HttpContext.Session.SetString("Cart","");
                     }
-               // else
-                 //   {
-                     //  ViewBag.OrderFailed = "מצטערים הזמנה נכשלה. אנא צרו קשר עם שירות לקוחות";
-                   // }
+            // else
+            //   {
+            //  ViewBag.OrderFailed = "מצטערים הזמנה נכשלה. אנא צרו קשר עם שירות לקוחות";
+            // }
 
             //}
 
-            return View(order);
+            //return View(order);
+            return RedirectToAction("OrderDone");
         }
 
 
@@ -212,6 +216,9 @@ namespace FusionWeb.Controllers
 
             return RedirectToAction("Cart","Dishes");        
         }
+
+
+
 
         // GET: Orders/Edit/5
         public async Task<IActionResult> Edit(int? id)

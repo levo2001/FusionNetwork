@@ -1,0 +1,18 @@
+﻿
+
+@{
+    ViewData["Title"] = "OrderDone";
+}
+
+@*<div class="title">בתאבון</div>*@
+<div style="color:white; margin-top: 6rem;">
+    !הזמנתך התקבלה
+    זמן המתנה משוער - 20 דק
+
+    תודה רבה
+</div>
+<form asp-controller="Home" asp-action="Index">
+    <input type="submit" value="סיום" class="btn btn-secondary" data-bs-dismiss="modal" style="    position: absolute;
+    top: 23rem;"/>
+</form>
+
