@@ -33,46 +33,46 @@ namespace FusionWeb.Controllers
         {
             return View();
         }
-        public IActionResult Contact()
-        {
-            return View();
-        }
+        //public IActionResult Contact()
+        //{
+        //    return View();
+        //}
         public IActionResult AboutUs()
         {
             return View();
         }
-        public IActionResult Delivery()
-        {
-            return View();
-        }
+        //public IActionResult Delivery()
+        //{
+        //    return View();
+        //}
         public IActionResult RestGallery()
         {
             return View();
         }
-        public IActionResult Global()
-        {
-            return View();
-        }
-        public IActionResult Main()
-        {
-            return View();
-        }
-        public IActionResult Payment()
-        {
-            return View();
-        }
-        public IActionResult Reservation()
-        {
-            return View();
-        }
-        public IActionResult LogIn()
-        {
+        //public IActionResult Global()
+        //{
+        //    return View();
+        //}
+        //public IActionResult Main()
+        //{
+        //    return View();
+        //}
+        //public IActionResult Payment()
+        //{
+        //    return View();
+        //}
+        //public IActionResult Reservation()
+        //{
+        //    return View();
+        //}
+        //public IActionResult LogIn()
+        //{
 
 
-            i++;
+        //    i++;
 
-            return View();
-        }
+        //    return View();
+        //}
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

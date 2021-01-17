@@ -186,7 +186,7 @@ namespace FusionWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Description,Image")] Dish dish)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Description,KitchenDish,Image")] Dish dish)
         {
             if (id != dish.Id)
             {

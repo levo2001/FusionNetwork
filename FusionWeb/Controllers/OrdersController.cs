@@ -139,30 +139,30 @@ namespace FusionWeb.Controllers
                 bool success = true;//should use payment paramters for perform payment. now ignore it.     :))))))))))))))))BE HAPPY))))))))))))))))))
 
                 if (success)
-                {
-                    //enter the order to DB
-                    order.Client = client;
-                    _context.Add(order);
-                    await _context.SaveChangesAsync();
+                    {
+                        //enter the order to DB
+                        order.Client = client;
+                        _context.Add(order);
+                        await _context.SaveChangesAsync();
 
-                globalOrder = order;
+                    globalOrder = order;
 
-                string cart = HttpContext.Session.GetString("Cart");
-                string[] DishesIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);
-                string[] Ids_NonDuplicate;
+                    string cart = HttpContext.Session.GetString("Cart");
+                    string[] DishesIds = cart.Split(",", StringSplitOptions.RemoveEmptyEntries);
+                    string[] Ids_NonDuplicate;
                 
-                Ids_NonDuplicate = RemoveDuplicates(DishesIds);
+                    Ids_NonDuplicate = RemoveDuplicates(DishesIds);
 
-                foreach ( var id in Ids_NonDuplicate)
-                {
-                    DeleteDIshesOrder(int.Parse(id), order);
-                }  
-                    HttpContext.Session.SetString("Cart","");
-                }
-                else
-                {
-                    ViewBag.OrderFailed = "מצטערים הזמנה נכשלה. אנא צרו קשר עם שירות לקוחות";
-                }
+                    foreach ( var id in Ids_NonDuplicate)
+                    {
+                        DeleteDIshesOrder(int.Parse(id), order);
+                    }  
+                        HttpContext.Session.SetString("Cart","");
+                    }
+               // else
+                 //   {
+                     //  ViewBag.OrderFailed = "מצטערים הזמנה נכשלה. אנא צרו קשר עם שירות לקוחות";
+                   // }
 
             //}
 
@@ -212,34 +212,6 @@ namespace FusionWeb.Controllers
 
             return RedirectToAction("Cart","Dishes");        
         }
-
-
-        //if (ModelState.IsValid)
-        //{
-
-        //    order.Dishes = new List<DishOrder>();
-        //    foreach(var id in DishId)
-        //    {
-        //    order.Dishes.Add(new DishOrder() { DishId = id, OrderId = order.Id });
-
-        //}
-
-        //    _context.Add(order);
-
-        //DishOrder item = new DishOrder();
-        //item.Order = order;
-
-        //var c = from d in _context.Dish
-        //        where IdDishes.Contains((char)d.Id)
-        //        select d;
-
-        //item.Order.Cart.Dishes = (ICollection<Dish>)c;
-
-        //await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
-        //return View(order);
-        //}
 
         // GET: Orders/Edit/5
         public async Task<IActionResult> Edit(int? id)

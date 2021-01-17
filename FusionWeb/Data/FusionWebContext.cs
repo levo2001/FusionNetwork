@@ -31,8 +31,6 @@ namespace FusionWeb.Data
 
         public DbSet<FusionWeb.Models.Reservation> Reservasion { get; set; }
 
-        public DbSet<FusionWeb.Models.Cart> Cart { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DishOrder>()
