@@ -96,7 +96,7 @@ namespace FusionWeb.Controllers
             {
                 _context.Add(manager);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(LogIn));
             }
             return View(manager);
         }

@@ -34,7 +34,10 @@
                         <span asp-validation-for="Password" class="text-danger" for="inputPassword"></span>
                     </div>
                 </div>
-                <input type="submit" value="התחבר" class="btn btn-primary btn-lg btn-block text-uppercase" />
+                <form  asp-action="LogIn">
+
+                    <input type="submit" value="התחבר" class="btn btn-primary btn-lg btn-block text-uppercase" />
+                </form>
             </div>
         </div>
     </form>

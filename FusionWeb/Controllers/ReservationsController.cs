@@ -66,18 +66,11 @@ namespace FusionWeb.Controllers
                 _context.SaveChanges();
 
             }
-            bool succes = true;
-            if (succes)
-            {
                 reservation.Client = client;
                 _context.Reservasion.Add(reservation);
                 _context.SaveChanges();
 
-            }
-            else
-            {
-
-            }
+            
             return View(reservation);
         }
 
