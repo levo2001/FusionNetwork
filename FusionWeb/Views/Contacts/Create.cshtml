@@ -19,32 +19,7 @@
 <div class="row">
     <div class="container">
 
-        @if (ViewData["Contact"] != null)
-        {
 
-            //popup
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color:black">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">פנייתך התקבלה</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            ניצור איתך קשר בהקדם האפשרי<br />
-                            תודה
-                        </div>
-                        <div class="modal-footer">
-                            <form asp-controller="Home" asp-action="Index">
-                                <input type="submit" value="סיום" class="btn btn-secondary" data-bs-dismiss="modal" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        }
         @if (ViewData["Contact"] == null)
         {
             <form asp-action="Create" onsubmit="foo(event)">
@@ -81,14 +56,43 @@
                     <input asp-for="Content" class="form-control" placeholder="הזן/י סיבת הפניה" />
                     <span asp-validation-for="Content" class="text-danger"></span>
                 </div>
+
+
+
                 <div class="form-group w-50">
-                    <input type="submit" class="btn btn-primary" style="border-radius: .25rem;"
-                           value="שלח" data-bs-toggle="modal" data-bs-target="#exampleModal" />
+                    <input type="submit" value="הזמן" class="btn btn-primary" />
                 </div>
 
 
             </form>
-         }
+        }
+        @if (ViewData["Contact"] != null)
+        {
+
+            //popup
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color:black">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">פנייתך התקבלה</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ניצור איתך קשר בהקדם האפשרי<br />
+                            תודה
+                        </div>
+                        <div class="modal-footer">
+                            <form asp-controller="Home" asp-action="Index">
+                                <input type="submit" value="סיום" class="btn btn-secondary" data-bs-dismiss="modal" />
+                            </form>
+                            @*<button type="button" class="btn btn-primary">בחזרה</button>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
     </div>
 
 
