@@ -46,15 +46,6 @@ namespace FusionWeb.Data
                 .WithMany(t => t.Dishes)
                 .HasForeignKey(pt => pt.OrderId);
         }
-        /* protected override void OnModelCreating(ModelBuilder modelBuilder)
-         {
-             // configures one-to-many relationship
-             modelBuilder.Entity<Reservation>()
-                 .HasRequired<Client>(r => r.Client)
-                 .WithMany(g => g.Students)
-                 .HasForeignKey<int>(s => s.CurrentGradeId);
-         }*/
     }
-
 }
 

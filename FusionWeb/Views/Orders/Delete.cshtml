@@ -9,32 +9,9 @@
 
 <h3>?אתה בטוח רוצה למחוק הזמנה זו</h3>
 
-@*<div>
-
-
-    <dl class="row">
-        <dt class="col-sm-2">
-            לקוח
-        </dt>
-
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Client.Name)
-        </dd>
-
-        <dt class="col-sm-2">
-            סכום לתשלום
-        </dt>
-
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Total)
-        </dd>
-    </dl>*@
-
-
-
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">חזרה לרשימה</a>
     </form>
-@*</div>*@
+
