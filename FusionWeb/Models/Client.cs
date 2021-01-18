@@ -18,6 +18,8 @@ namespace FusionWeb.Models
         [Required(ErrorMessage = "שדה חובה* ")]
         [EmailAddress]
         [Display(Name = "אימייל")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "אימייל לא תקין")]
+
         public string Email { get; set; }
 
         //[Required(ErrorMessage = "Address is required.")]
@@ -30,9 +32,10 @@ namespace FusionWeb.Models
         public ICollection <Contact> Contacts{ get; set; }
         public ICollection<Order> Orders { get; set; }
        
-      
         [Phone]
+        [DataType(DataType.PhoneNumber, ErrorMessage = "טלפון לא תקין")]
         [Display(Name ="מס טלפון")]
+
         public string PhoneNumber { get; set; }        
     
     }

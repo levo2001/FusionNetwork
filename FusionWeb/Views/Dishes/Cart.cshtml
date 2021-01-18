@@ -1,22 +1,22 @@
 ﻿@model IEnumerable<FusionWeb.Models.Dish>
 
 @using Microsoft.AspNetCore.Http;
-<table class="table">
-    <thead>
-        <tr>
-            <th>תמונה</th>
-            <th>שם המנה</th>
-            <th>מחיר המנה</th>
-            <th>כמות</th>
-            <th>סה"כ</th>
-            <th></th>
-        </tr>
+    <table class="table tcart">
+        <thead>
+            <tr>
+                <th>תמונה</th>
+                <th>שם המנה</th>
+                <th>מחיר המנה</th>
+                <th>כמות</th>
+                <th>סה"כ</th>
+                <th></th>
+            </tr>
 
-    </thead>
-    <div class="title">הסל שלי</div>
+        </thead>
+        <p class="text-center title">הסל שלי</p>
 
-    <tbody>
-        @foreach (var item in Model)
+        <tbody>
+            @foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -57,8 +57,8 @@
             </tr>
         }
 
-    </tbody>
-</table>
+        </tbody>
+    </table>
 <form asp-action="Index">
     <input type="submit" class="btn btn-light btn_pay" value="להמשך קניה" />
 </form>

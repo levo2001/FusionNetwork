@@ -12,14 +12,17 @@ body {
 .table {
     color: white !important;
     direction: rtl !important;
-    margin-top: 10rem;
+    margin-top: 2rem;
+    font-size: 20px;
 }
 
 .title {
     font-size: 34px !important;
-    top: 180px !important;
-    left: 39rem !important;
-    position: absolute !important;
+    /*top: 180px !important;*/
+    /*left: 39rem !important;*/
+    /*position: absolute !important;*/
+    text-align: center;
+    margin-top: 3rem;
 }
 .urlImage {
     font-size: 18px !important;
@@ -27,6 +30,10 @@ body {
 }
 
 .Order {
-    margin-top: 10rem;
+    margin-top: 2rem;
     font-size: 20px;
+}
+
+.tcart {
+    margin-top: 2rem!important;
 }

@@ -60,8 +60,8 @@
                 </div>
                 <div class="form-group w-50">
                     <label asp-for="InfoClient.Email" class="control-label"></label>
-                    <input asp-for="InfoClient.Email" name="Email" class="form-control" placeholder="הזן/י אימייל" type="email" />
-                    <span asp-validation-for="InfoClient.Email" class="text-danger"></span>
+                    <input asp-for="InfoClient.Email" name="Email" id="Cemail" class="form-control" placeholder="הזן/י אימייל" type="email" />
+                    <span asp-validation-for="InfoClient.Email" class="text-danger" id="validEmail"></span>
                 </div>
                 <div class="form-group w-50">
                     <label asp-for="InfoClient.Address" class="control-label"></label>
@@ -123,7 +123,10 @@
     $(function () {
         $('#exampleModal').modal('show');
     });
-
+     function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@@"]+(\.[^<>()[\]\\.,;:\s@@"]+)*)|(".+"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
     function foo(e) {
         var isValid = true;
         var f = true;
@@ -135,6 +138,9 @@
         }
         if (phone == "") {
             document.getElementById("validPhone").innerHTML = "שדה חובה*";
+        }
+         if (!validateEmail(email)) {
+             document.getElementById("validEmail").innerHTML = "כתובת מייל לא תקינה";
         }
     }
 </script>

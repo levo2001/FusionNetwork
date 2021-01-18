@@ -5,7 +5,7 @@
     ViewData["Title"] = "Create";
 }
 <body>
-    
+
     <div class="container_img">
         <div style="height: 260px; margin-top: 40px;">
             <div class="page-header-bg-image"
@@ -26,7 +26,7 @@
                 <form asp-action="Create" onsubmit="foo(event)">
 
                     <div class="contact">
-                        
+
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="form-group w-50">
                             <label asp-for="Client.Name" class="control-label"></label>
@@ -37,8 +37,8 @@
 
                         <div class="form-group w-50">
                             <label asp-for="Client.Email" class="control-label"></label>
-                            <input asp-for="Client.Email" name="Email" class="form-control" placeholder="הזן/י אימייל"/>
-                            <span asp-validation-for="Client.Email" class="text-danger" id="validPhone" ></span>
+                            <input asp-for="Client.Email" name="Email" id="Cemail" class="form-control" placeholder="הזן/י אימייל" type="email" />
+                            <span asp-validation-for="Client.Email" class="text-danger" id="validEmail"></span>
                         </div>
 
                         <div class="form-group w-50">
@@ -142,18 +142,38 @@
         $('#exampleModal').modal('show');
     });
 
+    function validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@@"]+(\.[^<>()[\]\\.,;:\s@@"]+)*)|(".+"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    //function validatePhoneNumber(elementValue) {
+    //    var phoneNumberPattern = /^0\d([\d]{0,1})([-]{0,1})\d{7}$/;
+    //    return phoneNumberPattern.test(elementValue);
+    //}
+
     function foo(e) {
         var isValid = true;
         var f = true;
+
+
+        var email = document.getElementById("Cemail").value;
         var name = document.getElementById("fname").value;
         var phone = document.getElementById("phone").value;
-        
+
         if (name == "") {
-          document.getElementById("validName").innerHTML = "שדה חובה*";
+            document.getElementById("validName").innerHTML = "שדה חובה*";
         }
         if (phone == "") {
-          document.getElementById("validPhone").innerHTML = "שדה חובה*";
+            document.getElementById("validPhone").innerHTML = "שדה חובה*";
         }
+        if (!validateEmail(email)) {
+            document.getElementById("validEmail").innerHTML = "כתובת מייל לא תקינה";
+        }
+        //if (validatePhoneNumber(phone) == false || phone.length != 10) {
+        //    document.getElementById("validPhone").innerHTML = "טלפון לא תקין";
+        //}
+
     }
 
 </script>
